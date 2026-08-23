@@ -6,6 +6,8 @@ import {
   Network,
   Users,
 } from "lucide-react";
+import { ButtonLink } from "../components/ButtonLink";
+import { SectionHeader } from "../components/SectionHeader";
 import {
   amenities,
   branchIcon,
@@ -16,10 +18,8 @@ import {
   officeIcon,
   socials,
 } from "../data/company";
-import { routes } from "../lib/router";
-import { ButtonLink } from "../components/ButtonLink";
-import { SectionHeader } from "../components/SectionHeader";
 import employees from "../data/employees.json";
+import { routes } from "../lib/router";
 
 const stats = [
   { label: "Quy mô", value: company.scale, icon: Users },
@@ -38,7 +38,7 @@ export function HomePage() {
         aria-label="Sonic Group hero"
       >
         <img
-          src="/assets/sonic-hero.png"
+          src="/assets/hero.jpg"
           alt="Không gian vận hành sáng tạo của Sonic Group"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -61,7 +61,11 @@ export function HomePage() {
               <ButtonLink href={routes.people} icon={Users} variant="light">
                 Xem nhân sự
               </ButtonLink>
-              <ButtonLink href={routes.activities} icon={ArrowRight} variant="ghost">
+              <ButtonLink
+                href={routes.activities}
+                icon={ArrowRight}
+                variant="ghost"
+              >
                 Hoạt động
               </ButtonLink>
             </div>
@@ -86,7 +90,9 @@ export function HomePage() {
                   <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
                     {stat.label}
                   </p>
-                  <p className="mt-0.5 text-sm font-semibold text-slate-950">{stat.value}</p>
+                  <p className="mt-0.5 text-sm font-semibold text-slate-950">
+                    {stat.value}
+                  </p>
                 </div>
               </div>
             );
@@ -115,8 +121,12 @@ export function HomePage() {
                   >
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-4 text-sm font-semibold text-slate-950">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+                  <h3 className="mt-4 text-sm font-semibold text-slate-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {item.description}
+                  </p>
                 </article>
               );
             })}
@@ -176,8 +186,8 @@ export function HomePage() {
             title="Hai chi nhánh tại TP. Hồ Chí Minh"
             description={
               <span className="text-slate-300">
-                Lịch mở cửa {company.openingHours}. Không gian làm việc hướng tới tốc độ,
-                tính tiện dụng và sự tập trung.
+                Lịch mở cửa {company.openingHours}. Không gian làm việc hướng
+                tới tốc độ, tính tiện dụng và sự tập trung.
               </span>
             }
           />
@@ -196,7 +206,9 @@ export function HomePage() {
                     </span>
                     <h3 className="text-sm font-semibold">{branch.name}</h3>
                   </div>
-                  <p className="mt-4 text-sm leading-6 text-slate-300">{branch.address}</p>
+                  <p className="mt-4 text-sm leading-6 text-slate-300">
+                    {branch.address}
+                  </p>
                 </article>
               );
             })}
@@ -210,7 +222,10 @@ export function HomePage() {
                   key={amenity.label}
                   className="inline-flex h-8 items-center gap-1.5 rounded-full bg-white/10 px-3 text-xs font-semibold text-slate-100 ring-1 ring-white/10"
                 >
-                  <Icon className="h-3.5 w-3.5 text-amber-200" aria-hidden="true" />
+                  <Icon
+                    className="h-3.5 w-3.5 text-amber-200"
+                    aria-hidden="true"
+                  />
                   {amenity.label}
                 </span>
               );
@@ -234,8 +249,12 @@ export function HomePage() {
                   <a
                     key={social.label}
                     href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
-                    rel={social.href.startsWith("http") ? "noreferrer" : undefined}
+                    target={
+                      social.href.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      social.href.startsWith("http") ? "noreferrer" : undefined
+                    }
                     className="inline-flex h-8 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 transition hover:border-teal-200 hover:text-teal-700"
                   >
                     <Icon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -253,11 +272,16 @@ export function HomePage() {
               >
                 <summary className="cursor-pointer list-none text-sm font-semibold text-slate-950">
                   <span className="inline-flex items-center gap-2">
-                    <OfficeIcon className="h-4 w-4 text-teal-700" aria-hidden="true" />
+                    <OfficeIcon
+                      className="h-4 w-4 text-teal-700"
+                      aria-hidden="true"
+                    />
                     {faq.question}
                   </span>
                 </summary>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{faq.answer}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  {faq.answer}
+                </p>
               </details>
             ))}
           </div>

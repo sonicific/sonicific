@@ -3,7 +3,6 @@ import {
   BriefcaseBusiness,
   Building2,
   Coffee,
-  Compass,
   Cpu,
   Facebook,
   GlassWater,
@@ -36,8 +35,6 @@ export const company = {
   scale: "30 - 80 nhân sự",
   contactEmail: "hi@sonicgroup.site",
   contactPhone: "0888.000.219",
-  publicProfile:
-    "Media distribution, post-production, advertising và tổ chức hoạt động xúc tiến thương mại.",
   socialLocation: "Tôn Thất Tùng, Đông Hòa, TP. Hồ Chí Minh",
   websiteUrl: "https://sonicific.com",
   linkedInUrl: "https://www.linkedin.com/company/sonicific",
@@ -50,8 +47,7 @@ export const company = {
     },
     {
       name: "Chi nhánh 2",
-      address:
-        "239 Đ. Tôn Thất Tùng, Đông Hòa, Hồ Chí Minh 70000, Việt Nam",
+      address: "239 Đ. Tôn Thất Tùng, Đông Hòa, Hồ Chí Minh 70000, Việt Nam",
     },
   ],
   organization: [
@@ -62,24 +58,6 @@ export const company = {
     "1 Human & Resources",
   ],
 };
-
-export const sourceHighlights = [
-  {
-    label: "Định vị công khai",
-    value: company.slogan,
-    icon: Compass,
-  },
-  {
-    label: "Địa điểm",
-    value: company.socialLocation,
-    icon: MapPin,
-  },
-  {
-    label: "Liên hệ",
-    value: company.contactEmail,
-    icon: Mail,
-  },
-];
 
 export const capabilities = [
   {
@@ -202,8 +180,7 @@ export const faqs = [
   },
   {
     question: "Ứng viên liên hệ tuyển dụng bằng cách nào?",
-    answer:
-      `Ứng viên có thể gửi hồ sơ qua email ${company.contactEmail} hoặc liên hệ Zalo/Telegram ${company.contactPhone}.`,
+    answer: `Ứng viên có thể gửi hồ sơ qua email ${company.contactEmail} hoặc liên hệ Zalo/Telegram ${company.contactPhone}.`,
   },
 ];
 

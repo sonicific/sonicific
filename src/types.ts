@@ -1,32 +1,21 @@
 export type Department =
+  | "Leadership"
   | "E-Comerce"
   | "Content Media"
   | "Business Center"
   | "Tech & Research"
   | "Human & Resources";
 
-export type AvatarTone =
-  | "teal"
-  | "coral"
-  | "gold"
-  | "indigo"
-  | "emerald"
-  | "rose"
-  | "slate";
-
 export interface Employee {
   id: string;
   name: string;
-  avatar: {
-    initials: string;
-    tone: AvatarTone;
-  };
+  avatar: string;
   position: string;
   department: Department;
   joinedAt: string;
   location: string;
   focus: string;
-  bio: string;
+  bio?: string;
 }
 
 export interface Activity {

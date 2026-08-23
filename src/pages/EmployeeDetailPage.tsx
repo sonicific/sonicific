@@ -35,12 +35,15 @@ export function EmployeeDetailPage({ employeeId }: EmployeeDetailPageProps) {
     return (
       <section className="bg-stone-50 py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-teal-700">Không tìm thấy nhân sự</p>
+          <p className="text-sm font-semibold text-teal-700">
+            Không tìm thấy nhân sự
+          </p>
           <h1 className="mt-2 text-3xl font-semibold text-slate-950">
             Hồ sơ này chưa có trong dữ liệu
           </h1>
           <p className="mt-3 text-sm leading-6 text-slate-600">
-            Kiểm tra lại đường dẫn hoặc cập nhật file employees.json nếu đây là nhân sự mới.
+            Kiểm tra lại đường dẫn hoặc cập nhật file employees.json nếu đây là
+            nhân sự mới.
           </p>
           <div className="mt-6 flex justify-center">
             <ButtonLink href={routes.people} icon={ArrowLeft} variant="dark">
@@ -54,7 +57,8 @@ export function EmployeeDetailPage({ employeeId }: EmployeeDetailPageProps) {
 
   const colleagues = employees
     .filter(
-      (person) => person.department === employee.department && person.id !== employee.id,
+      (person) =>
+        person.department === employee.department && person.id !== employee.id,
     )
     .slice(0, 3);
 
@@ -69,15 +73,19 @@ export function EmployeeDetailPage({ employeeId }: EmployeeDetailPageProps) {
           <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <aside className="rounded-lg border border-slate-200 bg-stone-50 p-5">
               <AvatarBadge
-                initials={employee.avatar.initials}
-                tone={employee.avatar.tone}
+                src={employee.avatar}
+                name={employee.name}
                 size="lg"
               />
-              <h1 className="mt-5 text-3xl font-semibold text-slate-950">{employee.name}</h1>
+              <h1 className="mt-5 text-3xl font-semibold text-slate-950">
+                {employee.name}
+              </h1>
               <p className="mt-2 text-sm font-semibold text-teal-700">
                 {employee.position}
               </p>
-              <p className="mt-4 text-sm leading-6 text-slate-600">{employee.bio}</p>
+              <p className="mt-4 text-sm leading-6 text-slate-600">
+                {employee.bio}
+              </p>
             </aside>
 
             <div className="grid gap-4">
@@ -96,14 +104,26 @@ export function EmployeeDetailPage({ employeeId }: EmployeeDetailPageProps) {
                     label="Gia nhập"
                     value={formatDate(employee.joinedAt)}
                   />
-                  <DetailItem icon={MapPin} label="Chi nhánh" value={employee.location} />
-                  <DetailItem icon={Users} label="Vai trò" value={employee.position} />
+                  <DetailItem
+                    icon={MapPin}
+                    label="Chi nhánh"
+                    value={employee.location}
+                  />
+                  <DetailItem
+                    icon={Users}
+                    label="Vai trò"
+                    value={employee.position}
+                  />
                 </div>
               </div>
 
               <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <h2 className="text-base font-semibold text-slate-950">Trọng tâm công việc</h2>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{employee.focus}</p>
+                <h2 className="text-base font-semibold text-slate-950">
+                  Trọng tâm công việc
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  {employee.focus}
+                </p>
               </div>
             </div>
           </div>

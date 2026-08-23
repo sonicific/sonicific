@@ -1,18 +1,8 @@
-import type { AvatarTone } from "../types";
-
-const toneClasses: Record<AvatarTone, string> = {
-  teal: "from-teal-500 to-cyan-600",
-  coral: "from-orange-500 to-rose-600",
-  gold: "from-amber-400 to-yellow-600",
-  indigo: "from-indigo-500 to-sky-600",
-  emerald: "from-emerald-500 to-lime-600",
-  rose: "from-pink-500 to-fuchsia-600",
-  slate: "from-slate-600 to-zinc-800",
-};
+import { useState } from "react";
 
 interface AvatarBadgeProps {
-  initials: string;
-  tone: AvatarTone;
+  src: string;
+  name: string;
   size?: "sm" | "md" | "lg";
 }
 
@@ -22,13 +12,35 @@ const sizes = {
   lg: "h-20 w-20 text-xl",
 };
 
-export function AvatarBadge({ initials, tone, size = "md" }: AvatarBadgeProps) {
+function getInitials(name: string) {
+  return name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? "")
+    .join("");
+}
+
+export function AvatarBadge({ src, name, size = "md" }: AvatarBadgeProps) {
+  const [hasError, setHasError] = useState(false);
+  const initials = getInitials(name);
+
   return (
     <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${toneClasses[tone]} ${sizes[size]} font-semibold text-white shadow-sm ring-1 ring-white/60`}
-      aria-label={`Avatar ${initials}`}
+      className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full ${sizes[size]} bg-slate-200 font-semibold text-slate-700 shadow-sm ring-1 ring-white/70`}
+      aria-label={`Avatar ${name}`}
     >
-      {initials}
+      {!hasError && src ? (
+        <img
+          src={src}
+          alt={name}
+          loading="lazy"
+          className="h-full w-full object-cover"
+          onError={() => setHasError(true)}
+        />
+      ) : (
+        <span>{initials}</span>
+      )}
     </span>
   );
 }

@@ -9,6 +9,7 @@ import type { Department, Employee } from "../types";
 const employees = employeesJson as Employee[];
 
 const departmentOrder: Department[] = [
+  "Leadership",
   "E-Comerce",
   "Content Media",
   "Business Center",
@@ -93,7 +94,9 @@ export function PeoplePage() {
                   <button
                     key={departmentName}
                     type="button"
-                    onClick={() => setDepartment(departmentName as Department | "Tất cả")}
+                    onClick={() =>
+                      setDepartment(departmentName as Department | "Tất cả")
+                    }
                     className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-xs font-semibold transition ${
                       active
                         ? "bg-slate-950 text-white"
@@ -112,19 +115,19 @@ export function PeoplePage() {
             {grouped.map((group) => (
               <Reveal key={group.department}>
                 <section>
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <h2 className="font-display text-base font-semibold text-slate-950">
-                    {group.department}
-                  </h2>
-                  <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">
-                    {group.people.length} người
-                  </span>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                  {group.people.map((employee) => (
-                    <EmployeeCard key={employee.id} employee={employee} />
-                  ))}
-                </div>
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <h2 className="font-display text-base font-semibold text-slate-950">
+                      {group.department}
+                    </h2>
+                    <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">
+                      {group.people.length} người
+                    </span>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                    {group.people.map((employee) => (
+                      <EmployeeCard key={employee.id} employee={employee} />
+                    ))}
+                  </div>
                 </section>
               </Reveal>
             ))}

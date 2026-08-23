@@ -1,10 +1,10 @@
 import {
   ArrowRight,
-  Building2,
   BriefcaseBusiness,
+  Building2,
   CalendarDays,
-  CircleHelp,
   ChevronDown,
+  CircleHelp,
   Clapperboard,
   Cpu,
   Globe2,
@@ -24,7 +24,7 @@ import { JobCard } from "../components/JobCard";
 import { NewsCard } from "../components/NewsCard";
 import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
-import { company, departments, faqs, sourceHighlights } from "../data/company";
+import { company, departments, faqs } from "../data/company";
 import { jobPostings } from "../data/jobs";
 import { serviceHighlights } from "../data/landing";
 import { newsPosts } from "../data/news";
@@ -34,13 +34,6 @@ const stats = [
   { label: "Quy mô", value: company.scale, icon: Users },
   { label: "Chi nhánh", value: "2 tại TP.HCM", icon: MapPinned },
   { label: "Thành lập", value: company.foundedAt, icon: CalendarDays },
-];
-
-const productionPulse = [
-  { label: "Content", value: "Tín hiệu & sáng tạo", tone: "bg-teal-400" },
-  { label: "Commerce", value: "Shop & livestream", tone: "bg-amber-300" },
-  { label: "Operations", value: "Dữ liệu & quy trình", tone: "bg-rose-300" },
-  { label: "Automation", value: "Tool & AI workflow", tone: "bg-indigo-300" },
 ];
 
 const aboutHighlights = [
@@ -75,21 +68,24 @@ const operatingFlow = [
   {
     step: "02",
     title: "Sản xuất nhanh",
-    description: "Content Media biến tín hiệu thành video, kịch bản và asset bán hàng.",
+    description:
+      "Content Media biến tín hiệu thành video, kịch bản và asset bán hàng.",
     icon: Clapperboard,
     tone: "bg-rose-50 text-rose-700 ring-rose-100",
   },
   {
     step: "03",
     title: "Vận hành đa kênh",
-    description: "E-Comerce và Business Center chạy shop, affiliate, campaign và report.",
+    description:
+      "E-Comerce và Business Center chạy shop, affiliate, campaign và report.",
     icon: LineChart,
     tone: "bg-sky-50 text-sky-700 ring-sky-100",
   },
   {
     step: "04",
     title: "Tự động hóa",
-    description: "Tech & Research biến thao tác lặp thành tool, dashboard và AI workflow.",
+    description:
+      "Tech & Research biến thao tác lặp thành tool, dashboard và AI workflow.",
     icon: ShieldCheck,
     tone: "bg-indigo-50 text-indigo-700 ring-indigo-100",
   },
@@ -108,59 +104,41 @@ export function HomePageEnhanced() {
     <>
       <section className="relative isolate overflow-hidden bg-white">
         <img
-          src="/assets/sonic-hero.png"
+          src="/assets/hero.jpg"
           alt="Không gian vận hành sáng tạo của Sonic Group"
-          className="sonic-hero-image absolute inset-0 h-full w-full object-cover"
+          className="hero-image absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/75 to-transparent" />
         <div className="sonic-grid absolute inset-0 opacity-25" />
 
-        <div className="relative mx-auto flex min-h-[78svh] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="hero-motion inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-semibold text-teal-800 shadow-sm ring-1 ring-white backdrop-blur">
+        <div className="relative mx-auto flex min-h-[78svh] max-w-7xl items-end justify-center px-4 py-16 sm:px-6 lg:px-8">
+          <div className="max-w-3xl text-center">
+            <p className="hero-motion inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold text-teal-800 shadow-sm ring-1 ring-white backdrop-blur-sm">
               <Zap className="h-3.5 w-3.5" aria-hidden="true" />
               {company.slogan}
             </p>
             <h1 className="hero-motion hero-delay-1 mt-6 font-display text-5xl font-semibold leading-none text-white drop-shadow-[0_3px_18px_rgba(15,23,42,0.55)] sm:text-6xl lg:text-7xl">
               Sonic Group
             </h1>
-            <p className="hero-motion hero-delay-2 mt-6 max-w-xl text-base font-medium leading-7 text-white drop-shadow-[0_2px_12px_rgba(15,23,42,0.6)] sm:text-lg">
-              Kết nối media, commerce và automation thành một hệ vận hành gọn, nhanh, có dữ liệu.
+            <p className="hero-motion hero-delay-2 mt-6 text-base font-medium leading-7 text-white drop-shadow-[0_2px_12px_rgba(15,23,42,0.6)] sm:text-lg">
+              Kết nối media, commerce và automation thành một hệ vận hành gọn,
+              nhanh, có dữ liệu.
             </p>
-            <div className="hero-motion hero-delay-3 mt-8 flex flex-wrap gap-3">
+            <div className="hero-motion hero-delay-3 mt-8 flex flex-wrap justify-center gap-3">
               <ButtonLink href={routes.news} icon={Newspaper} variant="light">
                 Tin mới tại Sonic
               </ButtonLink>
-              <ButtonLink href={routes.careers} icon={BriefcaseBusiness} variant="ghost">
+              <ButtonLink
+                href={routes.careers}
+                icon={BriefcaseBusiness}
+                variant="ghost"
+              >
                 Gia nhập đội ngũ
               </ButtonLink>
             </div>
           </div>
-
         </div>
       </section>
-
-      <section className="border-y border-slate-200 bg-white" aria-label="Thông tin công khai">
-        <div className="mx-auto grid max-w-7xl divide-y divide-slate-200 px-4 sm:px-6 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-8">
-          {sourceHighlights.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <Reveal key={item.label} delay={index * 80} variant="blur">
-                <div className="flex min-h-28 items-center gap-3 py-5 md:px-5">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-slate-950 text-white">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold uppercase text-slate-500">{item.label}</p>
-                    <p className="mt-1 text-sm font-semibold text-slate-950">{item.value}</p>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
       <section className="bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
@@ -177,7 +155,10 @@ export function HomePageEnhanced() {
               <span className="grid h-9 w-9 place-items-center rounded-lg bg-white text-teal-700 shadow-sm ring-1 ring-teal-100">
                 <Clapperboard className="h-4 w-4" aria-hidden="true" />
               </span>
-              <span><strong className="text-teal-800">Lĩnh vực:</strong> Video, hậu kỳ, quảng cáo, thương mại</span>
+              <span>
+                <strong className="text-teal-800">Lĩnh vực:</strong> Video, hậu
+                kỳ, quảng cáo, thương mại
+              </span>
             </div>
           </Reveal>
 
@@ -191,8 +172,12 @@ export function HomePageEnhanced() {
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <div>
-                      <p className="font-display text-lg font-semibold text-slate-950">{stat.value}</p>
-                      <p className="text-xs font-medium text-slate-500">{stat.label}</p>
+                      <p className="font-display text-lg font-semibold text-slate-950">
+                        {stat.value}
+                      </p>
+                      <p className="text-xs font-medium text-slate-500">
+                        {stat.label}
+                      </p>
                     </div>
                   </div>
                 </Reveal>
@@ -204,14 +189,28 @@ export function HomePageEnhanced() {
             {aboutHighlights.map((item, index) => {
               const Icon = item.icon;
               return (
-                <Reveal key={item.label} delay={index * 90} variant="scale" className="h-full">
+                <Reveal
+                  key={item.label}
+                  delay={index * 90}
+                  variant="scale"
+                  className="h-full"
+                >
                   <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                    <span className={`grid h-12 w-12 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
+                    <span
+                      className={`grid h-12 w-12 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}
+                    >
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <p className="mt-5 text-xs font-semibold uppercase text-slate-500">{item.label}</p>
-                    <h3 className="mt-1 font-display text-xl font-semibold text-teal-700">{item.value}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">Cùng một nhịp dữ liệu, ít tầng nấc và nhiều vòng thử nghiệm nhanh.</p>
+                    <p className="mt-5 text-xs font-semibold uppercase text-slate-500">
+                      {item.label}
+                    </p>
+                    <h3 className="mt-1 font-display text-xl font-semibold text-teal-700">
+                      {item.value}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      Cùng một nhịp dữ liệu, ít tầng nấc và nhiều vòng thử
+                      nghiệm nhanh.
+                    </p>
                   </article>
                 </Reveal>
               );
@@ -223,31 +222,22 @@ export function HomePageEnhanced() {
       <section className="relative isolate overflow-hidden border-y border-slate-200 bg-stone-50 py-12 text-slate-950 sm:py-16">
         <div className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-teal-100/70 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end" variant="left">
+          <Reveal variant="left">
             <div>
               <div className="flex items-center gap-2 text-teal-700">
                 <Workflow className="h-4 w-4" aria-hidden="true" />
-                <p className="text-xs font-semibold uppercase">Sonic vận hành thế nào</p>
+                <p className="text-xs font-semibold uppercase">
+                  Sonic vận hành thế nào
+                </p>
               </div>
-              <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
-                Một hệ thống gọn để đi từ <span className="text-teal-700">tín hiệu</span> đến kết quả.
+              <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
+                Một hệ thống gọn để đi từ{" "}
+                <span className="text-teal-700">tín hiệu</span> đến kết quả.
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600">
-                Content, commerce, business và tech không đứng riêng lẻ; mỗi đội chạm vào một đoạn của cùng một luồng tăng trưởng.
+              <p className="mt-4 text-sm leading-6 text-slate-600">
+                Content, commerce, business và tech không đứng riêng lẻ; mỗi đội
+                chạm vào một đoạn của cùng một luồng tăng trưởng.
               </p>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {productionPulse.map((item, index) => {
-                return (
-                  <Reveal key={item.label} delay={index * 80} variant="blur">
-                    <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                      <span className={`block h-2.5 w-2.5 rounded-full ${item.tone}`} />
-                      <p className="mt-4 font-display text-base font-semibold text-slate-950">{item.label}</p>
-                      <p className="mt-1 text-xs font-medium text-slate-500">{item.value}</p>
-                    </div>
-                  </Reveal>
-                );
-              })}
             </div>
           </Reveal>
 
@@ -255,16 +245,29 @@ export function HomePageEnhanced() {
             {operatingFlow.map((item, index) => {
               const Icon = item.icon;
               return (
-                <Reveal key={item.title} delay={index * 90} variant="lift" className="h-full">
+                <Reveal
+                  key={item.title}
+                  delay={index * 90}
+                  variant="lift"
+                  className="h-full"
+                >
                   <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 text-slate-950 shadow-sm">
                     <div className="flex items-center justify-between gap-3">
-                      <span className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
+                      <span
+                        className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}
+                      >
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                      <span className="font-mono text-xs font-semibold text-slate-400">{item.step}</span>
+                      <span className="font-mono text-xs font-semibold text-slate-400">
+                        {item.step}
+                      </span>
                     </div>
-                    <h3 className="mt-5 font-display text-xl font-semibold text-teal-700">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
+                    <h3 className="mt-5 font-display text-xl font-semibold text-teal-700">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">
+                      {item.description}
+                    </p>
                   </article>
                 </Reveal>
               );
@@ -274,17 +277,28 @@ export function HomePageEnhanced() {
           <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {serviceHighlights.map((service, index) => {
               const Icon = service.icon;
-              const tone = departmentTones[index] ?? "bg-teal-50 text-teal-700 ring-teal-100";
+              const tone =
+                departmentTones[index] ??
+                "bg-teal-50 text-teal-700 ring-teal-100";
               return (
-                <Reveal key={service.title} delay={index * 80} variant="scale" className="h-full">
+                <Reveal
+                  key={service.title}
+                  delay={index * 80}
+                  variant="scale"
+                  className="h-full"
+                >
                   <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                    <span className={`grid h-10 w-10 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}>
+                    <span
+                      className={`grid h-10 w-10 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}
+                    >
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <p className="mt-5 text-[11px] font-semibold uppercase text-teal-700">
                       {service.kicker}
                     </p>
-                    <h3 className="mt-2 font-display text-lg font-semibold text-slate-950">{service.title}</h3>
+                    <h3 className="mt-2 font-display text-lg font-semibold text-slate-950">
+                      {service.title}
+                    </h3>
                   </article>
                 </Reveal>
               );
@@ -299,7 +313,10 @@ export function HomePageEnhanced() {
 
       <section className="bg-white py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end" variant="left">
+          <Reveal
+            className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"
+            variant="left"
+          >
             <SectionHeader
               icon={Building2}
               eyebrow="Phòng ban"
@@ -313,17 +330,28 @@ export function HomePageEnhanced() {
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {departments.map((department, index) => {
               const Icon = department.icon;
-              const tone = departmentTones[index] ?? "bg-teal-50 text-teal-700 ring-teal-100";
+              const tone =
+                departmentTones[index] ??
+                "bg-teal-50 text-teal-700 ring-teal-100";
               return (
-                <Reveal key={department.name} delay={index * 80} variant="lift" className="h-full">
+                <Reveal
+                  key={department.name}
+                  delay={index * 80}
+                  variant="lift"
+                  className="h-full"
+                >
                   <article className="motion-card h-full rounded-lg border border-slate-200 bg-stone-50 p-5">
-                    <span className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}>
+                    <span
+                      className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}
+                    >
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <h3 className="mt-5 font-display text-lg font-semibold text-teal-700">
                       {department.name}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{department.summary}</p>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">
+                      {department.summary}
+                    </p>
                   </article>
                 </Reveal>
               );
@@ -347,7 +375,12 @@ export function HomePageEnhanced() {
           </Reveal>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {newsPosts.slice(0, 3).map((post, index) => (
-              <Reveal key={post.id} delay={index * 100} variant="scale" className="h-full">
+              <Reveal
+                key={post.id}
+                delay={index * 100}
+                variant="scale"
+                className="h-full"
+              >
                 <NewsCard post={post} />
               </Reveal>
             ))}
@@ -370,14 +403,23 @@ export function HomePageEnhanced() {
               Chọn một vị trí phù hợp và bắt đầu cuộc trò chuyện với đội ngũ.
             </p>
             <div className="mt-6">
-              <ButtonLink href={routes.careers} icon={ArrowRight} variant="dark">
+              <ButtonLink
+                href={routes.careers}
+                icon={ArrowRight}
+                variant="dark"
+              >
                 Xem {jobPostings.length} vị trí đang mở
               </ButtonLink>
             </div>
           </Reveal>
           <div className="grid gap-4 md:grid-cols-2">
             {jobPostings.slice(0, 2).map((job, index) => (
-              <Reveal key={job.id} delay={index * 100} variant="blur" className="text-slate-900">
+              <Reveal
+                key={job.id}
+                delay={index * 100}
+                variant="blur"
+                className="text-slate-900"
+              >
                 <JobCard job={job} />
               </Reveal>
             ))}
@@ -408,7 +450,9 @@ export function HomePageEnhanced() {
                       <ChevronDown className="h-4 w-4" aria-hidden="true" />
                     </span>
                   </summary>
-                  <p className="mt-4 text-sm leading-6 text-slate-600">{faq.answer}</p>
+                  <p className="mt-4 text-sm leading-6 text-slate-600">
+                    {faq.answer}
+                  </p>
                 </details>
               </Reveal>
             ))}
