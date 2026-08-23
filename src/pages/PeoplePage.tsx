@@ -9,16 +9,11 @@ import type { Department, Employee } from "../types";
 const employees = employeesJson as Employee[];
 
 const departmentOrder: Department[] = [
-  "Ban lãnh đạo",
-  "Phòng Kĩ thuật",
-  "Phòng Content",
-  "Phòng E-commerce",
-  "Phòng Kinh doanh",
-  "Phòng Livestream & Social",
-  "Phòng Affiliate & Banking",
-  "Phòng Vận hành Nguyên liệu MMO",
-  "Tài chính - Kế toán",
-  "Hành chính nhân sự",
+  "E-Comerce",
+  "Content Media",
+  "Business Center",
+  "Tech & Research",
+  "Human & Resources",
 ];
 
 export function PeoplePage() {
@@ -53,17 +48,18 @@ export function PeoplePage() {
   return (
     <>
       <PageHero
+        icon={Users}
         eyebrow="Đội ngũ"
         title="Những người tạo nên nhịp Sonic."
         description="Tìm kiếm đồng đội theo tên, vai trò hoặc phòng ban."
         aside={
-          <div className="rounded-2xl border border-slate-200 bg-stone-50 p-5">
+          <div className="rounded-lg border border-slate-200 bg-stone-50 p-5">
             <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-slate-950 text-white">
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-white">
                 <Users className="h-4 w-4" aria-hidden="true" />
               </span>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <p className="text-xs font-semibold uppercase text-slate-500">
                   Đội ngũ hiện tại
                 </p>
                 <p className="text-sm font-semibold text-slate-950">
@@ -77,7 +73,7 @@ export function PeoplePage() {
 
       <section className="bg-stone-50 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[1fr_auto]">
+          <Reveal className="grid gap-3 rounded-lg border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[1fr_auto]">
             <label className="flex h-9 items-center gap-2 rounded-full bg-slate-100 px-3 text-sm text-slate-600">
               <Search className="h-4 w-4 text-slate-400" aria-hidden="true" />
               <input
@@ -116,7 +112,7 @@ export function PeoplePage() {
               <Reveal key={group.department}>
                 <section>
                 <div className="mb-3 flex items-center justify-between gap-3">
-                  <h2 className="text-base font-semibold text-slate-950">
+                  <h2 className="font-display text-base font-semibold text-slate-950">
                     {group.department}
                   </h2>
                   <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">

@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, CheckCircle2, MapPin, WalletCards 
 import { ButtonLink } from "../components/ButtonLink";
 import { JobCard } from "../components/JobCard";
 import { Reveal } from "../components/Reveal";
+import { company } from "../data/company";
 import { jobPostings } from "../data/jobs";
 import { formatDate } from "../lib/format";
 import { routes } from "../lib/router";
@@ -39,10 +40,10 @@ export function CareerDetailPage({ jobId }: CareerDetailPageProps) {
           <ButtonLink href={routes.careers} icon={ArrowLeft} variant="ghost">
             Tất cả vị trí
           </ButtonLink>
-          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-teal-300">
+          <p className="mt-8 text-xs font-semibold uppercase text-teal-300">
             {job.department}
           </p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl">
             {job.title}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">{job.excerpt}</p>
@@ -72,23 +73,23 @@ export function CareerDetailPage({ jobId }: CareerDetailPageProps) {
           </div>
 
           <Reveal variant="right">
-            <aside className="sticky top-24 rounded-2xl border border-slate-200 bg-stone-50 p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-teal-700">
+            <aside className="sticky top-24 rounded-lg border border-slate-200 bg-stone-50 p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase text-teal-700">
                 Ứng tuyển vị trí
               </p>
-              <h2 className="mt-2 text-lg font-semibold text-slate-950">{job.title}</h2>
+              <h2 className="mt-2 font-display text-lg font-semibold text-slate-950">{job.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 Gửi CV hoặc portfolio, tiêu đề email ghi rõ tên vị trí ứng tuyển.
               </p>
               <a
-                href={`mailto:career@sonicgroup.vn?subject=Ung%20tuyen%20${encodeURIComponent(job.title)}`}
+                href={`mailto:${company.contactEmail}?subject=Ung%20tuyen%20${encodeURIComponent(job.title)}`}
                 className="mt-5 inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-teal-600 px-4 text-sm font-semibold text-white transition hover:bg-teal-700"
               >
                 Gửi hồ sơ
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <p className="mt-3 text-center text-xs text-slate-500">
-                career@sonicgroup.vn
+                {company.contactEmail} · {company.contactPhone}
               </p>
             </aside>
           </Reveal>
@@ -97,7 +98,7 @@ export function CareerDetailPage({ jobId }: CareerDetailPageProps) {
 
       <section className="border-t border-slate-200 bg-stone-50 py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-slate-950">Vị trí khác</h2>
+          <h2 className="font-display text-2xl font-semibold text-slate-950">Vị trí khác</h2>
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             {relatedJobs.map((item, index) => (
               <Reveal key={item.id} delay={index * 100} variant="scale">
@@ -119,7 +120,7 @@ interface JobSectionProps {
 function JobSection({ title, items }: JobSectionProps) {
   return (
     <Reveal>
-      <h2 className="text-2xl font-semibold text-slate-950">{title}</h2>
+      <h2 className="font-display text-2xl font-semibold text-slate-950">{title}</h2>
       <div className="mt-5 grid gap-3">
         {items.map((item) => (
           <div key={item} className="flex items-start gap-3 text-sm leading-7 text-slate-700">

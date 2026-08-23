@@ -3,9 +3,13 @@ import {
   BriefcaseBusiness,
   Building2,
   Coffee,
+  Compass,
+  Cpu,
   Facebook,
   GlassWater,
   Globe2,
+  HeartHandshake,
+  Linkedin,
   Mail,
   MapPin,
   Microwave,
@@ -24,9 +28,18 @@ import {
 
 export const company = {
   name: "Sonic Group",
+  slogan: "Connect - Creative - Grow",
   foundedAt: "20/10/2025",
   openingHours: "8:00 - 17:30, thứ 2 đến thứ 7",
   scale: "30 - 80 nhân sự",
+  contactEmail: "hi@sonicgroup.site",
+  contactPhone: "0888.000.219",
+  publicProfile:
+    "Media distribution, post-production, advertising và tổ chức hoạt động xúc tiến thương mại.",
+  socialLocation: "Tôn Thất Tùng, Đông Hòa, TP. Hồ Chí Minh",
+  websiteUrl: "https://sonicific.com",
+  linkedInUrl: "https://www.linkedin.com/company/sonicific",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61593149897575",
   branches: [
     {
       name: "Chi nhánh 1",
@@ -42,11 +55,29 @@ export const company = {
   organization: [
     "1 Chủ tịch",
     "1 Giám đốc",
-    "7 Trưởng phòng",
+    "5 Trưởng bộ phận",
     "1 Kế toán",
-    "1 Hành chính nhân sự",
+    "1 Human & Resources",
   ],
 };
+
+export const sourceHighlights = [
+  {
+    label: "Định vị công khai",
+    value: company.slogan,
+    icon: Compass,
+  },
+  {
+    label: "Lĩnh vực",
+    value: "Video, hậu kỳ, quảng cáo, thương mại",
+    icon: Video,
+  },
+  {
+    label: "Liên hệ",
+    value: company.contactEmail,
+    icon: Mail,
+  },
+];
 
 export const capabilities = [
   {
@@ -102,24 +133,34 @@ export const capabilities = [
 
 export const departments = [
   {
-    name: "Phòng Kĩ thuật",
-    summary: "Phát triển tool automation, AI workflow, dashboard và hạ tầng vận hành.",
-    icon: Bot,
+    name: "E-Comerce",
+    summary:
+      "Vận hành Shopify, TikTok Shop, listing, research sản phẩm và trải nghiệm khách hàng.",
+    icon: Store,
   },
   {
-    name: "Phòng Content",
-    summary: "Lên ý tưởng, kịch bản, dựng video và đo hiệu suất nội dung social.",
-    icon: Sparkles,
+    name: "Content Media",
+    summary:
+      "Sản xuất video, kịch bản, social content, livestream asset và nhịp đăng đa nền tảng.",
+    icon: Video,
   },
   {
-    name: "Phòng E-commerce",
-    summary: "Vận hành Shopify, Etsy, TikTok Shop, research sản phẩm và chăm sóc đơn.",
+    name: "Business Center",
+    summary:
+      "Phụ trách tăng trưởng, affiliate, marketing, đối tác, vận hành thương mại và báo cáo.",
     icon: BriefcaseBusiness,
   },
   {
-    name: "Phòng Kinh doanh",
-    summary: "Mở rộng đối tác, affiliate, doanh thu và phân tích cơ hội thị trường.",
-    icon: WalletCards,
+    name: "Tech & Research",
+    summary:
+      "Xây dashboard, automation, AI workflow, phân tích dữ liệu và hạ tầng vận hành.",
+    icon: Cpu,
+  },
+  {
+    name: "Human & Resources",
+    summary:
+      "Chăm sóc con người, tuyển dụng, hành chính, phúc lợi và trải nghiệm làm việc.",
+    icon: HeartHandshake,
   },
 ];
 
@@ -134,17 +175,23 @@ export const amenities = [
 
 export const socials = [
   { label: "TikTok", href: "https://www.tiktok.com/", icon: Music2 },
-  { label: "Facebook", href: "https://www.facebook.com/", icon: Facebook },
+  { label: "LinkedIn", href: company.linkedInUrl, icon: Linkedin },
+  { label: "Facebook", href: company.facebookUrl, icon: Facebook },
   { label: "Twitter", href: "https://twitter.com/", icon: Twitter },
-  { label: "Website", href: "#/", icon: Globe2 },
-  { label: "Email", href: "mailto:hello@sonicgroup.vn", icon: Mail },
+  { label: "Website", href: company.websiteUrl, icon: Globe2 },
+  { label: "Email", href: `mailto:${company.contactEmail}`, icon: Mail },
 ];
 
 export const faqs = [
   {
     question: "Sonic Group hoạt động trong những mảng nào?",
     answer:
-      "Sonic Group tập trung vào media content, MMO, thương mại điện tử, social, livestream, affiliate, banking support, nguyên liệu MMO và phát triển tool automation/AI.",
+      "Sonic Group tập trung vào video, post-production, advertising, e-commerce, social content, livestream, affiliate, operations và tool automation/AI.",
+  },
+  {
+    question: "Công ty hiện có những phòng ban nào?",
+    answer:
+      "Hiện Sonic tổ chức theo 5 phòng ban chính: E-Comerce, Content Media, Business Center, Tech & Research và Human & Resources.",
   },
   {
     question: "Công ty làm việc vào thời gian nào?",
@@ -152,14 +199,9 @@ export const faqs = [
       "Thời gian làm việc là 8:00 - 17:30 từ thứ 2 đến thứ 7 tại hai chi nhánh ở TP. Hồ Chí Minh.",
   },
   {
-    question: "Quy mô nhân sự hiện tại là bao nhiêu?",
+    question: "Ứng viên liên hệ tuyển dụng bằng cách nào?",
     answer:
-      "Định hướng quy mô vận hành của Sonic Group là 30 - 80 người, tổ chức theo các phòng ban chuyên môn và đội vận hành liên phòng.",
-  },
-  {
-    question: "Dữ liệu nhân viên có dễ cập nhật không?",
-    answer:
-      "Có. Danh sách nhân viên được lưu trong file JSON, gồm họ tên, avatar, chức vụ, phòng ban, ngày gia nhập và thông tin mô tả.",
+      `Ứng viên có thể gửi hồ sơ qua email ${company.contactEmail} hoặc liên hệ Zalo/Telegram ${company.contactPhone}.`,
   },
 ];
 

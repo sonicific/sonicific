@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import type { ComponentType, ReactNode } from "react";
+import type { LucideProps } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 interface PageHeroProps {
@@ -7,6 +8,7 @@ interface PageHeroProps {
   description: string;
   aside?: ReactNode;
   tone?: "light" | "dark";
+  icon?: ComponentType<LucideProps>;
 }
 
 export function PageHero({
@@ -15,6 +17,7 @@ export function PageHero({
   description,
   aside,
   tone = "light",
+  icon: Icon,
 }: PageHeroProps) {
   const isDark = tone === "dark";
 
@@ -29,19 +32,32 @@ export function PageHero({
       {isDark ? (
         <>
           <div className="sonic-grid absolute inset-0 opacity-35" />
-          <div className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-teal-400/15 blur-3xl" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-300/60 to-transparent" />
         </>
       ) : null}
       <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:px-8">
         <Reveal>
-          <p
-            className={`text-xs font-semibold uppercase tracking-[0.18em] ${
-              isDark ? "text-teal-300" : "text-teal-700"
-            }`}
-          >
-            {eyebrow}
-          </p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
+          <div className="flex items-center gap-2">
+            {Icon ? (
+              <span
+                className={`grid h-9 w-9 place-items-center rounded-lg ${
+                  isDark
+                    ? "bg-white/10 text-teal-200 ring-1 ring-white/15"
+                    : "bg-teal-50 text-teal-700 ring-1 ring-teal-100"
+                }`}
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+              </span>
+            ) : null}
+            <p
+              className={`text-xs font-semibold uppercase ${
+                isDark ? "text-teal-300" : "text-teal-700"
+              }`}
+            >
+              {eyebrow}
+            </p>
+          </div>
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl">
             {title}
           </h1>
           <p

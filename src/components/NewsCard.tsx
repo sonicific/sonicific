@@ -11,7 +11,7 @@ interface NewsCardProps {
 export function NewsCard({ post, featured = false }: NewsCardProps) {
   return (
     <article
-      className={`motion-card group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${
+      className={`motion-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${
         featured ? "grid md:grid-cols-[1.05fr_0.95fr]" : ""
       }`}
     >
@@ -50,7 +50,7 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
             {post.readingMinutes} phút đọc
           </span>
         </div>
-        <h2 className={`${featured ? "mt-4 text-2xl" : "mt-3 text-lg"} font-semibold leading-snug text-slate-950`}>
+        <h2 className={`${featured ? "mt-4 text-2xl" : "mt-3 text-lg"} font-display font-semibold leading-snug text-slate-950`}>
           <a href={routes.newsDetail(post.id)} className="transition hover:text-teal-700">
             {post.title}
           </a>

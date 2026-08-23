@@ -2,6 +2,28 @@ import type { NewsPost } from "../types";
 
 export const newsPosts: NewsPost[] = [
   {
+    id: "tuyen-dung-marketing-global-ecommerce",
+    title: "Sonic tuyển Chuyên viên Marketing Global E-commerce",
+    category: "Tuyển dụng",
+    date: "2026-08-20",
+    excerpt:
+      "Cơ hội dành cho ứng viên có kinh nghiệm marketing hoặc e-commerce, cùng Sonic phát triển thương hiệu ở thị trường quốc tế.",
+    image: "/assets/activities/ecommerce-ops.png",
+    readingMinutes: 3,
+    featured: true,
+    content: [
+      "Sonic Group mở tuyển vị trí Chuyên viên Marketing Global E-commerce làm việc toàn thời gian tại văn phòng 239 Tôn Thất Tùng, Đông Hòa, TP. Hồ Chí Minh.",
+      "Vai trò tập trung vào xây dựng chiến dịch marketing, phát triển thương hiệu và thúc đẩy doanh số trên các kênh thương mại điện tử quốc tế như US, CA, JP, IND và PHI.",
+      "Ứng viên phù hợp có từ 01 năm kinh nghiệm marketing hoặc e-commerce, hiểu Digital Marketing và có khả năng đọc hiểu tiếng Anh tốt. Kinh nghiệm với Shopify, Amazon, Walmart, Etsy hoặc Dropshipping là lợi thế.",
+      "Ứng viên có thể gửi hồ sơ qua email hi@sonicgroup.site hoặc liên hệ Zalo/Telegram 0888.000.219.",
+    ],
+    highlights: [
+      "Số lượng: 02 nhân sự",
+      "Thu nhập: 10-15 triệu/tháng + KPI + thưởng",
+      "Làm việc thứ 2 đến thứ 7 tại văn phòng",
+    ],
+  },
+  {
     id: "mo-rong-khong-gian-van-hanh-2026",
     title: "Sonic mở rộng không gian vận hành tại TP. Hồ Chí Minh",
     category: "Thông báo công ty",
@@ -10,7 +32,6 @@ export const newsPosts: NewsPost[] = [
       "Không gian mới giúp các đội Content, Commerce và Livestream phối hợp nhanh hơn trong cùng một nhịp sản xuất.",
     image: "/assets/sonic-hero.png",
     readingMinutes: 3,
-    featured: true,
     content: [
       "Sonic Group chính thức mở rộng không gian vận hành tại TP. Hồ Chí Minh, tạo thêm khu vực làm việc tập trung cho các đội sản xuất nội dung, thương mại điện tử và livestream.",
       "Thiết kế mới ưu tiên các cụm làm việc linh hoạt, khu vực trao đổi nhanh và không gian thử nghiệm nội dung. Mục tiêu là rút ngắn thời gian phối hợp giữa ý tưởng, sản xuất và đo lường hiệu quả.",

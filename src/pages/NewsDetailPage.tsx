@@ -18,7 +18,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
       <section className="bg-stone-50 py-24">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
           <p className="text-sm font-semibold text-teal-700">Không tìm thấy tin</p>
-          <h1 className="mt-3 text-3xl font-semibold text-slate-950">
+          <h1 className="mt-3 font-display text-3xl font-semibold text-slate-950">
             Bài viết này chưa tồn tại
           </h1>
           <div className="mt-6 flex justify-center">
@@ -54,7 +54,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
                 {post.readingMinutes} phút đọc
               </span>
             </div>
-            <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+            <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
               {post.title}
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
@@ -67,7 +67,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
           <img
             src={post.image}
             alt={post.title}
-            className="aspect-[16/7] w-full rounded-2xl object-cover shadow-soft"
+            className="aspect-[16/7] w-full rounded-lg object-cover shadow-soft"
           />
         </Reveal>
 
@@ -80,8 +80,8 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
 
           {post.highlights ? (
             <Reveal variant="right">
-              <aside className="rounded-2xl border border-teal-100 bg-teal-50 p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-teal-800">
+              <aside className="rounded-lg border border-teal-100 bg-teal-50 p-5">
+                <p className="text-xs font-semibold uppercase text-teal-800">
                   Điểm đáng chú ý
                 </p>
                 <div className="mt-4 grid gap-3">
@@ -100,7 +100,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
 
       <section className="border-t border-slate-200 bg-stone-50 py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-slate-950">Tin mới khác</h2>
+          <h2 className="font-display text-2xl font-semibold text-slate-950">Tin mới khác</h2>
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             {relatedPosts.map((item, index) => (
               <Reveal key={item.id} delay={index * 100} variant="scale">

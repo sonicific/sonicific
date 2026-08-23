@@ -9,9 +9,9 @@ interface JobCardProps {
 
 export function JobCard({ job }: JobCardProps) {
   return (
-    <article className="motion-card group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+    <article className="motion-card group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
       <div className="flex items-start justify-between gap-4">
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-700 ring-1 ring-teal-100">
           <BriefcaseBusiness className="h-5 w-5" aria-hidden="true" />
         </span>
         {job.featured ? (
@@ -20,10 +20,10 @@ export function JobCard({ job }: JobCardProps) {
           </span>
         ) : null}
       </div>
-      <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
+      <p className="mt-5 text-xs font-semibold uppercase text-teal-700">
         {job.department}
       </p>
-      <h2 className="mt-2 text-xl font-semibold leading-snug text-slate-950">
+      <h2 className="mt-2 font-display text-xl font-semibold leading-snug text-slate-950">
         <a href={routes.careerDetail(job.id)} className="transition hover:text-teal-700">
           {job.title}
         </a>

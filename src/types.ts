@@ -1,14 +1,9 @@
 export type Department =
-  | "Ban lãnh đạo"
-  | "Phòng Kĩ thuật"
-  | "Phòng Content"
-  | "Phòng E-commerce"
-  | "Phòng Kinh doanh"
-  | "Phòng Livestream & Social"
-  | "Phòng Affiliate & Banking"
-  | "Phòng Vận hành Nguyên liệu MMO"
-  | "Tài chính - Kế toán"
-  | "Hành chính nhân sự";
+  | "E-Comerce"
+  | "Content Media"
+  | "Business Center"
+  | "Tech & Research"
+  | "Human & Resources";
 
 export type AvatarTone =
   | "teal"

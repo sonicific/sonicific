@@ -1,8 +1,9 @@
-import { ArrowRight, Coffee, HeartHandshake, Sparkles, Users } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Coffee, HeartHandshake, Sparkles, Users } from "lucide-react";
 import { useMemo, useState } from "react";
 import { JobCard } from "../components/JobCard";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
+import { SectionHeader } from "../components/SectionHeader";
 import { amenities, company } from "../data/company";
 import { jobDepartments, jobPostings } from "../data/jobs";
 
@@ -37,17 +38,18 @@ export function CareersPage() {
   return (
     <>
       <PageHero
+        icon={BriefcaseBusiness}
         tone="dark"
         eyebrow="Careers at Sonic"
         title="Làm việc cùng những người thích biến ý tưởng thành kết quả."
         description="Khám phá các vị trí đang mở và chọn một vai trò phù hợp với thế mạnh của bạn."
         aside={
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
+            <div className="rounded-lg border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
               <p className="text-3xl font-semibold text-white">{jobPostings.length}</p>
               <p className="mt-1 text-xs font-medium text-slate-300">Vị trí đang mở</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
+            <div className="rounded-lg border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
               <p className="text-3xl font-semibold text-white">2</p>
               <p className="mt-1 text-xs font-medium text-slate-300">Chi nhánh tại TP.HCM</p>
             </div>
@@ -58,17 +60,12 @@ export function CareersPage() {
       <section className="bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
-            <div className="max-w-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-teal-700">
-                Cơ hội nghề nghiệp
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-950 sm:text-3xl">
-                Tìm vị trí dành cho bạn
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Lọc nhanh theo phòng ban, xem mô tả chi tiết và ứng tuyển qua email.
-              </p>
-            </div>
+            <SectionHeader
+              icon={BriefcaseBusiness}
+              eyebrow="Cơ hội nghề nghiệp"
+              title="Tìm vị trí dành cho bạn"
+              description="Lọc nhanh theo phòng ban, xem mô tả chi tiết và ứng tuyển qua email."
+            />
             <div className="flex flex-wrap gap-2" aria-label="Lọc vị trí theo phòng ban">
               {jobDepartments.map((item) => (
                 <button
@@ -102,15 +99,12 @@ export function CareersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center" variant="left">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-teal-700">
-                Môi trường làm việc
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-950 sm:text-3xl">
-                Gọn trong cách làm, cởi mở khi phối hợp.
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {company.openingHours}. Mỗi đội có mục tiêu rõ và cùng chia sẻ dữ liệu để tiến nhanh hơn.
-              </p>
+              <SectionHeader
+                icon={HeartHandshake}
+                eyebrow="Môi trường làm việc"
+                title="Gọn trong cách làm, cởi mở khi phối hợp."
+                description={`${company.openingHours}. Mỗi đội có mục tiêu rõ và cùng chia sẻ dữ liệu để tiến nhanh hơn.`}
+              />
               <div className="mt-5 flex flex-wrap gap-2">
                 {amenities.map((item) => {
                   const Icon = item.icon;
@@ -127,7 +121,7 @@ export function CareersPage() {
               {culturePoints.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <article key={item.title} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
                     <Icon className="h-5 w-5 text-teal-700" aria-hidden="true" />
                     <h3 className="mt-5 text-sm font-semibold text-slate-950">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
@@ -144,12 +138,12 @@ export function CareersPage() {
           <div>
             <div className="flex items-center gap-2 text-teal-100">
               <Coffee className="h-4 w-4" aria-hidden="true" />
-              <span className="text-xs font-semibold uppercase tracking-[0.15em]">Chưa thấy vị trí phù hợp?</span>
+              <span className="text-xs font-semibold uppercase">Chưa thấy vị trí phù hợp?</span>
             </div>
-            <h2 className="mt-2 text-2xl font-semibold">Gửi hồ sơ để Sonic chủ động liên hệ.</h2>
+            <h2 className="mt-2 font-display text-2xl font-semibold">Gửi hồ sơ để Sonic chủ động liên hệ.</h2>
           </div>
           <a
-            href="mailto:career@sonicgroup.vn?subject=Ho%20so%20ung%20tuyen%20Sonic%20Group"
+            href={`mailto:${company.contactEmail}?subject=Ho%20so%20ung%20tuyen%20Sonic%20Group`}
             className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-slate-950 transition hover:bg-teal-50"
           >
             Gửi CV qua email
