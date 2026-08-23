@@ -12,16 +12,19 @@ const culturePoints = [
     title: "Học qua dự án thật",
     description: "Thử nhanh, đo thật và cùng nhau cải thiện sau mỗi vòng chạy.",
     icon: Sparkles,
+    tone: "bg-amber-50 text-amber-700 ring-amber-100",
   },
   {
     title: "Owner rõ ràng",
     description: "Bạn biết mình phụ trách điều gì và có không gian để chủ động.",
     icon: Users,
+    tone: "bg-sky-50 text-sky-700 ring-sky-100",
   },
   {
     title: "Công cụ tốt hơn mỗi ngày",
     description: "Automation được dùng để giảm việc lặp, không làm quy trình nặng hơn.",
     icon: HeartHandshake,
+    tone: "bg-emerald-50 text-emerald-700 ring-emerald-100",
   },
 ];
 
@@ -122,8 +125,10 @@ export function CareersPage() {
                 const Icon = item.icon;
                 return (
                   <article key={item.title} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                    <Icon className="h-5 w-5 text-teal-700" aria-hidden="true" />
-                    <h3 className="mt-5 text-sm font-semibold text-slate-950">{item.title}</h3>
+                    <span className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-5 font-display text-sm font-semibold text-teal-700">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
                   </article>
                 );

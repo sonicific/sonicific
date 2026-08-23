@@ -21,7 +21,7 @@ export function SectionHeader({
       {eyebrow || Icon ? (
         <div className={`flex items-center gap-2 ${align === "center" ? "justify-center" : ""}`}>
           {Icon ? (
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-teal-50 text-teal-700 shadow-sm ring-1 ring-teal-100">
               <Icon className="h-4 w-4" aria-hidden="true" />
             </span>
           ) : null}

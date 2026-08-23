@@ -1,4 +1,4 @@
-import { BellRing, Newspaper, Sparkles } from "lucide-react";
+import { BellRing, Newspaper } from "lucide-react";
 import { useMemo, useState } from "react";
 import { NewsCard } from "../components/NewsCard";
 import { PageHero } from "../components/PageHero";
@@ -8,15 +8,12 @@ import { newsCategories, newsPosts } from "../data/news";
 
 export function NewsPage() {
   const [category, setCategory] = useState("Tất cả");
-  const featuredPost = newsPosts.find((post) => post.featured) ?? newsPosts[0];
   const visiblePosts = useMemo(
     () =>
       newsPosts.filter(
-        (post) =>
-          post.id !== featuredPost.id &&
-          (category === "Tất cả" || post.category === category),
+        (post) => category === "Tất cả" || post.category === category,
       ),
-    [category, featuredPost.id],
+    [category],
   );
 
   return (
@@ -38,25 +35,14 @@ export function NewsPage() {
         }
       />
 
-      <section className="bg-stone-50 py-10 sm:py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase text-teal-700">
-              <Sparkles className="h-4 w-4" aria-hidden="true" />
-              Tin nổi bật
-            </div>
-            <NewsCard post={featuredPost} featured />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <SectionHeader
               icon={Newspaper}
               eyebrow="Tất cả cập nhật"
               title="Bảng tin Sonic"
+              description="Tất cả thông báo được đặt cùng một lưới để người đọc quét nhanh hơn."
             />
             <div className="flex flex-wrap gap-2" aria-label="Lọc tin theo chủ đề">
               {newsCategories.map((item) => (

@@ -5,8 +5,14 @@ import {
   CalendarDays,
   CircleHelp,
   ChevronDown,
+  Clapperboard,
+  Cpu,
+  Globe2,
+  LineChart,
   MapPinned,
   Newspaper,
+  ShieldCheck,
+  Target,
   Users,
   Workflow,
   Zap,
@@ -33,6 +39,66 @@ const productionPulse = [
   { label: "Commerce", value: "Shop & livestream", tone: "bg-amber-300" },
   { label: "Operations", value: "Dữ liệu & quy trình", tone: "bg-rose-300" },
   { label: "Automation", value: "Tool & AI workflow", tone: "bg-indigo-300" },
+];
+
+const aboutHighlights = [
+  {
+    label: "Media first",
+    value: "Video, hậu kỳ, advertising",
+    icon: Clapperboard,
+    tone: "bg-rose-50 text-rose-700 ring-rose-100",
+  },
+  {
+    label: "Global commerce",
+    value: "E-commerce và thị trường quốc tế",
+    icon: Globe2,
+    tone: "bg-amber-50 text-amber-700 ring-amber-100",
+  },
+  {
+    label: "Automation core",
+    value: "Dashboard, tool và AI workflow",
+    icon: Cpu,
+    tone: "bg-indigo-50 text-indigo-700 ring-indigo-100",
+  },
+];
+
+const operatingFlow = [
+  {
+    step: "01",
+    title: "Bắt tín hiệu",
+    description: "Thu thập insight, trend, dữ liệu kênh và nhu cầu thị trường.",
+    icon: Target,
+    tone: "bg-amber-50 text-amber-700 ring-amber-100",
+  },
+  {
+    step: "02",
+    title: "Sản xuất nhanh",
+    description: "Content Media biến tín hiệu thành video, kịch bản và asset bán hàng.",
+    icon: Clapperboard,
+    tone: "bg-rose-50 text-rose-700 ring-rose-100",
+  },
+  {
+    step: "03",
+    title: "Vận hành đa kênh",
+    description: "E-Comerce và Business Center chạy shop, affiliate, campaign và report.",
+    icon: LineChart,
+    tone: "bg-sky-50 text-sky-700 ring-sky-100",
+  },
+  {
+    step: "04",
+    title: "Tự động hóa",
+    description: "Tech & Research biến thao tác lặp thành tool, dashboard và AI workflow.",
+    icon: ShieldCheck,
+    tone: "bg-indigo-50 text-indigo-700 ring-indigo-100",
+  },
+];
+
+const departmentTones = [
+  "bg-amber-50 text-amber-700 ring-amber-100",
+  "bg-rose-50 text-rose-700 ring-rose-100",
+  "bg-sky-50 text-sky-700 ring-sky-100",
+  "bg-indigo-50 text-indigo-700 ring-indigo-100",
+  "bg-emerald-50 text-emerald-700 ring-emerald-100",
 ];
 
 export function HomePageEnhanced() {
@@ -124,42 +190,127 @@ export function HomePageEnhanced() {
         </div>
       </section>
 
-      <section className="bg-stone-50 py-14 sm:py-20">
+      <section className="bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end" variant="left">
-            <SectionHeader
-              icon={Workflow}
-              eyebrow="Sonic vận hành thế nào"
-              title="Ít tầng nấc. Nhiều kết nối."
-              description="Bốn năng lực cùng chạy trên một nhịp dữ liệu, từ ý tưởng đến kết quả."
-            />
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <Reveal variant="left">
+              <SectionHeader
+                icon={Building2}
+                eyebrow="Giới thiệu công ty"
+                title="Sonic Group xây hệ vận hành cho media, commerce và automation."
+                description="Sonic kết nối sáng tạo nội dung, vận hành thương mại và công nghệ nội bộ để biến tín hiệu thị trường thành kết quả có thể đo lường."
+              />
+              <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                {stats.map((stat) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div key={stat.label} className="flex items-center gap-3 rounded-lg border border-slate-200 bg-stone-50 p-4">
+                      <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-teal-700 shadow-sm ring-1 ring-teal-100">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="font-display text-lg font-semibold text-slate-950">{stat.value}</p>
+                        <p className="text-xs font-medium text-slate-500">{stat.label}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </Reveal>
+            <div className="grid gap-4">
+              {aboutHighlights.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Reveal key={item.label} delay={index * 90} variant="right">
+                    <article className="motion-card flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                      <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="text-xs font-semibold uppercase text-slate-500">{item.label}</p>
+                        <h3 className="mt-1 font-display text-xl font-semibold text-teal-700">
+                          {item.value}
+                        </h3>
+                        <p className="mt-2 text-sm leading-6 text-slate-600">
+                          Cùng một nhịp dữ liệu, ít tầng nấc và nhiều vòng thử nghiệm nhanh.
+                        </p>
+                      </div>
+                    </article>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative isolate overflow-hidden bg-slate-950 py-12 text-white sm:py-16">
+        <div className="sonic-grid absolute inset-0 opacity-20" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-300/70 to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end" variant="left">
+            <div>
+              <div className="flex items-center gap-2 text-teal-300">
+                <Workflow className="h-4 w-4" aria-hidden="true" />
+                <p className="text-xs font-semibold uppercase">Sonic vận hành thế nào</p>
+              </div>
+              <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight text-white sm:text-4xl">
+                Một hệ thống gọn để đi từ <span className="text-teal-300">tín hiệu</span> đến kết quả.
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300">
+                Content, commerce, business và tech không đứng riêng lẻ; mỗi đội chạm vào một đoạn của cùng một luồng tăng trưởng.
+              </p>
+            </div>
             <div className="grid gap-3 sm:grid-cols-3">
-              {stats.map((stat) => {
+              {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={stat.label} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                    <Icon className="h-4 w-4 text-teal-700" aria-hidden="true" />
-                    <p className="mt-4 font-display text-lg font-semibold text-slate-950">{stat.value}</p>
-                    <p className="mt-1 text-xs font-medium text-slate-500">{stat.label}</p>
-                  </div>
+                  <Reveal key={stat.label} delay={index * 80} variant="blur">
+                    <div className="rounded-lg border border-white/10 bg-white/[0.06] p-4 backdrop-blur">
+                      <Icon className="h-4 w-4 text-teal-200" aria-hidden="true" />
+                      <p className="mt-4 font-display text-xl font-semibold text-white">{stat.value}</p>
+                      <p className="mt-1 text-xs font-medium text-slate-400">{stat.label}</p>
+                    </div>
+                  </Reveal>
                 );
               })}
             </div>
           </Reveal>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {operatingFlow.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={item.title} delay={index * 90} variant="lift" className="h-full">
+                  <article className="motion-card h-full rounded-lg border border-white/10 bg-white p-5 text-slate-950 shadow-2xl shadow-slate-950/10">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <span className="font-mono text-xs font-semibold text-slate-400">{item.step}</span>
+                    </div>
+                    <h3 className="mt-5 font-display text-xl font-semibold text-teal-700">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {serviceHighlights.map((service, index) => {
               const Icon = service.icon;
+              const tone = departmentTones[index] ?? "bg-teal-50 text-teal-700 ring-teal-100";
               return (
-                <Reveal key={service.title} delay={index * 90} variant="scale" className="h-full">
-                  <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                    <span className="grid h-10 w-10 place-items-center rounded-lg bg-slate-950 text-white">
+                <Reveal key={service.title} delay={index * 80} variant="scale" className="h-full">
+                  <article className="h-full rounded-lg border border-white/10 bg-white/[0.06] p-5 backdrop-blur">
+                    <span className={`grid h-10 w-10 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}>
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <p className="mt-5 text-[11px] font-semibold uppercase text-teal-700">
+                    <p className="mt-5 text-[11px] font-semibold uppercase text-teal-200">
                       {service.kicker}
                     </p>
-                    <h3 className="mt-2 font-display text-lg font-semibold text-slate-950">{service.title}</h3>
+                    <h3 className="mt-2 font-display text-lg font-semibold text-white">{service.title}</h3>
                   </article>
                 </Reveal>
               );
@@ -184,13 +335,14 @@ export function HomePageEnhanced() {
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {departments.map((department, index) => {
               const Icon = department.icon;
+              const tone = departmentTones[index] ?? "bg-teal-50 text-teal-700 ring-teal-100";
               return (
                 <Reveal key={department.name} delay={index * 80} variant="lift" className="h-full">
                   <article className="motion-card h-full rounded-lg border border-slate-200 bg-stone-50 p-5">
-                    <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-teal-700 ring-1 ring-slate-200">
+                    <span className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}>
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <h3 className="mt-5 font-display text-lg font-semibold text-slate-950">
+                    <h3 className="mt-5 font-display text-lg font-semibold text-teal-700">
                       {department.name}
                     </h3>
                     <p className="mt-3 text-sm leading-6 text-slate-600">{department.summary}</p>
@@ -256,21 +408,22 @@ export function HomePageEnhanced() {
       </section>
 
       <section className="bg-stone-50 py-14 sm:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-          <Reveal variant="left">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center">
             <SectionHeader
               icon={CircleHelp}
               eyebrow="FAQ"
               title="Những câu hỏi nhanh."
               description="Phần FAQ được đưa lại để người mới hiểu Sonic trong vài nhịp đọc."
+              align="center"
             />
           </Reveal>
-          <div className="grid gap-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {faqs.map((faq, index) => (
-              <Reveal key={faq.question} delay={index * 90} variant="right">
+              <Reveal key={faq.question} delay={index * 90} variant="scale">
                 <details className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
                   <summary className="flex cursor-pointer items-center justify-between gap-4">
-                    <span className="font-display text-base font-semibold text-slate-950">
+                    <span className="font-display text-base font-semibold text-slate-950 transition group-open:text-teal-700">
                       {faq.question}
                     </span>
                     <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-slate-600 transition group-open:rotate-180 group-open:bg-teal-50 group-open:text-teal-700">

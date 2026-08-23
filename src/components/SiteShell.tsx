@@ -11,7 +11,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { company, departments, socials, sourceHighlights } from "../data/company";
+import { company, socials } from "../data/company";
 import { isActiveRoute, routes } from "../lib/router";
 import { ScrollProgress } from "./ScrollProgress";
 import { ScrollToTopButton } from "./ScrollToTopButton";
@@ -141,115 +141,76 @@ export function SiteShell({ children, hash }: SiteShellProps) {
       <main>{children}</main>
 
       <footer className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="sonic-grid absolute inset-0 opacity-20" />
+        <div className="sonic-grid absolute inset-0 opacity-[0.16]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-300/70 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-[1.2fr_0.7fr_0.8fr]">
             <div>
               <div className="flex items-center gap-3">
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-white text-sm font-bold text-slate-950">
+                <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-sm font-bold text-slate-950">
                   SG
                 </span>
                 <div>
-                  <p className="font-display text-xl font-semibold">{company.name}</p>
-                  <p className="mt-1 text-sm text-teal-200">{company.slogan}</p>
+                  <p className="font-display text-lg font-semibold">{company.name}</p>
+                  <p className="mt-0.5 text-sm text-teal-200">{company.slogan}</p>
                 </div>
               </div>
-              <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-300">
-                {company.publicProfile} Đội ngũ vận hành tại TP. Hồ Chí Minh với các nhóm
-                content, commerce, business, tech và human resources.
+              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300">
+                {company.publicProfile} Đội ngũ vận hành tại TP. Hồ Chí Minh.
               </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {sourceHighlights.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <span
-                      key={item.label}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-semibold text-slate-200"
-                    >
-                      <Icon className="h-3.5 w-3.5 text-teal-200" aria-hidden="true" />
-                      {item.value}
-                    </span>
-                  );
-                })}
-              </div>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div>
-                <p className="text-xs font-semibold uppercase text-slate-400">Khám phá</p>
-                <div className="mt-4 grid gap-2 text-sm font-medium text-slate-200">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="inline-flex items-center gap-2 transition hover:text-teal-200"
-                    >
-                      {item.label}
-                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="text-xs font-semibold uppercase text-slate-400">Liên hệ</p>
-                <div className="mt-4 grid gap-3 text-sm text-slate-300">
-                  <a
-                    href={`mailto:${company.contactEmail}`}
-                    className="inline-flex items-center gap-2 transition hover:text-teal-200"
-                  >
-                    <Mail className="h-4 w-4 text-teal-200" aria-hidden="true" />
-                    {company.contactEmail}
-                  </a>
-                  <a
-                    href={`tel:${company.contactPhone.replace(/\./g, "")}`}
-                    className="inline-flex items-center gap-2 transition hover:text-teal-200"
-                  >
-                    <Phone className="h-4 w-4 text-teal-200" aria-hidden="true" />
-                    {company.contactPhone}
-                  </a>
-                  <p>{company.socialLocation}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10 grid gap-6 border-t border-white/10 pt-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase text-slate-400">Phòng ban</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {departments.map((department) => {
-                  const Icon = department.icon;
-                  return (
-                    <span
-                      key={department.name}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-2 text-xs font-semibold text-slate-200 ring-1 ring-white/10"
-                    >
-                      <Icon className="h-3.5 w-3.5 text-teal-200" aria-hidden="true" />
-                      {department.name}
-                    </span>
-                  );
-                })}
+              <p className="text-xs font-semibold uppercase text-slate-400">Khám phá</p>
+              <div className="mt-4 grid gap-2 text-sm font-medium text-slate-200">
+                {navigation.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="inline-flex items-center gap-2 transition hover:text-teal-200"
+                  >
+                    {item.label}
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </a>
+                ))}
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 lg:justify-end">
-              {socials.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
-                    rel={social.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="inline-flex h-9 items-center gap-2 rounded-full border border-white/10 px-3 text-xs font-semibold text-slate-200 transition hover:border-teal-300/50 hover:text-teal-200"
-                  >
-                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-                    {social.label}
-                  </a>
-                );
-              })}
+            <div>
+              <p className="text-xs font-semibold uppercase text-slate-400">Liên hệ</p>
+              <div className="mt-4 grid gap-3 text-sm text-slate-300">
+                <a
+                  href={`mailto:${company.contactEmail}`}
+                  className="inline-flex items-center gap-2 transition hover:text-teal-200"
+                >
+                  <Mail className="h-4 w-4 text-teal-200" aria-hidden="true" />
+                  {company.contactEmail}
+                </a>
+                <a
+                  href={`tel:${company.contactPhone.replace(/\./g, "")}`}
+                  className="inline-flex items-center gap-2 transition hover:text-teal-200"
+                >
+                  <Phone className="h-4 w-4 text-teal-200" aria-hidden="true" />
+                  {company.contactPhone}
+                </a>
+                <div className="flex flex-wrap gap-x-4 gap-y-2 pt-1">
+                  {socials.slice(1, 4).map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target={social.href.startsWith("http") ? "_blank" : undefined}
+                        rel={social.href.startsWith("http") ? "noreferrer" : undefined}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 transition hover:text-teal-200"
+                      >
+                        <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                        {social.label}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
 
