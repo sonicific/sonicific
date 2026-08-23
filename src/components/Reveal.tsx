@@ -4,9 +4,15 @@ interface RevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  variant?: "up" | "left" | "right" | "scale";
 }
 
-export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+export function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  variant = "up",
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -38,7 +44,9 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
     <div
       ref={ref}
       style={style}
-      className={`reveal-motion ${isVisible ? "is-visible" : ""} ${className}`}
+      className={`reveal-motion reveal-${variant} ${
+        isVisible ? "is-visible" : ""
+      } ${className}`}
     >
       {children}
     </div>

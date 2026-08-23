@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { SiteShell } from "./components/SiteShell";
 import { parseHash } from "./lib/router";
 import { ActivitiesPage } from "./pages/ActivitiesPage";
+import { CareerDetailPage } from "./pages/CareerDetailPage";
+import { CareersPage } from "./pages/CareersPage";
 import { EmployeeDetailPage } from "./pages/EmployeeDetailPage";
 import { HomePageEnhanced } from "./pages/HomePageEnhanced";
+import { NewsDetailPage } from "./pages/NewsDetailPage";
+import { NewsPage } from "./pages/NewsPage";
 import { PeoplePage } from "./pages/PeoplePage";
 import type { RouteState } from "./types";
 
@@ -30,6 +34,21 @@ export default function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
+  useEffect(() => {
+    const titles: Record<RouteState["page"], string> = {
+      home: "Sonic Group · Production, Commerce & Automation",
+      people: "Đội ngũ · Sonic Group",
+      employee: "Hồ sơ nhân sự · Sonic Group",
+      activities: "Hoạt động · Sonic Group",
+      news: "Tin tức · Sonic Group",
+      "news-detail": "Tin tức · Sonic Group",
+      careers: "Tuyển dụng · Sonic Group",
+      "career-detail": "Cơ hội nghề nghiệp · Sonic Group",
+    };
+
+    document.title = titles[route.page];
+  }, [hash, route.page]);
+
   return (
     <SiteShell hash={hash}>
       {route.page === "home" ? <HomePageEnhanced /> : null}
@@ -38,6 +57,14 @@ export default function App() {
         <EmployeeDetailPage employeeId={route.employeeId} />
       ) : null}
       {route.page === "activities" ? <ActivitiesPage /> : null}
+      {route.page === "news" ? <NewsPage /> : null}
+      {route.page === "news-detail" ? (
+        <NewsDetailPage newsId={route.newsId} />
+      ) : null}
+      {route.page === "careers" ? <CareersPage /> : null}
+      {route.page === "career-detail" ? (
+        <CareerDetailPage jobId={route.jobId} />
+      ) : null}
     </SiteShell>
   );
 }

@@ -1,7 +1,8 @@
 import { Filter, Search, Users } from "lucide-react";
 import { useMemo, useState } from "react";
 import { EmployeeCard } from "../components/EmployeeCard";
-import { SectionHeader } from "../components/SectionHeader";
+import { PageHero } from "../components/PageHero";
+import { Reveal } from "../components/Reveal";
 import employeesJson from "../data/employees.json";
 import type { Department, Employee } from "../types";
 
@@ -51,39 +52,32 @@ export function PeoplePage() {
 
   return (
     <>
-      <section className="border-b border-slate-200 bg-white py-12">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <SectionHeader
-            eyebrow="Nhân sự"
-            title="Danh sách đội ngũ Sonic Group"
-            description="Thông tin nhân sự được lấy trực tiếp từ file JSON, gồm họ tên, avatar, chức vụ, phòng ban, chi nhánh và thời gian gia nhập."
-          />
-          <div className="rounded-lg border border-slate-200 bg-stone-50 p-4">
+      <PageHero
+        eyebrow="Đội ngũ"
+        title="Những người tạo nên nhịp Sonic."
+        description="Tìm kiếm đồng đội theo tên, vai trò hoặc phòng ban."
+        aside={
+          <div className="rounded-2xl border border-slate-200 bg-stone-50 p-5">
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-slate-950 text-white">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-slate-950 text-white">
                 <Users className="h-4 w-4" aria-hidden="true" />
               </span>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  Quy mô mẫu
+                  Đội ngũ hiện tại
                 </p>
                 <p className="text-sm font-semibold text-slate-950">
-                  {employees.length} nhân sự đang hiển thị
+                  {employees.length} thành viên
                 </p>
               </div>
             </div>
-            <p className="mt-4 text-sm leading-6 text-slate-600">
-              Bạn có thể chỉnh danh sách tại file{" "}
-              <span className="font-semibold text-slate-950">employees.json</span> để cập nhật
-              nhân sự mới, chuyển phòng ban hoặc thay avatar.
-            </p>
           </div>
-        </div>
-      </section>
+        }
+      />
 
       <section className="bg-stone-50 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-3 rounded-lg border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[1fr_auto]">
+          <Reveal className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[1fr_auto]">
             <label className="flex h-9 items-center gap-2 rounded-full bg-slate-100 px-3 text-sm text-slate-600">
               <Search className="h-4 w-4 text-slate-400" aria-hidden="true" />
               <input
@@ -115,11 +109,12 @@ export function PeoplePage() {
                 );
               })}
             </div>
-          </div>
+          </Reveal>
 
           <div className="mt-8 grid gap-8">
             {grouped.map((group) => (
-              <section key={group.department}>
+              <Reveal key={group.department}>
+                <section>
                 <div className="mb-3 flex items-center justify-between gap-3">
                   <h2 className="text-base font-semibold text-slate-950">
                     {group.department}
@@ -133,7 +128,8 @@ export function PeoplePage() {
                     <EmployeeCard key={employee.id} employee={employee} />
                   ))}
                 </div>
-              </section>
+                </section>
+              </Reveal>
             ))}
 
             {grouped.length === 0 ? (
