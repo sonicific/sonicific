@@ -36,13 +36,14 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
   return (
     <>
       <article className="bg-white">
-        <header className="border-b border-slate-200 bg-stone-50 py-10 sm:py-14">
+        <header className="relative isolate overflow-hidden border-b border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#f0fdfa_58%,#eef2ff_100%)] py-10 text-slate-950 sm:py-14">
+          <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-teal-100/70 blur-3xl" />
           <Reveal className="mx-auto max-w-4xl px-4 sm:px-6">
             <ButtonLink href={routes.news} icon={ArrowLeft} variant="light">
               Tất cả tin tức
             </ButtonLink>
-            <div className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-500">
-              <span className="rounded-full bg-teal-100 px-3 py-1.5 text-teal-800">
+            <div className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600">
+              <span className="rounded-full bg-teal-50 px-3 py-1.5 text-teal-800 ring-1 ring-teal-100">
                 {post.category}
               </span>
               <span className="inline-flex items-center gap-1.5">

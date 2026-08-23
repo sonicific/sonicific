@@ -28,6 +28,8 @@ import {
 
 export const company = {
   name: "Sonic Group",
+  legalName: "CÔNG TY TNHH SONIC MEDIA",
+  taxCode: "0319224501",
   slogan: "Connect - Creative - Grow",
   foundedAt: "20/10/2025",
   openingHours: "8:00 - 17:30, thứ 2 đến thứ 7",
@@ -68,9 +70,9 @@ export const sourceHighlights = [
     icon: Compass,
   },
   {
-    label: "Lĩnh vực",
-    value: "Video, hậu kỳ, quảng cáo, thương mại",
-    icon: Video,
+    label: "Địa điểm",
+    value: company.socialLocation,
+    icon: MapPin,
   },
   {
     label: "Liên hệ",

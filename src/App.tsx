@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SiteShell } from "./components/SiteShell";
-import { parseHash } from "./lib/router";
+import { parsePath } from "./lib/router";
+import { applySeoMetadata } from "./lib/seo";
 import { ActivitiesPage } from "./pages/ActivitiesPage";
 import { CareerDetailPage } from "./pages/CareerDetailPage";
 import { CareersPage } from "./pages/CareersPage";
@@ -12,45 +13,67 @@ import { PeoplePage } from "./pages/PeoplePage";
 import type { RouteState } from "./types";
 
 function getRoute(): RouteState {
-  return parseHash(window.location.hash || "#/");
+  return parsePath(window.location.pathname);
 }
 
 export default function App() {
-  const [hash, setHash] = useState(window.location.hash || "#/");
+  const [pathname, setPathname] = useState(window.location.pathname);
   const route = getRoute();
 
   useEffect(() => {
-    const onHashChange = () => {
-      setHash(window.location.hash || "#/");
+    const updateRoute = () => {
+      setPathname(window.location.pathname);
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    window.addEventListener("hashchange", onHashChange);
+    const onDocumentClick = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
 
-    if (!window.location.hash) {
-      window.location.hash = "/";
+      const target = event.target as HTMLElement;
+      const anchor = target.closest<HTMLAnchorElement>("a[href]");
+
+      if (!anchor || anchor.target || anchor.hasAttribute("download")) {
+        return;
+      }
+
+      const url = new URL(anchor.href, window.location.href);
+
+      if (url.origin !== window.location.origin || !url.pathname.startsWith("/")) {
+        return;
+      }
+
+      if (url.pathname === window.location.pathname && url.hash && !url.hash.startsWith("#/")) {
+        return;
+      }
+
+      event.preventDefault();
+      window.history.pushState({}, "", `${url.pathname}${url.search}${url.hash}`);
+      updateRoute();
+    };
+
+    if (window.location.hash.startsWith("#/")) {
+      const cleanPath = window.location.hash.slice(1);
+      window.history.replaceState({}, "", cleanPath);
+      setPathname(window.location.pathname);
     }
 
-    return () => window.removeEventListener("hashchange", onHashChange);
+    window.addEventListener("popstate", updateRoute);
+    document.addEventListener("click", onDocumentClick);
+
+    return () => {
+      window.removeEventListener("popstate", updateRoute);
+      document.removeEventListener("click", onDocumentClick);
+    };
   }, []);
 
   useEffect(() => {
-    const titles: Record<RouteState["page"], string> = {
-      home: "Sonic Group · Production, Commerce & Automation",
-      people: "Đội ngũ · Sonic Group",
-      employee: "Hồ sơ nhân sự · Sonic Group",
-      activities: "Hoạt động · Sonic Group",
-      news: "Tin tức · Sonic Group",
-      "news-detail": "Tin tức · Sonic Group",
-      careers: "Tuyển dụng · Sonic Group",
-      "career-detail": "Cơ hội nghề nghiệp · Sonic Group",
-    };
-
-    document.title = titles[route.page];
-  }, [hash, route.page]);
+    applySeoMetadata(route);
+  }, [pathname, route.page, route.employeeId, route.jobId, route.newsId]);
 
   return (
-    <SiteShell hash={hash}>
+    <SiteShell pathname={pathname}>
       {route.page === "home" ? <HomePageEnhanced /> : null}
       {route.page === "people" ? <PeoplePage /> : null}
       {route.page === "employee" ? (

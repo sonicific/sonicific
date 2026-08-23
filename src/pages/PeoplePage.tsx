@@ -49,16 +49,17 @@ export function PeoplePage() {
     <>
       <PageHero
         icon={Users}
+        tone="dark"
         eyebrow="Đội ngũ"
         title="Những người tạo nên nhịp Sonic."
         description="Tìm kiếm đồng đội theo tên, vai trò hoặc phòng ban."
         aside={
-          <div className="rounded-lg border border-slate-200 bg-stone-50 p-5">
-            <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-white">
+          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center justify-center gap-3">
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-teal-50 text-teal-700">
                 <Users className="h-4 w-4" aria-hidden="true" />
               </span>
-              <div>
+              <div className="text-left">
                 <p className="text-xs font-semibold uppercase text-slate-500">
                   Đội ngũ hiện tại
                 </p>

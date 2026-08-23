@@ -18,6 +18,8 @@ import {
   Zap,
 } from "lucide-react";
 import { ButtonLink } from "../components/ButtonLink";
+import { PartnersSection } from "../components/home/PartnersSection";
+import { TestimonialsSection } from "../components/home/TestimonialsSection";
 import { JobCard } from "../components/JobCard";
 import { NewsCard } from "../components/NewsCard";
 import { Reveal } from "../components/Reveal";
@@ -104,25 +106,25 @@ const departmentTones = [
 export function HomePageEnhanced() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-slate-950">
+      <section className="relative isolate overflow-hidden bg-white">
         <img
           src="/assets/sonic-hero.png"
           alt="Không gian vận hành sáng tạo của Sonic Group"
           className="sonic-hero-image absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.97),rgba(15,23,42,0.82)_52%,rgba(15,23,42,0.36)_100%)]" />
-        <div className="sonic-grid absolute inset-0 opacity-40" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/75 to-transparent" />
+        <div className="sonic-grid absolute inset-0 opacity-25" />
 
-        <div className="relative mx-auto grid min-h-[78svh] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+        <div className="relative mx-auto flex min-h-[78svh] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="hero-motion inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-teal-100 ring-1 ring-white/15 backdrop-blur">
+            <p className="hero-motion inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-semibold text-teal-800 shadow-sm ring-1 ring-white backdrop-blur">
               <Zap className="h-3.5 w-3.5" aria-hidden="true" />
               {company.slogan}
             </p>
-            <h1 className="hero-motion hero-delay-1 mt-6 font-display text-5xl font-semibold leading-none text-white sm:text-6xl lg:text-7xl">
+            <h1 className="hero-motion hero-delay-1 mt-6 font-display text-5xl font-semibold leading-none text-white drop-shadow-[0_3px_18px_rgba(15,23,42,0.55)] sm:text-6xl lg:text-7xl">
               Sonic Group
             </h1>
-            <p className="hero-motion hero-delay-2 mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
+            <p className="hero-motion hero-delay-2 mt-6 max-w-xl text-base font-medium leading-7 text-white drop-shadow-[0_2px_12px_rgba(15,23,42,0.6)] sm:text-lg">
               Kết nối media, commerce và automation thành một hệ vận hành gọn, nhanh, có dữ liệu.
             </p>
             <div className="hero-motion hero-delay-3 mt-8 flex flex-wrap gap-3">
@@ -135,37 +137,6 @@ export function HomePageEnhanced() {
             </div>
           </div>
 
-          <div className="hero-motion hero-delay-4 hidden lg:block">
-            <div className="rounded-lg border border-white/15 bg-slate-950/45 p-5 shadow-2xl backdrop-blur-xl">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div>
-                  <p className="text-[11px] font-semibold uppercase text-teal-300">
-                    Production pulse
-                  </p>
-                  <p className="mt-1 font-display text-sm font-semibold text-white">Một nhịp, nhiều đội</p>
-                </div>
-                <span className="relative flex h-3 w-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-300 opacity-70" />
-                  <span className="relative inline-flex h-3 w-3 rounded-full bg-teal-400" />
-                </span>
-              </div>
-              <div className="mt-3 grid gap-2">
-                {productionPulse.map((item, index) => (
-                  <div
-                    key={item.label}
-                    className="sonic-glass-tile flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.06] p-4"
-                    style={{ animationDelay: `${index * 180}ms` }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className={`h-2.5 w-2.5 rounded-full ${item.tone}`} />
-                      <span className="text-sm font-semibold text-white">{item.label}</span>
-                    </div>
-                    <span className="text-xs text-slate-300">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -192,84 +163,87 @@ export function HomePageEnhanced() {
 
       <section className="bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <Reveal variant="left">
-              <SectionHeader
-                icon={Building2}
-                eyebrow="Giới thiệu công ty"
-                title="Sonic Group xây hệ vận hành cho media, commerce và automation."
-                description="Sonic kết nối sáng tạo nội dung, vận hành thương mại và công nghệ nội bộ để biến tín hiệu thị trường thành kết quả có thể đo lường."
-              />
-              <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-                {stats.map((stat) => {
-                  const Icon = stat.icon;
-                  return (
-                    <div key={stat.label} className="flex items-center gap-3 rounded-lg border border-slate-200 bg-stone-50 p-4">
-                      <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-teal-700 shadow-sm ring-1 ring-teal-100">
-                        <Icon className="h-4 w-4" aria-hidden="true" />
-                      </span>
-                      <div>
-                        <p className="font-display text-lg font-semibold text-slate-950">{stat.value}</p>
-                        <p className="text-xs font-medium text-slate-500">{stat.label}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </Reveal>
-            <div className="grid gap-4">
-              {aboutHighlights.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <Reveal key={item.label} delay={index * 90} variant="right">
-                    <article className="motion-card flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                      <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </span>
-                      <div>
-                        <p className="text-xs font-semibold uppercase text-slate-500">{item.label}</p>
-                        <h3 className="mt-1 font-display text-xl font-semibold text-teal-700">
-                          {item.value}
-                        </h3>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">
-                          Cùng một nhịp dữ liệu, ít tầng nấc và nhiều vòng thử nghiệm nhanh.
-                        </p>
-                      </div>
-                    </article>
-                  </Reveal>
-                );
-              })}
+          <Reveal>
+            <SectionHeader
+              icon={Building2}
+              eyebrow="Giới thiệu công ty"
+              title="Sonic Group xây hệ vận hành cho media, commerce và automation."
+              description="Sonic kết nối sáng tạo nội dung, vận hành thương mại và công nghệ nội bộ để biến tín hiệu thị trường thành kết quả có thể đo lường."
+            />
+          </Reveal>
+
+          <Reveal delay={80} variant="blur">
+            <div className="mt-6 inline-flex items-center gap-3 rounded-lg border border-teal-100 bg-teal-50 px-4 py-3 text-sm text-slate-700">
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-white text-teal-700 shadow-sm ring-1 ring-teal-100">
+                <Clapperboard className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <span><strong className="text-teal-800">Lĩnh vực:</strong> Video, hậu kỳ, quảng cáo, thương mại</span>
             </div>
+          </Reveal>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <Reveal key={stat.label} delay={index * 80} variant="lift">
+                  <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-stone-50 p-4">
+                    <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-teal-700 shadow-sm ring-1 ring-teal-100">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="font-display text-lg font-semibold text-slate-950">{stat.value}</p>
+                      <p className="text-xs font-medium text-slate-500">{stat.label}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {aboutHighlights.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={item.label} delay={index * 90} variant="scale" className="h-full">
+                  <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                    <span className={`grid h-12 w-12 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <p className="mt-5 text-xs font-semibold uppercase text-slate-500">{item.label}</p>
+                    <h3 className="mt-1 font-display text-xl font-semibold text-teal-700">{item.value}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">Cùng một nhịp dữ liệu, ít tầng nấc và nhiều vòng thử nghiệm nhanh.</p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-slate-950 py-12 text-white sm:py-16">
-        <div className="sonic-grid absolute inset-0 opacity-20" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-300/70 to-transparent" />
+      <section className="relative isolate overflow-hidden border-y border-slate-200 bg-stone-50 py-12 text-slate-950 sm:py-16">
+        <div className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-teal-100/70 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end" variant="left">
             <div>
-              <div className="flex items-center gap-2 text-teal-300">
+              <div className="flex items-center gap-2 text-teal-700">
                 <Workflow className="h-4 w-4" aria-hidden="true" />
                 <p className="text-xs font-semibold uppercase">Sonic vận hành thế nào</p>
               </div>
-              <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight text-white sm:text-4xl">
-                Một hệ thống gọn để đi từ <span className="text-teal-300">tín hiệu</span> đến kết quả.
+              <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
+                Một hệ thống gọn để đi từ <span className="text-teal-700">tín hiệu</span> đến kết quả.
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300">
+              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600">
                 Content, commerce, business và tech không đứng riêng lẻ; mỗi đội chạm vào một đoạn của cùng một luồng tăng trưởng.
               </p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
+            <div className="grid gap-3 sm:grid-cols-2">
+              {productionPulse.map((item, index) => {
                 return (
-                  <Reveal key={stat.label} delay={index * 80} variant="blur">
-                    <div className="rounded-lg border border-white/10 bg-white/[0.06] p-4 backdrop-blur">
-                      <Icon className="h-4 w-4 text-teal-200" aria-hidden="true" />
-                      <p className="mt-4 font-display text-xl font-semibold text-white">{stat.value}</p>
-                      <p className="mt-1 text-xs font-medium text-slate-400">{stat.label}</p>
+                  <Reveal key={item.label} delay={index * 80} variant="blur">
+                    <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+                      <span className={`block h-2.5 w-2.5 rounded-full ${item.tone}`} />
+                      <p className="mt-4 font-display text-base font-semibold text-slate-950">{item.label}</p>
+                      <p className="mt-1 text-xs font-medium text-slate-500">{item.value}</p>
                     </div>
                   </Reveal>
                 );
@@ -282,7 +256,7 @@ export function HomePageEnhanced() {
               const Icon = item.icon;
               return (
                 <Reveal key={item.title} delay={index * 90} variant="lift" className="h-full">
-                  <article className="motion-card h-full rounded-lg border border-white/10 bg-white p-5 text-slate-950 shadow-2xl shadow-slate-950/10">
+                  <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 text-slate-950 shadow-sm">
                     <div className="flex items-center justify-between gap-3">
                       <span className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}>
                         <Icon className="h-5 w-5" aria-hidden="true" />
@@ -303,14 +277,14 @@ export function HomePageEnhanced() {
               const tone = departmentTones[index] ?? "bg-teal-50 text-teal-700 ring-teal-100";
               return (
                 <Reveal key={service.title} delay={index * 80} variant="scale" className="h-full">
-                  <article className="h-full rounded-lg border border-white/10 bg-white/[0.06] p-5 backdrop-blur">
+                  <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
                     <span className={`grid h-10 w-10 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}>
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <p className="mt-5 text-[11px] font-semibold uppercase text-teal-200">
+                    <p className="mt-5 text-[11px] font-semibold uppercase text-teal-700">
                       {service.kicker}
                     </p>
-                    <h3 className="mt-2 font-display text-lg font-semibold text-white">{service.title}</h3>
+                    <h3 className="mt-2 font-display text-lg font-semibold text-slate-950">{service.title}</h3>
                   </article>
                 </Reveal>
               );
@@ -318,6 +292,10 @@ export function HomePageEnhanced() {
           </div>
         </div>
       </section>
+
+      <PartnersSection />
+
+      <TestimonialsSection />
 
       <section className="bg-white py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -377,22 +355,22 @@ export function HomePageEnhanced() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-slate-950 py-14 text-white sm:py-20">
-        <div className="sonic-grid absolute inset-0 opacity-20" />
+      <section className="relative isolate overflow-hidden border-y border-slate-200 bg-teal-50/60 py-14 text-slate-950 sm:py-20">
+        <div className="absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-cyan-100 blur-3xl" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:px-8">
           <Reveal variant="left">
-            <div className="flex items-center gap-2 text-teal-300">
+            <div className="flex items-center gap-2 text-teal-700">
               <BriefcaseBusiness className="h-4 w-4" aria-hidden="true" />
               <p className="text-xs font-semibold uppercase">Careers</p>
             </div>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight sm:text-4xl">
               Tạo điều mới cùng Sonic.
             </h2>
-            <p className="mt-4 max-w-lg text-sm leading-6 text-slate-300 sm:text-base">
+            <p className="mt-4 max-w-lg text-sm leading-6 text-slate-600 sm:text-base">
               Chọn một vị trí phù hợp và bắt đầu cuộc trò chuyện với đội ngũ.
             </p>
             <div className="mt-6">
-              <ButtonLink href={routes.careers} icon={ArrowRight} variant="light">
+              <ButtonLink href={routes.careers} icon={ArrowRight} variant="dark">
                 Xem {jobPostings.length} vị trí đang mở
               </ButtonLink>
             </div>
@@ -408,7 +386,7 @@ export function HomePageEnhanced() {
       </section>
 
       <section className="bg-stone-50 py-14 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center">
             <SectionHeader
               icon={CircleHelp}
@@ -418,7 +396,7 @@ export function HomePageEnhanced() {
               align="center"
             />
           </Reveal>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="mt-8 grid gap-4">
             {faqs.map((faq, index) => (
               <Reveal key={faq.question} delay={index * 90} variant="scale">
                 <details className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm">

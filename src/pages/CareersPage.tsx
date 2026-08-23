@@ -48,13 +48,13 @@ export function CareersPage() {
         description="Khám phá các vị trí đang mở và chọn một vai trò phù hợp với thế mạnh của bạn."
         aside={
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
-              <p className="text-3xl font-semibold text-white">{jobPostings.length}</p>
-              <p className="mt-1 text-xs font-medium text-slate-300">Vị trí đang mở</p>
+            <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+              <p className="text-3xl font-semibold text-slate-950">{jobPostings.length}</p>
+              <p className="mt-1 text-xs font-medium text-slate-600">Vị trí đang mở</p>
             </div>
-            <div className="rounded-lg border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
-              <p className="text-3xl font-semibold text-white">2</p>
-              <p className="mt-1 text-xs font-medium text-slate-300">Chi nhánh tại TP.HCM</p>
+            <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+              <p className="text-3xl font-semibold text-slate-950">2</p>
+              <p className="mt-1 text-xs font-medium text-slate-600">Chi nhánh tại TP.HCM</p>
             </div>
           </div>
         }

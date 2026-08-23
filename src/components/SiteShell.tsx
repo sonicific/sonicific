@@ -2,6 +2,7 @@ import {
   Activity,
   ArrowUpRight,
   BriefcaseBusiness,
+  FileText,
   Home,
   Mail,
   Menu,
@@ -18,7 +19,7 @@ import { ScrollToTopButton } from "./ScrollToTopButton";
 
 interface SiteShellProps {
   children: ReactNode;
-  hash: string;
+  pathname: string;
 }
 
 const navigation = [
@@ -39,28 +40,28 @@ const navigation = [
   },
 ];
 
-function isNavigationActive(hash: string, page: (typeof navigation)[number]["page"]) {
+function isNavigationActive(pathname: string, page: (typeof navigation)[number]["page"]) {
   if (page === "people") {
-    return hash.startsWith("#/nhan-su");
+    return pathname.startsWith("/nhan-su");
   }
 
   if (page === "news") {
-    return hash.startsWith("#/tin-tuc");
+    return pathname.startsWith("/tin-tuc");
   }
 
   if (page === "careers") {
-    return hash.startsWith("#/tuyen-dung");
+    return pathname.startsWith("/tuyen-dung");
   }
 
-  return isActiveRoute(hash, page);
+  return isActiveRoute(pathname, page);
 }
 
-export function SiteShell({ children, hash }: SiteShellProps) {
+export function SiteShell({ children, pathname }: SiteShellProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setIsOpen(false);
-  }, [hash]);
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
@@ -79,16 +80,16 @@ export function SiteShell({ children, hash }: SiteShellProps) {
             <nav className="flex items-center gap-1" aria-label="Điều hướng chính">
               {navigation.map((item) => {
                 const Icon = item.icon;
-                const active = isNavigationActive(hash, item.page);
+                const active = isNavigationActive(pathname, item.page);
 
                 return (
                   <a
                     key={item.href}
                     href={item.href}
-                    className={`inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-xs font-semibold transition ${
+                    className={`group relative inline-flex h-10 items-center gap-1.5 px-3 text-xs font-semibold transition-colors after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:origin-left after:rounded-full after:bg-teal-500 after:transition-transform after:duration-300 ${
                       active
-                        ? "bg-slate-950 text-white"
-                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+                        ? "text-slate-950 after:scale-x-100"
+                        : "text-slate-600 after:scale-x-0 hover:text-slate-950 hover:after:scale-x-100"
                     }`}
                     aria-current={active ? "page" : undefined}
                   >
@@ -117,14 +118,14 @@ export function SiteShell({ children, hash }: SiteShellProps) {
             <nav className="mx-auto grid max-w-7xl gap-2" aria-label="Điều hướng mobile">
               {navigation.map((item) => {
                 const Icon = item.icon;
-                const active = isNavigationActive(hash, item.page);
+                const active = isNavigationActive(pathname, item.page);
 
                 return (
                   <a
                     key={item.href}
                     href={item.href}
-                    className={`inline-flex h-10 items-center gap-2 rounded-xl px-3 text-xs font-semibold ${
-                      active ? "bg-slate-950 text-white" : "bg-slate-100 text-slate-700"
+                    className={`inline-flex h-10 items-center gap-2 border-b-2 px-3 text-xs font-semibold transition-colors ${
+                      active ? "border-teal-500 text-slate-950" : "border-transparent text-slate-600 hover:border-teal-300 hover:text-slate-950"
                     }`}
                     aria-current={active ? "page" : undefined}
                   >
@@ -158,6 +159,13 @@ export function SiteShell({ children, hash }: SiteShellProps) {
               <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300">
                 {company.publicProfile} Đội ngũ vận hành tại TP. Hồ Chí Minh.
               </p>
+              <div className="mt-4 flex max-w-xl items-start gap-3 rounded-lg border border-white/10 bg-white/[0.05] p-3">
+                <FileText className="mt-0.5 h-4 w-4 shrink-0 text-teal-200" aria-hidden="true" />
+                <div className="text-xs leading-5 text-slate-400">
+                  <p className="font-semibold text-slate-200">{company.legalName}</p>
+                  <p>Mã số thuế: {company.taxCode}</p>
+                </div>
+              </div>
             </div>
 
             <div>

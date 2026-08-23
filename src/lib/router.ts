@@ -1,18 +1,21 @@
 import type { RouteState } from "../types";
 
 export const routes = {
-  home: "#/",
-  people: "#/nhan-su",
-  employee: (id: string) => `#/nhan-su/${id}`,
-  activities: "#/hoat-dong",
-  news: "#/tin-tuc",
-  newsDetail: (id: string) => `#/tin-tuc/${id}`,
-  careers: "#/tuyen-dung",
-  careerDetail: (id: string) => `#/tuyen-dung/${id}`,
+  home: "/",
+  people: "/nhan-su",
+  employee: (id: string) => `/nhan-su/${id}`,
+  activities: "/hoat-dong",
+  news: "/tin-tuc",
+  newsDetail: (id: string) => `/tin-tuc/${id}`,
+  careers: "/tuyen-dung",
+  careerDetail: (id: string) => `/tuyen-dung/${id}`,
 };
 
-export function parseHash(hash: string): RouteState {
-  const normalized = hash.replace(/^#\/?/, "");
+export function parsePath(pathname: string): RouteState {
+  const normalized = pathname
+    .replace(/^#?\/?/, "")
+    .replace(/[?#].*$/, "")
+    .replace(/\/$/, "");
 
   if (normalized.startsWith("nhan-su/")) {
     return {
@@ -51,6 +54,6 @@ export function parseHash(hash: string): RouteState {
   return { page: "home" };
 }
 
-export function isActiveRoute(hash: string, page: RouteState["page"]) {
-  return parseHash(hash).page === page;
+export function isActiveRoute(pathname: string, page: RouteState["page"]) {
+  return parsePath(pathname).page === page;
 }

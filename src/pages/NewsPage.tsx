@@ -25,10 +25,10 @@ export function NewsPage() {
         title="Thông tin mới, vừa đủ để bạn luôn bắt kịp."
         description="Thông báo công ty, hoạt động nội bộ và những cập nhật đáng chú ý từ Sonic Group."
         aside={
-          <div className="rounded-lg border border-white/10 bg-white/[0.07] p-5 backdrop-blur">
-            <BellRing className="h-5 w-5 text-teal-300" aria-hidden="true" />
-            <p className="mt-4 text-sm font-semibold text-white">Cập nhật mới nhất</p>
-            <p className="mt-2 text-sm leading-6 text-slate-300">
+          <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+            <BellRing className="h-5 w-5 text-teal-700" aria-hidden="true" />
+            <p className="mt-4 text-sm font-semibold text-slate-950">Cập nhật mới nhất</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
               {newsPosts.length} thông báo đang được hiển thị theo thứ tự mới nhất.
             </p>
           </div>

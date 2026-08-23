@@ -25,17 +25,11 @@ export function SectionHeader({
               <Icon className="h-4 w-4" aria-hidden="true" />
             </span>
           ) : null}
-          {eyebrow ? (
-            <p className="text-xs font-semibold uppercase text-teal-700">
-              {eyebrow}
-            </p>
-          ) : null}
+          {eyebrow ? <p className="text-xs font-semibold uppercase text-teal-700">{eyebrow}</p> : null}
         </div>
       ) : null}
       <h2 className="mt-3 font-display text-2xl font-semibold text-slate-950 sm:text-3xl">{title}</h2>
-      {description ? (
-        <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">{description}</p>
-      ) : null}
+      {description ? <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">{description}</p> : null}
     </div>
   );
 }

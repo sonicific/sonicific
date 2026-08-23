@@ -34,29 +34,29 @@ export function CareerDetailPage({ jobId }: CareerDetailPageProps) {
 
   return (
     <>
-      <header className="relative isolate overflow-hidden bg-slate-950 py-12 text-white sm:py-16">
-        <div className="sonic-grid absolute inset-0 opacity-35" />
+      <header className="relative isolate overflow-hidden border-b border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#f0fdfa_58%,#eef2ff_100%)] py-12 text-slate-950 sm:py-16">
+        <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-teal-100/70 blur-3xl" />
         <Reveal className="relative mx-auto max-w-5xl px-4 sm:px-6">
-          <ButtonLink href={routes.careers} icon={ArrowLeft} variant="ghost">
+          <ButtonLink href={routes.careers} icon={ArrowLeft} variant="light">
             Tất cả vị trí
           </ButtonLink>
-          <p className="mt-8 text-xs font-semibold uppercase text-teal-300">
+          <p className="mt-8 text-xs font-semibold uppercase text-teal-700">
             {job.department}
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl">
             {job.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">{job.excerpt}</p>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">{job.excerpt}</p>
           <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/15">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-slate-700 ring-1 ring-slate-200">
               <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
               {job.location}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/15">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-slate-700 ring-1 ring-slate-200">
               <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
               Hạn nộp {formatDate(job.deadline)}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/15">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-slate-700 ring-1 ring-slate-200">
               <WalletCards className="h-3.5 w-3.5" aria-hidden="true" />
               {job.salary}
             </span>

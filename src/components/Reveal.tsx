@@ -4,7 +4,7 @@ interface RevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  variant?: "up" | "left" | "right" | "scale" | "blur" | "lift";
+  variant?: "up" | "left" | "right" | "scale" | "blur" | "lift" | "pop" | "clip" | "flip";
 }
 
 export function Reveal({
@@ -30,7 +30,7 @@ export function Reveal({
           observer.unobserve(entry.target);
         }
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.16 },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
     );
 
     observer.observe(element);
