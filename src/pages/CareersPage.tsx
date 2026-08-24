@@ -14,7 +14,7 @@ import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { SelectPopover } from "../components/SelectPopover";
 import { amenities, company } from "../data/company";
-import { jobDepartments, jobPostings } from "../data/jobs";
+import { jobDepartments, openJobPostings } from "../data/jobs";
 
 const culturePoints = [
   {
@@ -50,7 +50,7 @@ export function CareersPage() {
   const [department, setDepartment] = useState(allDepartments);
   const visibleJobs = useMemo(
     () =>
-      jobPostings.filter(
+      openJobPostings.filter(
         (job) => department === allDepartments || job.department === department,
       ),
     [department],
@@ -68,7 +68,7 @@ export function CareersPage() {
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
               <p className="text-3xl font-semibold text-slate-950">
-                {jobPostings.length}
+                {openJobPostings.length}
               </p>
               <p className="mt-1 text-xs font-medium text-slate-600">
                 Vị trí đang mở

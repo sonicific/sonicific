@@ -5,6 +5,7 @@ export const routes = {
   people: "/people",
   employee: (id: string) => `/people/${id}`,
   activities: "/activities",
+  activityDetail: (id: string) => `/activities/${id}`,
   news: "/news",
   newsDetail: (id: string) => `/news/${id}`,
   careers: "/careers",
@@ -26,6 +27,13 @@ export function parsePath(pathname: string): RouteState {
 
   if (normalized === "people") {
     return { page: "people" };
+  }
+
+  if (normalized.startsWith("activities/")) {
+    return {
+      page: "activity-detail",
+      activityId: normalized.replace("activities/", ""),
+    };
   }
 
   if (normalized === "activities") {

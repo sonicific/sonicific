@@ -1,17 +1,22 @@
-import { Camera, Image, Images, Sparkles } from "lucide-react";
+import { ArrowUpRight, Camera, Image, Images, Sparkles } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
-import activitiesJson from "../data/activities.json";
-import type { Activity } from "../types";
-
-const activities = activitiesJson as Activity[];
+import { activities } from "../data/activities";
+import { routes } from "../lib/router";
 
 const activityTones = [
   "bg-rose-50 text-rose-700 ring-rose-100",
   "bg-amber-50 text-amber-700 ring-amber-100",
   "bg-indigo-50 text-indigo-700 ring-indigo-100",
   "bg-teal-50 text-teal-700 ring-teal-100",
+];
+
+const activityLayouts = [
+  "md:col-span-2 md:row-span-2",
+  "md:col-span-2",
+  "md:col-span-1",
+  "md:col-span-1",
 ];
 
 export function ActivitiesPage() {
@@ -51,46 +56,55 @@ export function ActivitiesPage() {
               title="Những khoảnh khắc đang diễn ra tại Sonic."
               description="Ảnh workshop, ngày vận hành và các buổi kickoff được gom lại để người xem nắm nhanh không khí đội ngũ."
             />
-            <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2 text-xs font-semibold text-teal-800 ring-1 ring-teal-100">
+            <div className="inline-flex items-center whitespace-nowrap gap-2 rounded-full bg-teal-50 px-4 py-2 text-xs font-semibold text-teal-800 ring-1 ring-teal-100">
               <Camera className="h-3.5 w-3.5" aria-hidden="true" />
-              {activities.length} album ảnh
+              <span>{activities.length} album ảnh</span>
             </div>
           </Reveal>
 
-          <div className="mt-8 grid auto-rows-[240px] gap-4 md:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-4">
             {activities.map((activity, index) => {
               const tone = activityTones[index % activityTones.length];
+
               return (
                 <Reveal
                   key={activity.id}
                   delay={index * 90}
                   variant="scale"
-                  className={index === 0 ? "md:col-span-2 md:row-span-2" : ""}
+                  className="h-[220px]"
                 >
-                  <article className="motion-card group relative h-full overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow-sm">
+                  <a
+                    href={routes.activityDetail(activity.id)}
+                    className="motion-card group relative block h-full overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+                    aria-label={`Mở album ${activity.title}`}
+                  >
                     <img
                       src={activity.image}
                       alt={activity.title}
                       className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
                     />
+
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/82 via-slate-950/15 to-transparent" />
+
+                    <span className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-white/15 text-white ring-1 ring-white/30 backdrop-blur transition group-hover:bg-white group-hover:text-slate-950">
+                      <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    </span>
+
                     <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                      <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold ring-1 ${tone}`}>
+                      <span
+                        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold ring-1 ${tone}`}
+                      >
                         <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-                        {activity.category}
-                      </span>
-                      <h2 className="mt-3 font-display text-xl font-semibold text-white">
                         {activity.title}
-                      </h2>
+                      </span>
                     </div>
-                  </article>
+                  </a>
                 </Reveal>
               );
             })}
           </div>
         </div>
       </section>
-
     </>
   );
 }

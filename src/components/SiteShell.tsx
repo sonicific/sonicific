@@ -66,6 +66,10 @@ function isNavigationActive(
     return pathname.startsWith(routes.careers);
   }
 
+  if (page === "activities") {
+    return pathname.startsWith(routes.activities);
+  }
+
   return isActiveRoute(pathname, page);
 }
 
@@ -87,10 +91,15 @@ export function SiteShell({ children, pathname }: SiteShellProps) {
             className="flex items-center gap-2.5"
             aria-label="Sonic Group - Trang chủ"
           >
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-xs font-bold text-white shadow-sm">
+            {/* <span className="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-xs font-bold text-white shadow-sm">
               SG
-            </span>
-            <span className="font-display text-sm font-semibold text-slate-950">
+            </span> */}
+            <img
+              src="/icons/light.png"
+              alt={company.name}
+              className="h-9 w-9 rounded-lg"
+            />
+            <span className="font-display text-base drop-shadow-md font-semibold text-slate-950">
               {company.name}
             </span>
           </a>
@@ -108,7 +117,7 @@ export function SiteShell({ children, pathname }: SiteShellProps) {
                   <a
                     key={item.href}
                     href={item.href}
-                    className={`group relative inline-flex h-10 items-center gap-1.5 px-3 text-xs font-semibold transition-colors after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:origin-left after:rounded-full after:bg-teal-500 after:transition-transform after:duration-300 ${
+                    className={`group relative inline-flex h-8 items-center gap-1.5 px-3 text-xs font-semibold transition-colors after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:origin-left after:rounded-full after:bg-teal-500 after:transition-transform after:duration-300 ${
                       active
                         ? "text-slate-950 after:scale-x-100"
                         : "text-slate-600 after:scale-x-0 hover:text-slate-950 hover:after:scale-x-100"
@@ -178,9 +187,11 @@ export function SiteShell({ children, pathname }: SiteShellProps) {
           <div className="grid gap-8 md:grid-cols-[1.2fr_0.7fr_0.8fr]">
             <div>
               <div className="flex w-fit max-w-xl items-start gap-3 rounded-lg border border-white/10 bg-white/[0.05] p-3">
-                <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-sm font-bold text-slate-950">
-                  SG
-                </span>
+                <img
+                  src="/icons/dark.png"
+                  alt={company.legalName}
+                  className="h-10 w-10 rounded-lg"
+                />
                 <div className="text-xs leading-5 text-slate-400">
                   <p className="font-semibold text-slate-200">
                     {company.legalName}

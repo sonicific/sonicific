@@ -1,58 +1,62 @@
 [
   {
-    "id": "livestream-training",
-    "title": "Livestream Commerce Lab",
-    "date": "2025-11-12",
-    "category": "Livestream & Social",
+    "id": "team-building-2025",
+    "title": "Team Building 2025",
+    "date": "2026-02-11",
     "location": "Chi nhánh Lê Trọng Tấn",
-    "image": "/assets/activities/livestream-training.png",
-    "summary": "Buổi thực hành xây dựng kịch bản live, điều phối host, setup ánh sáng và đo hiệu suất tương tác theo từng phiên.",
+    "image": "/assets/activities/team-building-2025/2.jpg",
+    "images": [
+      "/assets/activities/team-building-2025/1.jpg",
+      "/assets/activities/team-building-2025/2.jpg",
+      "/assets/activities/team-building-2025/3.jpg",
+      "/assets/activities/team-building-2025/4.jpg",
+      "/assets/activities/team-building-2025/5.jpg",
+      "/assets/activities/team-building-2025/6.jpg",
+      "/assets/activities/team-building-2025/7.jpg",
+      "/assets/activities/team-building-2025/8.jpg",
+      "/assets/activities/team-building-2025/9.jpg",
+      "/assets/activities/team-building-2025/10.jpg",
+      "/assets/activities/team-building-2025/11.jpg",
+      "/assets/activities/team-building-2025/12.jpg",
+      "/assets/activities/team-building-2025/13.jpg"
+    ],
+    "summary": "Team Building 2025 là một sự kiện quan trọng nhằm tăng cường tinh thần đồng đội và sự gắn kết giữa các thành viên trong công ty. Sự kiện này không chỉ mang lại những trải nghiệm thú vị mà còn giúp mọi người hiểu rõ hơn về nhau, từ đó tạo ra một môi trường làm việc tích cực và hiệu quả hơn.",
     "highlights": [
-      "Chuẩn hóa run of show cho TikTok Shop",
-      "Thử nghiệm kịch bản chốt đơn trong 30 phút",
-      "Tổng hợp chỉ số retention và bình luận sau phiên"
+      "Các hoạt động nhóm đa dạng và sáng tạo giúp tăng cường sự hợp tác và giao tiếp giữa các thành viên.",
+      "Các trò chơi và thử thách được thiết kế để khuyến khích sự sáng tạo và khả năng giải quyết vấn đề của từng cá nhân.",
+      "Các buổi thảo luận và chia sẻ kinh nghiệm giúp mọi người học hỏi lẫn nhau và phát triển kỹ năng cá nhân.",
+      "Các hoạt động ngoài trời giúp mọi người thư giãn và tận hưởng không gian tự nhiên, từ đó tạo ra một môi trường làm việc tích cực và hiệu quả hơn."
     ]
   },
   {
-    "id": "ecommerce-ops-day",
-    "title": "E-commerce Operations Day",
-    "date": "2025-11-18",
-    "category": "E-commerce",
+    "id": "khen-thuong-cuoi-nam-2025",
+    "title": "Khen Thưởng Cuối Năm 2025",
+    "date": "2026-01-15",
     "location": "Chi nhánh Tôn Thất Tùng",
-    "image": "/assets/activities/ecommerce-ops.png",
-    "summary": "Ngày tối ưu quy trình listing, research sản phẩm, chuẩn bị đơn và checklist vận hành cho Shopify, Etsy, TikTok Shop.",
+    "image": "/assets/activities/khen-thuong-cuoi-nam-2025/1.jpg",
+    "images": [
+      "/assets/activities/khen-thuong-cuoi-nam-2025/1.jpg",
+      "/assets/activities/khen-thuong-cuoi-nam-2025/2.jpg",
+      "/assets/activities/khen-thuong-cuoi-nam-2025/3.jpg"
+    ],
+    "summary": "Khen Thưởng Cuối Năm 2025 là một sự kiện quan trọng nhằm tôn vinh những thành tích xuất sắc của các nhân viên trong công ty. Sự kiện này không chỉ là dịp để mọi người nhìn lại những nỗ lực và đóng góp của mình trong năm qua mà còn là cơ hội để tạo động lực và khích lệ tinh thần làm việc cho năm mới.",
     "highlights": [
-      "Cập nhật template listing cho nhiều kênh",
-      "Rà soát luồng xử lý đơn hàng và phản hồi khách",
-      "Tách bộ tiêu chí chọn sản phẩm thử nghiệm"
+      "Các giải thưởng được trao cho những cá nhân và nhóm có thành tích xuất sắc trong năm qua, từ đó tạo động lực và khích lệ tinh thần làm việc cho năm mới.",
+      "Các buổi thảo luận và chia sẻ kinh nghiệm giúp mọi người học hỏi lẫn nhau và phát triển kỹ năng cá nhân.",
+      "Các hoạt động giải trí và giao lưu giúp mọi người thư giãn và tận hưởng không gian vui vẻ, từ đó tạo ra một môi trường làm việc tích cực và hiệu quả hơn."
     ]
   },
   {
-    "id": "automation-ai-workshop",
-    "title": "Automation & AI Workshop",
-    "date": "2025-11-25",
-    "category": "Kĩ thuật",
+    "id": "year-end-party-2025",
+    "title": "Year End Party 2025",
+    "date": "2026-01-20",
     "location": "Chi nhánh Lê Trọng Tấn",
-    "image": "/assets/activities/automation-ai.png",
-    "summary": "Workshop nội bộ về cách biến thao tác lặp lại thành workflow tự động, kết hợp dashboard, phân quyền và trợ lý AI.",
+    "image": "/assets/activities/year-end-party-2025/1.jpg",
+    "images": ["/assets/activities/year-end-party-2025/1.jpg"],
+    "summary": "Year End Party 2025 là một sự kiện quan trọng nhằm tổng kết những thành tựu và kỷ niệm trong năm qua. Sự kiện này không chỉ là dịp để mọi người nhìn lại những nỗ lực và đóng góp của mình mà còn là cơ hội để tạo động lực và khích lệ tinh thần làm việc cho năm mới.",
     "highlights": [
-      "Xác định các bước có thể tự động hóa trong vận hành MMO",
-      "Thiết kế dashboard theo nhu cầu từng phòng ban",
-      "Đưa AI vào phân loại nội dung và cảnh báo dữ liệu"
-    ]
-  },
-  {
-    "id": "sonic-kickoff",
-    "title": "Sonic Group Kickoff",
-    "date": "2025-10-20",
-    "category": "Văn hóa công ty",
-    "location": "Hai chi nhánh TP. Hồ Chí Minh",
-    "image": "/assets/sonic-hero.png",
-    "summary": "Ngày khởi động công ty, thống nhất định hướng media, MMO, thương mại điện tử, affiliate và phát triển tool automation.",
-    "highlights": [
-      "Công bố cơ cấu ban điều hành và 7 trưởng phòng",
-      "Chia nhóm mục tiêu theo media, commerce, sales và kỹ thuật",
-      "Thống nhất lịch làm việc 8:00 - 17:30 từ thứ 2 đến thứ 7"
+      "Các buổi thảo luận và chia sẻ kinh nghiệm giúp mọi người học hỏi lẫn nhau và phát triển kỹ năng cá nhân.",
+      "Các hoạt động giải trí và giao lưu giúp mọi người thư giãn và tận hưởng không gian vui vẻ, từ đó tạo ra một môi trường làm việc tích cực và hiệu quả hơn."
     ]
   }
 ]

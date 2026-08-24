@@ -25,6 +25,7 @@ export interface Activity {
   category: string;
   location: string;
   image: string;
+  images: string[];
   summary: string;
   highlights: string[];
 }
@@ -38,8 +39,13 @@ export interface NewsPost {
   image: string;
   readingMinutes: number;
   featured?: boolean;
-  content: string[];
+  sections: NewsSection[];
   highlights?: string[];
+}
+
+export interface NewsSection {
+  title: string;
+  paragraphs: string[];
 }
 
 export interface JobPosting {
@@ -63,11 +69,13 @@ export interface RouteState {
     | "people"
     | "employee"
     | "activities"
+    | "activity-detail"
     | "news"
     | "news-detail"
     | "careers"
     | "career-detail";
   employeeId?: string;
+  activityId?: string;
   newsId?: string;
   jobId?: string;
 }

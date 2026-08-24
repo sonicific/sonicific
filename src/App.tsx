@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { SiteShell } from "./components/SiteShell";
 import { parsePath } from "./lib/router";
 import { applySeoMetadata } from "./lib/seo";
+import { ActivityDetailPage } from "./pages/ActivityDetailPage";
 import { ActivitiesPage } from "./pages/ActivitiesPage";
 import { CareerDetailPage } from "./pages/CareerDetailPage";
 import { CareersPage } from "./pages/CareersPage";
@@ -70,7 +71,14 @@ export default function App() {
 
   useEffect(() => {
     applySeoMetadata(route);
-  }, [pathname, route.page, route.employeeId, route.jobId, route.newsId]);
+  }, [
+    pathname,
+    route.page,
+    route.activityId,
+    route.employeeId,
+    route.jobId,
+    route.newsId,
+  ]);
 
   return (
     <SiteShell pathname={pathname}>
@@ -80,6 +88,9 @@ export default function App() {
         <EmployeeDetailPage employeeId={route.employeeId} />
       ) : null}
       {route.page === "activities" ? <ActivitiesPage /> : null}
+      {route.page === "activity-detail" ? (
+        <ActivityDetailPage activityId={route.activityId} />
+      ) : null}
       {route.page === "news" ? <NewsPage /> : null}
       {route.page === "news-detail" ? (
         <NewsDetailPage newsId={route.newsId} />

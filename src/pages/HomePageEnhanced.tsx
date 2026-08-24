@@ -25,7 +25,7 @@ import { NewsCard } from "../components/NewsCard";
 import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { company, departments, faqs } from "../data/company";
-import { jobPostings } from "../data/jobs";
+import { openJobPostings } from "../data/jobs";
 import { serviceHighlights } from "../data/landing";
 import { newsPosts } from "../data/news";
 import { routes } from "../lib/router";
@@ -389,12 +389,12 @@ export function HomePageEnhanced() {
                 icon={ArrowRight}
                 variant="dark"
               >
-                Xem {jobPostings.length} vị trí đang mở
+                Xem {openJobPostings.length} vị trí đang mở
               </ButtonLink>
             </div>
           </Reveal>
           <div className="grid gap-4 md:grid-cols-2">
-            {jobPostings.slice(0, 2).map((job, index) => (
+            {openJobPostings.slice(0, 2).map((job, index) => (
               <Reveal
                 key={job.id}
                 delay={index * 100}

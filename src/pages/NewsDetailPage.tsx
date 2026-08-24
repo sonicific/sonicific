@@ -1,4 +1,15 @@
-import { ArrowLeft, CalendarDays, CheckCircle2, Clock3 } from "lucide-react";
+import {
+  ArrowLeft,
+  BellRing,
+  CalendarDays,
+  CheckCircle2,
+  ClipboardList,
+  Clock3,
+  FileText,
+  Newspaper,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 import { ButtonLink } from "../components/ButtonLink";
 import { NewsCard } from "../components/NewsCard";
 import { Reveal } from "../components/Reveal";
@@ -9,6 +20,8 @@ import { routes } from "../lib/router";
 interface NewsDetailPageProps {
   newsId?: string;
 }
+
+const newsSectionIcons = [FileText, ClipboardList, BellRing];
 
 export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
   const post = newsPosts.find((item) => item.id === newsId);
@@ -72,26 +85,44 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
           variant="scale"
           className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10"
         >
-          <img
-            src={post.image}
-            alt={post.title}
-            className="aspect-[16/9] w-full rounded-lg object-cover shadow-soft"
-          />
+          <div className="relative overflow-hidden rounded-lg shadow-soft">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="h-52 w-full object-cover sm:h-64 lg:h-72"
+            />
+            <div
+              className="news-image-bottom-mask pointer-events-none absolute inset-x-0 bottom-0 h-24"
+              aria-hidden="true"
+            />
+          </div>
         </Reveal>
 
-        <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_18rem] lg:py-16">
-          <Reveal className="space-y-5 text-base leading-8 text-slate-700">
-            {post.content.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+        <div
+          className={`mx-auto max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:py-16 ${
+            post.highlights ? "grid lg:grid-cols-[1fr_18rem]" : ""
+          }`}
+        >
+          <div className="grid gap-10">
+            {post.sections.map((section, index) => (
+              <ArticleSection
+                key={section.title}
+                title={section.title}
+                paragraphs={section.paragraphs}
+                icon={newsSectionIcons[index % newsSectionIcons.length]}
+              />
             ))}
-          </Reveal>
+          </div>
 
           {post.highlights ? (
             <Reveal variant="right">
               <aside className="rounded-lg border border-teal-100 bg-teal-50 p-5">
-                <p className="text-xs font-semibold uppercase text-teal-800">
-                  Điểm đáng chú ý
-                </p>
+                <div className="flex items-center gap-2 text-teal-800">
+                  <Sparkles className="h-4 w-4" aria-hidden="true" />
+                  <p className="text-xs font-semibold uppercase">
+                    Điểm đáng chú ý
+                  </p>
+                </div>
                 <div className="mt-4 grid gap-3">
                   {post.highlights.map((highlight) => (
                     <div
@@ -114,9 +145,14 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
 
       <section className="border-t border-slate-200 bg-stone-50 py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-semibold text-slate-950">
-            Tin mới khác
-          </h2>
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-lg bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+              <Newspaper className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <h2 className="font-display text-2xl font-semibold text-slate-950">
+              Tin mới khác
+            </h2>
+          </div>
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             {relatedPosts.map((item, index) => (
               <Reveal key={item.id} delay={index * 100} variant="scale">
@@ -127,5 +163,35 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
         </div>
       </section>
     </>
+  );
+}
+
+interface ArticleSectionProps {
+  title: string;
+  paragraphs: string[];
+  icon: LucideIcon;
+}
+
+function ArticleSection({
+  title,
+  paragraphs,
+  icon: Icon,
+}: ArticleSectionProps) {
+  return (
+    <Reveal>
+      <div className="flex items-center gap-3">
+        <span className="grid h-10 w-10 place-items-center rounded-lg bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+          <Icon className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <h2 className="font-display text-2xl font-semibold text-slate-950">
+          {title}
+        </h2>
+      </div>
+      <div className="mt-5 space-y-5 text-base leading-8 text-slate-700">
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
+    </Reveal>
   );
 }

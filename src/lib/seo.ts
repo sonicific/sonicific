@@ -1,4 +1,5 @@
 import employeesJson from "../data/employees.json";
+import { activities } from "../data/activities";
 import { company } from "../data/company";
 import { jobPostings } from "../data/jobs";
 import { newsPosts } from "../data/news";
@@ -13,7 +14,13 @@ interface SeoEntry {
   type?: "website" | "article" | "profile";
 }
 
-const pageSeo: Record<Exclude<RouteState["page"], "news-detail" | "career-detail" | "employee">, SeoEntry> = {
+const pageSeo: Record<
+  Exclude<
+    RouteState["page"],
+    "news-detail" | "career-detail" | "employee" | "activity-detail"
+  >,
+  SeoEntry
+> = {
   home: {
     title: "Sonic Group | Media, E-commerce & Automation tại TP.HCM",
     description:
@@ -43,6 +50,19 @@ const pageSeo: Record<Exclude<RouteState["page"], "news-detail" | "career-detail
 };
 
 function getSeoEntry(route: RouteState): SeoEntry {
+  if (route.page === "activity-detail") {
+    const activity = activities.find((item) => item.id === route.activityId);
+
+    return activity
+      ? {
+          title: `${activity.title} | Hoạt động Sonic Group`,
+          description: activity.summary,
+          image: activity.image,
+          type: "article",
+        }
+      : pageSeo.activities;
+  }
+
   if (route.page === "news-detail") {
     const post = newsPosts.find((item) => item.id === route.newsId);
 

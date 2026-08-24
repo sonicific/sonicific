@@ -280,6 +280,17 @@ summary::-webkit-details-marker {
   box-shadow: 0 18px 48px rgba(15, 23, 42, 0.14);
 }
 
+.news-image-bottom-mask {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.72) 48%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(3px);
+  mask-image: linear-gradient(to top, black 0%, black 45%, transparent 100%);
+}
+
 @keyframes sonic-grid-drift {
   from {
     background-position: 0 0;
