@@ -4,6 +4,7 @@ import {
   BriefcaseBusiness,
   Home,
   Mail,
+  MapPin,
   Menu,
   Newspaper,
   Phone,
@@ -54,15 +55,15 @@ function isNavigationActive(
   page: (typeof navigation)[number]["page"],
 ) {
   if (page === "people") {
-    return pathname.startsWith("/nhan-su");
+    return pathname.startsWith(routes.people);
   }
 
   if (page === "news") {
-    return pathname.startsWith("/tin-tuc");
+    return pathname.startsWith(routes.news);
   }
 
   if (page === "careers") {
-    return pathname.startsWith("/tuyen-dung");
+    return pathname.startsWith(routes.careers);
   }
 
   return isActiveRoute(pathname, page);
@@ -176,7 +177,7 @@ export function SiteShell({ children, pathname }: SiteShellProps) {
         <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-[1.2fr_0.7fr_0.8fr]">
             <div>
-              <div className="mt-4 flex w-fit max-w-xl items-start gap-3 rounded-lg border border-white/10 bg-white/[0.05] p-3">
+              <div className="flex w-fit max-w-xl items-start gap-3 rounded-lg border border-white/10 bg-white/[0.05] p-3">
                 <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-sm font-bold text-slate-950">
                   SG
                 </span>
@@ -186,6 +187,23 @@ export function SiteShell({ children, pathname }: SiteShellProps) {
                   </p>
                   <p>Mã số thuế: {company.taxCode}</p>
                 </div>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                {company.branches.map((branch) => (
+                  <a
+                    key={branch.name}
+                    href={branch.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 transition hover:text-teal-200"
+                  >
+                    <MapPin
+                      className="h-3.5 w-3.5 text-teal-300"
+                      aria-hidden="true"
+                    />
+                    Bản đồ {branch.name}
+                  </a>
+                ))}
               </div>
               <p className="mt-5 text-xs text-slate-500">
                 ©{company.name}, 2026. Built for internal clarity & public

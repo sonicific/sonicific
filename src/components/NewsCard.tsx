@@ -78,14 +78,6 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
 }
 
 function getNewsTone(category: string) {
-  if (category === "Tuyển dụng") {
-    return {
-      badge: "bg-amber-50/95 text-amber-800 ring-1 ring-amber-100",
-      icon: "bg-amber-50 text-amber-700 ring-amber-100",
-      text: "text-amber-700",
-    };
-  }
-
   if (category === "Công nghệ") {
     return {
       badge: "bg-indigo-50/95 text-indigo-800 ring-1 ring-indigo-100",

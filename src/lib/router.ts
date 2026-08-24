@@ -2,13 +2,13 @@ import type { RouteState } from "../types";
 
 export const routes = {
   home: "/",
-  people: "/nhan-su",
-  employee: (id: string) => `/nhan-su/${id}`,
-  activities: "/hoat-dong",
-  news: "/tin-tuc",
-  newsDetail: (id: string) => `/tin-tuc/${id}`,
-  careers: "/tuyen-dung",
-  careerDetail: (id: string) => `/tuyen-dung/${id}`,
+  people: "/people",
+  employee: (id: string) => `/people/${id}`,
+  activities: "/activities",
+  news: "/news",
+  newsDetail: (id: string) => `/news/${id}`,
+  careers: "/careers",
+  careerDetail: (id: string) => `/careers/${id}`,
 };
 
 export function parsePath(pathname: string): RouteState {
@@ -17,37 +17,37 @@ export function parsePath(pathname: string): RouteState {
     .replace(/[?#].*$/, "")
     .replace(/\/$/, "");
 
-  if (normalized.startsWith("nhan-su/")) {
+  if (normalized.startsWith("people/")) {
     return {
       page: "employee",
-      employeeId: normalized.replace("nhan-su/", ""),
+      employeeId: normalized.replace("people/", ""),
     };
   }
 
-  if (normalized === "nhan-su") {
+  if (normalized === "people") {
     return { page: "people" };
   }
 
-  if (normalized === "hoat-dong") {
+  if (normalized === "activities") {
     return { page: "activities" };
   }
 
-  if (normalized.startsWith("tin-tuc/")) {
-    return { page: "news-detail", newsId: normalized.replace("tin-tuc/", "") };
+  if (normalized.startsWith("news/")) {
+    return { page: "news-detail", newsId: normalized.replace("news/", "") };
   }
 
-  if (normalized === "tin-tuc") {
+  if (normalized === "news") {
     return { page: "news" };
   }
 
-  if (normalized.startsWith("tuyen-dung/")) {
+  if (normalized.startsWith("careers/")) {
     return {
       page: "career-detail",
-      jobId: normalized.replace("tuyen-dung/", ""),
+      jobId: normalized.replace("careers/", ""),
     };
   }
 
-  if (normalized === "tuyen-dung") {
+  if (normalized === "careers") {
     return { page: "careers" };
   }
 

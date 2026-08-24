@@ -165,6 +165,7 @@ export function HomePage() {
                   key={department.name}
                   className="rounded-lg border border-slate-200 bg-stone-50 p-4"
                 >
+                  {" "}
                   <Icon className="h-5 w-5 text-teal-700" aria-hidden="true" />
                   <h3 className="mt-4 text-sm font-semibold text-slate-950">
                     {department.name}

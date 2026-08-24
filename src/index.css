@@ -261,6 +261,11 @@ summary::-webkit-details-marker {
   clip-path: inset(0 0 0 0 round 0);
 }
 
+.reveal-motion.is-visible.reveal-overflow-visible {
+  overflow: visible;
+  clip-path: none;
+}
+
 .motion-card {
   transition:
     transform 220ms ease,

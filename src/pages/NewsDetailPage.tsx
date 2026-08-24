@@ -17,12 +17,16 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
     return (
       <section className="bg-stone-50 py-24">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
-          <p className="text-sm font-semibold text-teal-700">Không tìm thấy tin</p>
+          <p className="text-sm font-semibold text-teal-700">
+            Không tìm thấy tin
+          </p>
           <h1 className="mt-3 font-display text-3xl font-semibold text-slate-950">
             Bài viết này chưa tồn tại
           </h1>
           <div className="mt-6 flex justify-center">
-            <ButtonLink href={routes.news} icon={ArrowLeft}>Về trang tin tức</ButtonLink>
+            <ButtonLink href={routes.news} icon={ArrowLeft}>
+              Về trang tin tức
+            </ButtonLink>
           </div>
         </div>
       </section>
@@ -38,7 +42,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
       <article className="bg-white">
         <header className="relative isolate overflow-hidden border-b border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#f0fdfa_58%,#eef2ff_100%)] py-10 text-slate-950 sm:py-14">
           <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-teal-100/70 blur-3xl" />
-          <Reveal className="mx-auto max-w-4xl px-4 sm:px-6">
+          <Reveal className="mx-auto max-w-6xl px-4 sm:px-6">
             <ButtonLink href={routes.news} icon={ArrowLeft} variant="light">
               Tất cả tin tức
             </ButtonLink>
@@ -64,11 +68,14 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
           </Reveal>
         </header>
 
-        <Reveal variant="scale" className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10">
+        <Reveal
+          variant="scale"
+          className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10"
+        >
           <img
             src={post.image}
             alt={post.title}
-            className="aspect-[16/7] w-full rounded-lg object-cover shadow-soft"
+            className="aspect-[16/9] w-full rounded-lg object-cover shadow-soft"
           />
         </Reveal>
 
@@ -87,8 +94,14 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
                 </p>
                 <div className="mt-4 grid gap-3">
                   {post.highlights.map((highlight) => (
-                    <div key={highlight} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
-                      <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-teal-600" aria-hidden="true" />
+                    <div
+                      key={highlight}
+                      className="flex items-start gap-2 text-sm leading-6 text-slate-700"
+                    >
+                      <CheckCircle2
+                        className="mt-1 h-4 w-4 shrink-0 text-teal-600"
+                        aria-hidden="true"
+                      />
                       <span>{highlight}</span>
                     </div>
                   ))}
@@ -101,7 +114,9 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
 
       <section className="border-t border-slate-200 bg-stone-50 py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-semibold text-slate-950">Tin mới khác</h2>
+          <h2 className="font-display text-2xl font-semibold text-slate-950">
+            Tin mới khác
+          </h2>
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             {relatedPosts.map((item, index) => (
               <Reveal key={item.id} delay={index * 100} variant="scale">

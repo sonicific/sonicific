@@ -1,8 +1,19 @@
-import { Filter, Search, Users } from "lucide-react";
+import {
+  ArrowUpDown,
+  BriefcaseBusiness,
+  Building2,
+  ListFilter,
+  Search,
+  Users,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 import { EmployeeCard } from "../components/EmployeeCard";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
+import {
+  SelectPopover,
+  type SelectOption,
+} from "../components/SelectPopover";
 import employeesJson from "../data/employees.json";
 import type { Department, Employee } from "../types";
 
@@ -17,25 +28,80 @@ const departmentOrder: Department[] = [
   "Human & Resources",
 ];
 
+const allOption = "Tất cả";
+const collator = new Intl.Collator("vi", { sensitivity: "base" });
+const positionOptions: SelectOption<string>[] = [
+  { label: allOption, value: allOption },
+  ...Array.from(new Set(employees.map((employee) => employee.position)))
+    .sort(collator.compare)
+    .map((position) => ({ label: position, value: position })),
+];
+const branchOptions: SelectOption<string>[] = [
+  { label: allOption, value: allOption },
+  ...Array.from(new Set(employees.map((employee) => employee.location)))
+    .sort(collator.compare)
+    .map((location) => ({ label: location, value: location })),
+];
+const departmentOptions: SelectOption<string>[] = [
+  { label: allOption, value: allOption },
+  ...departmentOrder.map((department) => ({
+    label: department,
+    value: department,
+  })),
+];
+
+type SortMode = "name-asc" | "name-desc" | "joined-desc" | "joined-asc";
+
+const sortOptions: SelectOption<SortMode>[] = [
+  { label: "Tên A–Z", value: "name-asc" },
+  { label: "Tên Z–A", value: "name-desc" },
+  { label: "Gia nhập gần đây", value: "joined-desc" },
+  { label: "Gia nhập lâu nhất", value: "joined-asc" },
+];
+
 export function PeoplePage() {
   const [query, setQuery] = useState("");
-  const [department, setDepartment] = useState<Department | "Tất cả">("Tất cả");
+  const [position, setPosition] = useState(allOption);
+  const [branch, setBranch] = useState(allOption);
+  const [department, setDepartment] = useState(allOption);
+  const [sortMode, setSortMode] = useState<SortMode>("name-asc");
 
   const filteredEmployees = useMemo(() => {
     const search = query.trim().toLowerCase();
 
     return employees.filter((employee) => {
+      const matchPosition =
+        position === allOption || employee.position === position;
+      const matchBranch =
+        branch === allOption || employee.location === branch;
       const matchDepartment =
-        department === "Tất cả" || employee.department === department;
+        department === allOption || employee.department === department;
       const matchSearch =
         !search ||
         employee.name.toLowerCase().includes(search) ||
         employee.position.toLowerCase().includes(search) ||
-        employee.department.toLowerCase().includes(search);
+        employee.department.toLowerCase().includes(search) ||
+        employee.location.toLowerCase().includes(search);
 
-      return matchDepartment && matchSearch;
+      return (
+        matchPosition && matchBranch && matchDepartment && matchSearch
+      );
+    }).sort((first, second) => {
+      if (sortMode === "name-desc") {
+        return collator.compare(second.name, first.name);
+      }
+
+      if (sortMode === "joined-desc") {
+        return second.joinedAt.localeCompare(first.joinedAt);
+      }
+
+      if (sortMode === "joined-asc") {
+        return first.joinedAt.localeCompare(second.joinedAt);
+      }
+
+      return collator.compare(first.name, second.name);
     });
-  }, [department, query]);
+  }, [branch, department, position, query, sortMode]);
 
   const grouped = departmentOrder
     .map((departmentName) => ({
@@ -53,7 +119,7 @@ export function PeoplePage() {
         tone="dark"
         eyebrow="Đội ngũ"
         title="Những người tạo nên nhịp Sonic."
-        description="Tìm kiếm đồng đội theo tên, vai trò hoặc phòng ban."
+        description="Tìm kiếm đồng đội theo tên, chức vụ, chi nhánh hoặc phòng ban."
         aside={
           <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
             <div className="flex items-center justify-center gap-3">
@@ -75,43 +141,60 @@ export function PeoplePage() {
 
       <section className="bg-stone-50 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="grid gap-3 rounded-lg border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[1fr_auto]">
+          <Reveal className="reveal-overflow-visible relative z-20 grid gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[minmax(16rem,1fr)_auto] lg:items-center">
             <label className="flex h-9 items-center gap-2 rounded-full bg-slate-100 px-3 text-sm text-slate-600">
               <Search className="h-4 w-4 text-slate-400" aria-hidden="true" />
               <input
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Tìm theo tên, chức vụ, phòng ban"
+                placeholder="Tìm theo tên, chức vụ, phòng ban, chi nhánh"
                 className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-slate-400"
               />
             </label>
-            <div className="flex flex-wrap gap-2">
-              {["Tất cả", ...departmentOrder].map((departmentName) => {
-                const active = department === departmentName;
-
-                return (
-                  <button
-                    key={departmentName}
-                    type="button"
-                    onClick={() =>
-                      setDepartment(departmentName as Department | "Tất cả")
-                    }
-                    className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-xs font-semibold transition ${
-                      active
-                        ? "bg-slate-950 text-white"
-                        : "bg-slate-100 text-slate-600 hover:bg-teal-50 hover:text-teal-700"
-                    }`}
-                  >
-                    <Filter className="h-3.5 w-3.5" aria-hidden="true" />
-                    {departmentName}
-                  </button>
-                );
-              })}
+            <div className="flex flex-wrap gap-2" aria-label="Bộ lọc đội ngũ">
+              <SelectPopover
+                label="Chức vụ"
+                value={position}
+                options={positionOptions}
+                onValueChange={setPosition}
+                icon={BriefcaseBusiness}
+                allValue={allOption}
+              />
+              <SelectPopover
+                label="Chi nhánh"
+                value={branch}
+                options={branchOptions}
+                onValueChange={setBranch}
+                icon={Building2}
+                allValue={allOption}
+              />
+              <SelectPopover
+                label="Phòng ban"
+                value={department}
+                options={departmentOptions}
+                onValueChange={setDepartment}
+                icon={ListFilter}
+                allValue={allOption}
+              />
+              <SelectPopover
+                label="Sắp xếp"
+                value={sortMode}
+                options={sortOptions}
+                onValueChange={setSortMode}
+                icon={ArrowUpDown}
+                align="right"
+              />
             </div>
           </Reveal>
 
-          <div className="mt-8 grid gap-8">
+          <div className="mt-4 flex items-center justify-between gap-3 text-xs text-slate-500">
+            <p>
+              Hiển thị <strong className="text-slate-800">{filteredEmployees.length}</strong>/{employees.length} thành viên
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-8">
             {grouped.map((group) => (
               <Reveal key={group.department}>
                 <section>

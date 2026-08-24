@@ -44,10 +44,14 @@ export const company = {
       name: "Chi nhánh 1",
       address:
         "568/18/2 Lê Trọng Tấn, Phường Tây Thạnh, Thành phố Hồ Chí Minh, Việt Nam",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=568%2F18%2F2%20L%C3%AA%20Tr%E1%BB%8Dng%20T%E1%BA%A5n%2C%20T%C3%A2y%20Th%E1%BA%A1nh%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
     },
     {
       name: "Chi nhánh 2",
       address: "239 Đ. Tôn Thất Tùng, Đông Hòa, Hồ Chí Minh 70000, Việt Nam",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=239%20T%C3%B4n%20Th%E1%BA%A5t%20T%C3%B9ng%2C%20%C4%90%C3%B4ng%20H%C3%B2a%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
     },
   ],
   organization: [
@@ -149,8 +153,11 @@ export const amenities = [
   { label: "Nước uống", icon: GlassWater },
   { label: "Trà", icon: Sparkles },
   { label: "Cafe", icon: Coffee },
+  { label: "Mì gói", icon: Utensils },
+  { label: "Điều hòa", icon: Building2 },
   { label: "Lò vi sóng", icon: Microwave },
-  { label: "Bàn ăn", icon: Utensils },
+  { label: "Phòng ăn", icon: Utensils },
+  { label: "Free giữ xe", icon: Building2 },
 ];
 
 export const socials = [

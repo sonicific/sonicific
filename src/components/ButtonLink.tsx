@@ -1,5 +1,5 @@
-import type { ComponentType, ReactNode } from "react";
 import type { LucideProps } from "lucide-react";
+import type { ComponentType, ReactNode } from "react";
 
 interface ButtonLinkProps {
   href: string;
@@ -30,7 +30,7 @@ export function ButtonLink({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-xs font-semibold transition ${variants[variant]} ${className}`}
+      className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 whitespace-nowrap text-xs font-semibold transition ${variants[variant]} ${className}`}
     >
       <Icon className="h-3.5 w-3.5" aria-hidden="true" />
       <span>{children}</span>
