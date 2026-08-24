@@ -174,7 +174,11 @@ export const caseStudies = [
     image: "/assets/activities/livestream-training.png",
     summary:
       "Chuẩn hóa một phiên live từ kịch bản, setup, host, sản phẩm đến báo cáo sau phiên.",
-    results: ["Run of show rõ hơn", "Rút ngắn thời gian chuẩn bị", "Dễ đọc retention sau live"],
+    results: [
+      "Run of show rõ hơn",
+      "Rút ngắn thời gian chuẩn bị",
+      "Dễ đọc retention sau live",
+    ],
   },
   {
     title: "E-commerce Operations Day",
@@ -182,7 +186,11 @@ export const caseStudies = [
     image: "/assets/activities/ecommerce-ops.png",
     summary:
       "Tách luồng research, listing, chuẩn bị đơn và chăm sóc khách để đội commerce dễ mở rộng.",
-    results: ["Listing đồng nhất", "Checklist đơn hàng rõ", "Tăng tốc thử nghiệm sản phẩm"],
+    results: [
+      "Listing đồng nhất",
+      "Checklist đơn hàng rõ",
+      "Tăng tốc thử nghiệm sản phẩm",
+    ],
   },
   {
     title: "Automation & AI Workshop",
@@ -190,7 +198,11 @@ export const caseStudies = [
     image: "/assets/activities/automation-ai.png",
     summary:
       "Biến các thao tác kiểm tra, nhập liệu và phân loại thành workflow có dashboard theo dõi.",
-    results: ["Giảm thao tác lặp", "Phân quyền dữ liệu tốt hơn", "AI hỗ trợ tổng hợp nhanh"],
+    results: [
+      "Giảm thao tác lặp",
+      "Phân quyền dữ liệu tốt hơn",
+      "AI hỗ trợ tổng hợp nhanh",
+    ],
   },
 ];
 
@@ -224,23 +236,29 @@ export const whyChooseUs = [
 export const testimonials = [
   {
     quote:
-      "Điều đáng giá nhất là mọi đội cùng nhìn một bức tranh: content biết commerce cần gì, kỹ thuật biết thao tác nào đang tốn thời gian.",
-    name: "Nguyễn Minh Anh",
+      "Sonic giúp tôi thấy rõ tiến độ của từng phòng ban. Khi biết ai đang làm gì, tôi có thể phối hợp nhanh hơn.",
+    name: "Phạm Đức Hùng",
     role: "Giám đốc vận hành",
+    avatar:
+      "https://api.dicebear.com/9.x/personas/svg?seed=Ph%E1%BA%A1m%20D%E1%BB%A5c%20H%C3%B9ng&backgroundType=gradientLinear",
     tone: "teal" as const,
   },
   {
     quote:
-      "Khi checklist và dashboard rõ, team live không còn chạy theo cảm tính. Mỗi phiên đều có dữ liệu để chỉnh kịch bản kế tiếp.",
-    name: "Ngô Hải Linh",
-    role: "Trưởng phòng Livestream & Social",
+      "Sonic giúp các phòng ban phối hợp nhịp nhàng hơn. Mọi người đều biết checklist, owner và dữ liệu trạng thái chung.",
+    name: "Phạm Minh Toàn",
+    role: "Trưởng phòng Content Media",
+    avatar:
+      "https://api.dicebear.com/9.x/personas/svg?seed=Ph%E1%BA%A1m%20Minh%20To%C3%A0n&backgroundType=gradientLinear",
     tone: "rose" as const,
   },
   {
     quote:
-      "Tool nội bộ giúp đội vận hành tiết kiệm nhiều bước nhỏ. Những bước nhỏ đó cộng lại thành tốc độ thật.",
-    name: "Phạm Gia Bảo",
-    role: "Trưởng phòng Kĩ thuật",
+      "Sonic giúp tôi nhìn thấy điểm nghẽn trong vận hành. Khi biết vấn đề nằm ở đâu, tôi có thể tập trung cải thiện đúng chỗ.",
+    name: "Trần Hồ Việt",
+    role: "Trưởng phòng E-Commerce",
+    avatar:
+      "https://api.dicebear.com/9.x/personas/svg?seed=Tr%E1%BA%A7n%20H%E1%BB%93%20Vi%E1%BB%87t&backgroundType=gradientLinear",
     tone: "indigo" as const,
   },
 ];

@@ -32,7 +32,7 @@ export const company = {
   slogan: "Connect - Creative - Grow",
   foundedAt: "20/10/2025",
   openingHours: "8:00 - 17:30, thứ 2 đến thứ 7",
-  scale: "30 - 80 nhân sự",
+  scale: "30 - 50 nhân sự",
   contactEmail: "hi@sonicgroup.site",
   contactPhone: "0888.000.219",
   socialLocation: "Tôn Thất Tùng, Đông Hòa, TP. Hồ Chí Minh",

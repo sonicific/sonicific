@@ -26,7 +26,6 @@ import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { company, departments, faqs } from "../data/company";
 import { openJobPostings } from "../data/jobs";
-import { serviceHighlights } from "../data/landing";
 import { newsPosts } from "../data/news";
 import { routes } from "../lib/router";
 
@@ -148,7 +147,7 @@ export function HomePageEnhanced() {
             <SectionHeader
               icon={Building2}
               eyebrow="Giới thiệu công ty"
-              title="Lĩnh vực và hệ thống vận hành."
+              title="Lĩnh vực dịch vụ và hệ thống vận hành."
               description="Sonic kết nối sáng tạo nội dung, vận hành thương mại và công nghệ nội bộ để biến tín hiệu thị trường thành kết quả có thể đo lường."
             />
           </Reveal>
@@ -230,54 +229,26 @@ export function HomePageEnhanced() {
                   variant="lift"
                   className="h-full"
                 >
-                  <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 text-slate-950 shadow-sm">
+                  <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-4 text-slate-950 shadow-sm">
                     <div className="flex items-center justify-between gap-3">
-                      <span
-                        className={`grid h-11 w-11 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}
-                      >
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </span>
+                      <div className="flex space-x-2 items-start">
+                        <span
+                          className={`grid p-1.5 place-items-center rounded-lg shadow-sm ring-1 ${item.tone}`}
+                        >
+                          <Icon className="h-4 w-4" aria-hidden="true" />
+                        </span>
+                        <h3 className="font-display text-xl font-semibold text-teal-700">
+                          {item.title}
+                        </h3>
+                      </div>
                       <span className="font-mono text-xs font-semibold text-slate-400">
                         {item.step}
                       </span>
                     </div>
-                    <h3 className="mt-5 font-display text-xl font-semibold text-teal-700">
-                      {item.title}
-                    </h3>
+
                     <p className="mt-3 text-sm leading-6 text-slate-600">
                       {item.description}
                     </p>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-
-          <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {serviceHighlights.map((service, index) => {
-              const Icon = service.icon;
-              const tone =
-                departmentTones[index] ??
-                "bg-teal-50 text-teal-700 ring-teal-100";
-              return (
-                <Reveal
-                  key={service.title}
-                  delay={index * 80}
-                  variant="scale"
-                  className="h-full"
-                >
-                  <article className="motion-card h-full rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                    <span
-                      className={`grid h-10 w-10 place-items-center rounded-lg shadow-sm ring-1 ${tone}`}
-                    >
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <p className="mt-5 text-[11px] font-semibold uppercase text-teal-700">
-                      {service.kicker}
-                    </p>
-                    <h3 className="mt-2 font-display text-lg font-semibold text-slate-950">
-                      {service.title}
-                    </h3>
                   </article>
                 </Reveal>
               );

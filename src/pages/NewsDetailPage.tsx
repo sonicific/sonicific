@@ -180,14 +180,14 @@ function ArticleSection({
   return (
     <Reveal>
       <div className="flex items-center gap-3">
-        <span className="grid h-10 w-10 place-items-center rounded-lg bg-teal-50 text-teal-700 ring-1 ring-teal-100">
-          <Icon className="h-5 w-5" aria-hidden="true" />
+        <span className="grid p-2 place-items-center rounded-lg bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+          <Icon className="h-4 w-4" aria-hidden="true" />
         </span>
-        <h2 className="font-display text-2xl font-semibold text-slate-950">
+        <h2 className="font-display text-xl font-semibold text-slate-950">
           {title}
         </h2>
       </div>
-      <div className="mt-5 space-y-5 text-base leading-8 text-slate-700">
+      <div className="mt-4 space-y-5 text-base leading-8 text-slate-700">
         {paragraphs.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}

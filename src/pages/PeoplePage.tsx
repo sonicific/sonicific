@@ -50,9 +50,15 @@ const departmentOptions: SelectOption<string>[] = [
   })),
 ];
 
-type SortMode = "name-asc" | "name-desc" | "joined-desc" | "joined-asc";
+type SortMode =
+  | "default"
+  | "name-asc"
+  | "name-desc"
+  | "joined-desc"
+  | "joined-asc";
 
 const sortOptions: SelectOption<SortMode>[] = [
+  { label: "Mặc định", value: "default" },
   { label: "Tên A–Z", value: "name-asc" },
   { label: "Tên Z–A", value: "name-desc" },
   { label: "Gia nhập gần đây", value: "joined-desc" },
@@ -64,12 +70,12 @@ export function PeoplePage() {
   const [position, setPosition] = useState(allOption);
   const [branch, setBranch] = useState(allOption);
   const [department, setDepartment] = useState(allOption);
-  const [sortMode, setSortMode] = useState<SortMode>("name-asc");
+  const [sortMode, setSortMode] = useState<SortMode>("default");
 
   const filteredEmployees = useMemo(() => {
     const search = query.trim().toLowerCase();
 
-    return employees.filter((employee) => {
+    const matchingEmployees = employees.filter((employee) => {
       const matchPosition =
         position === allOption || employee.position === position;
       const matchBranch =
@@ -86,7 +92,13 @@ export function PeoplePage() {
       return (
         matchPosition && matchBranch && matchDepartment && matchSearch
       );
-    }).sort((first, second) => {
+    });
+
+    if (sortMode === "default") {
+      return matchingEmployees;
+    }
+
+    return [...matchingEmployees].sort((first, second) => {
       if (sortMode === "name-desc") {
         return collator.compare(second.name, first.name);
       }

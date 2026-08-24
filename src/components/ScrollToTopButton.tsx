@@ -18,7 +18,7 @@ export function ScrollToTopButton() {
   return (
     <button
       type="button"
-      className={`fixed bottom-5 right-5 z-40 grid h-11 w-11 place-items-center rounded-full bg-slate-950 text-white shadow-soft ring-1 ring-white/15 transition duration-300 hover:-translate-y-1 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300 ${
+      className={`fixed bottom-20 right-5 z-40 grid h-11 w-11 place-items-center rounded-full bg-slate-950 text-white shadow-soft ring-1 ring-white/15 transition duration-300 hover:-translate-y-1 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300 ${
         isVisible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"
