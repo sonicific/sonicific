@@ -9,6 +9,8 @@ export type Department =
 export interface Employee {
   id: string;
   name: string;
+  email: string;
+  dob: string;
   avatar: string;
   position: string;
   department: Department;

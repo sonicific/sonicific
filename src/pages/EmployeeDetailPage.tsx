@@ -1,7 +1,9 @@
 import {
   ArrowLeft,
   BriefcaseBusiness,
+  Cake,
   CalendarDays,
+  Mail,
   MapPin,
   Users,
 } from "lucide-react";
@@ -9,6 +11,7 @@ import { AvatarBadge } from "../components/AvatarBadge";
 import { ButtonLink } from "../components/ButtonLink";
 import { EmployeeCard } from "../components/EmployeeCard";
 import employeesJson from "../data/employees.json";
+import { formatCalendarDate } from "../lib/birthdays";
 import { routes } from "../lib/router";
 import type { Employee } from "../types";
 
@@ -16,16 +19,6 @@ const employees = employeesJson as Employee[];
 
 interface EmployeeDetailPageProps {
   employeeId?: string;
-}
-
-const dateFormatter = new Intl.DateTimeFormat("vi-VN", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric",
-});
-
-function formatDate(value: string) {
-  return dateFormatter.format(new Date(`${value}T00:00:00`));
 }
 
 export function EmployeeDetailPage({ employeeId }: EmployeeDetailPageProps) {
@@ -102,7 +95,7 @@ export function EmployeeDetailPage({ employeeId }: EmployeeDetailPageProps) {
                   <DetailItem
                     icon={CalendarDays}
                     label="Gia nhập"
-                    value={formatDate(employee.joinedAt)}
+                    value={formatCalendarDate(employee.joinedAt)}
                   />
                   <DetailItem
                     icon={MapPin}
@@ -113,6 +106,16 @@ export function EmployeeDetailPage({ employeeId }: EmployeeDetailPageProps) {
                     icon={Users}
                     label="Vai trò"
                     value={employee.position}
+                  />
+                  <DetailItem
+                    icon={Mail}
+                    label="Email"
+                    value={employee.email}
+                  />
+                  <DetailItem
+                    icon={Cake}
+                    label="Ngày sinh"
+                    value={formatCalendarDate(employee.dob)}
                   />
                 </div>
               </div>

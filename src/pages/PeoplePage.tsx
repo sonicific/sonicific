@@ -1,19 +1,17 @@
 import {
   ArrowUpDown,
-  BriefcaseBusiness,
   Building2,
+  Cake,
   ListFilter,
   Search,
   Users,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
+import { BirthdayModal } from "../components/BirthdayModal";
 import { EmployeeCard } from "../components/EmployeeCard";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
-import {
-  SelectPopover,
-  type SelectOption,
-} from "../components/SelectPopover";
+import { SelectPopover, type SelectOption } from "../components/SelectPopover";
 import employeesJson from "../data/employees.json";
 import type { Department, Employee } from "../types";
 
@@ -30,12 +28,6 @@ const departmentOrder: Department[] = [
 
 const allOption = "Tất cả";
 const collator = new Intl.Collator("vi", { sensitivity: "base" });
-const positionOptions: SelectOption<string>[] = [
-  { label: allOption, value: allOption },
-  ...Array.from(new Set(employees.map((employee) => employee.position)))
-    .sort(collator.compare)
-    .map((position) => ({ label: position, value: position })),
-];
 const branchOptions: SelectOption<string>[] = [
   { label: allOption, value: allOption },
   ...Array.from(new Set(employees.map((employee) => employee.location)))
@@ -67,19 +59,22 @@ const sortOptions: SelectOption<SortMode>[] = [
 
 export function PeoplePage() {
   const [query, setQuery] = useState("");
-  const [position, setPosition] = useState(allOption);
   const [branch, setBranch] = useState(allOption);
   const [department, setDepartment] = useState(allOption);
   const [sortMode, setSortMode] = useState<SortMode>("default");
+  const [isBirthdayModalOpen, setIsBirthdayModalOpen] = useState(false);
+  const birthdayButtonRef = useRef<HTMLButtonElement>(null);
+
+  const closeBirthdayModal = useCallback(() => {
+    setIsBirthdayModalOpen(false);
+    window.requestAnimationFrame(() => birthdayButtonRef.current?.focus());
+  }, []);
 
   const filteredEmployees = useMemo(() => {
     const search = query.trim().toLowerCase();
 
     const matchingEmployees = employees.filter((employee) => {
-      const matchPosition =
-        position === allOption || employee.position === position;
-      const matchBranch =
-        branch === allOption || employee.location === branch;
+      const matchBranch = branch === allOption || employee.location === branch;
       const matchDepartment =
         department === allOption || employee.department === department;
       const matchSearch =
@@ -89,9 +84,7 @@ export function PeoplePage() {
         employee.department.toLowerCase().includes(search) ||
         employee.location.toLowerCase().includes(search);
 
-      return (
-        matchPosition && matchBranch && matchDepartment && matchSearch
-      );
+      return matchBranch && matchDepartment && matchSearch;
     });
 
     if (sortMode === "default") {
@@ -113,7 +106,7 @@ export function PeoplePage() {
 
       return collator.compare(first.name, second.name);
     });
-  }, [branch, department, position, query, sortMode]);
+  }, [branch, department, query, sortMode]);
 
   const grouped = departmentOrder
     .map((departmentName) => ({
@@ -133,20 +126,45 @@ export function PeoplePage() {
         title="Những người tạo nên nhịp Sonic."
         description="Tìm kiếm đồng đội theo tên, chức vụ, chi nhánh hoặc phòng ban."
         aside={
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-            <div className="flex items-center justify-center gap-3">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-teal-50 text-teal-700">
-                <Users className="h-4 w-4" aria-hidden="true" />
-              </span>
-              <div className="text-left">
-                <p className="text-xs font-semibold uppercase text-slate-500">
-                  Đội ngũ hiện tại
-                </p>
-                <p className="text-sm font-semibold text-slate-950">
-                  {employees.length} thành viên
-                </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="flex items-center gap-3">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-700">
+                  <Users className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <div className="text-left">
+                  <p className="text-xs font-semibold uppercase text-slate-500">
+                    Đội ngũ hiện tại
+                  </p>
+                  <p className="text-sm font-semibold text-slate-950">
+                    {employees.length} thành viên
+                  </p>
+                </div>
               </div>
             </div>
+
+            <button
+              ref={birthdayButtonRef}
+              type="button"
+              onClick={() => setIsBirthdayModalOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={isBirthdayModalOpen}
+              className="rounded-lg border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+            >
+              <span className="flex items-center gap-3">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-700">
+                  <Cake className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <span>
+                  <span className="block text-xs font-semibold uppercase text-slate-500">
+                    Date of Birth
+                  </span>
+                  <span className="block text-sm font-semibold text-slate-950">
+                    Xem lịch sinh nhật
+                  </span>
+                </span>
+              </span>
+            </button>
           </div>
         }
       />
@@ -165,14 +183,6 @@ export function PeoplePage() {
               />
             </label>
             <div className="flex flex-wrap gap-2" aria-label="Bộ lọc đội ngũ">
-              <SelectPopover
-                label="Chức vụ"
-                value={position}
-                options={positionOptions}
-                onValueChange={setPosition}
-                icon={BriefcaseBusiness}
-                allValue={allOption}
-              />
               <SelectPopover
                 label="Chi nhánh"
                 value={branch}
@@ -202,7 +212,11 @@ export function PeoplePage() {
 
           <div className="mt-4 flex items-center justify-between gap-3 text-xs text-slate-500">
             <p>
-              Hiển thị <strong className="text-slate-800">{filteredEmployees.length}</strong>/{employees.length} thành viên
+              Hiển thị{" "}
+              <strong className="text-slate-800">
+                {filteredEmployees.length}
+              </strong>
+              /{employees.length} thành viên
             </p>
           </div>
 
@@ -240,6 +254,10 @@ export function PeoplePage() {
           </div>
         </div>
       </section>
+
+      {isBirthdayModalOpen ? (
+        <BirthdayModal employees={employees} onClose={closeBirthdayModal} />
+      ) : null}
     </>
   );
 }
