@@ -1,34 +1,53 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { SiteShell } from "./components/SiteShell";
 import { parsePath } from "./lib/router";
 import { applySeoMetadata } from "./lib/seo";
-import { ActivityDetailPage } from "./pages/ActivityDetailPage";
-import { ActivitiesPage } from "./pages/ActivitiesPage";
-import { CareerDetailPage } from "./pages/CareerDetailPage";
-import { CareersPage } from "./pages/CareersPage";
-import { EmployeeDetailPage } from "./pages/EmployeeDetailPage";
-import { HomePageEnhanced } from "./pages/HomePageEnhanced";
-import { NewsDetailPage } from "./pages/NewsDetailPage";
-import { NewsPage } from "./pages/NewsPage";
-import { PeoplePage } from "./pages/PeoplePage";
+import { ActivitiesPage } from "./site/ActivitiesPage";
+import { ActivityDetailPage } from "./site/ActivityDetailPage";
+import { CareerDetailPage } from "./site/CareerDetailPage";
+import { CareersPage } from "./site/CareersPage";
+import { EmployeeDetailPage } from "./site/EmployeeDetailPage";
+import { HomePageEnhanced } from "./site/HomePageEnhanced";
+import { NewsDetailPage } from "./site/NewsDetailPage";
+import { NewsPage } from "./site/NewsPage";
+import { PeoplePage } from "./site/PeoplePage";
 import type { RouteState } from "./types";
 
-function getRoute(): RouteState {
-  return parsePath(window.location.pathname);
+function getRoute(pathname: string): RouteState {
+  return parsePath(pathname);
 }
 
 export default function App() {
-  const [pathname, setPathname] = useState(window.location.pathname);
-  const route = getRoute();
+  const [pathname, setPathname] = useState("/");
 
   useEffect(() => {
+    const initialPath =
+      typeof window !== "undefined" ? window.location.pathname : "/";
+    setPathname(initialPath);
+  }, []);
+
+  const route = getRoute(pathname || "/");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const updateRoute = () => {
-      setPathname(window.location.pathname);
+      const nextPathname = window.location.pathname;
+      setPathname(nextPathname);
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const onDocumentClick = (event: MouseEvent) => {
-      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
         return;
       }
 
@@ -41,16 +60,27 @@ export default function App() {
 
       const url = new URL(anchor.href, window.location.href);
 
-      if (url.origin !== window.location.origin || !url.pathname.startsWith("/")) {
+      if (
+        url.origin !== window.location.origin ||
+        !url.pathname.startsWith("/")
+      ) {
         return;
       }
 
-      if (url.pathname === window.location.pathname && url.hash && !url.hash.startsWith("#/")) {
+      if (
+        url.pathname === window.location.pathname &&
+        url.hash &&
+        !url.hash.startsWith("#/")
+      ) {
         return;
       }
 
       event.preventDefault();
-      window.history.pushState({}, "", `${url.pathname}${url.search}${url.hash}`);
+      window.history.pushState(
+        {},
+        "",
+        `${url.pathname}${url.search}${url.hash}`,
+      );
       updateRoute();
     };
 
@@ -70,6 +100,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     applySeoMetadata(route);
   }, [
     pathname,

@@ -27,7 +27,7 @@ import {
 
 export const company = {
   name: "Sonic Group",
-  legalName: "CÔNG TY TNHH SONIC MEDIA",
+  legalName: "CÔNG TY TNHH SONIC GROUP",
   taxCode: "0319224501",
   slogan: "Connect - Creative - Grow",
   foundedAt: "20/10/2025",
