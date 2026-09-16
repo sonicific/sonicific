@@ -171,7 +171,7 @@ export function PeoplePage() {
 
       <section className="bg-stone-50 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal-overflow-visible relative z-20 grid gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[minmax(16rem,1fr)_auto] lg:items-center">
+          <Reveal className="relative z-20 grid gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm lg:grid-cols-[minmax(16rem,1fr)_auto] lg:items-center">
             <label className="flex h-9 items-center gap-2 rounded-full bg-slate-100 px-3 text-sm text-slate-600">
               <Search className="h-4 w-4 text-slate-400" aria-hidden="true" />
               <input

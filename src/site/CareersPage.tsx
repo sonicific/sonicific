@@ -86,7 +86,7 @@ export function CareersPage() {
 
       <section className="bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal-overflow-visible relative z-20 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+          <Reveal className="relative z-20 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <SectionHeader
               icon={BriefcaseBusiness}
               eyebrow="Cơ hội nghề nghiệp"

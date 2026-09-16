@@ -10,7 +10,7 @@ export function EmployeeCard({ employee }: EmployeeCardProps) {
   return (
     <a
       href={routes.employee(employee.id)}
-      className="group flex min-h-[100px] flex-col justify-between rounded-lg border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-4 shadow-sm transition hover:-translate-y-1 hover:border-teal-200 hover:shadow-soft"
+      className="group relative z-0 flex min-h-[100px] flex-col justify-between rounded-lg border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-4 shadow-sm transition hover:z-10 hover:-translate-y-1 hover:border-teal-200 hover:shadow-soft focus-visible:z-10"
     >
       <div className="flex h-full items-start gap-3">
         <AvatarBadge src={employee.avatar} name={employee.name} size="md" />

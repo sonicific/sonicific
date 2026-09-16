@@ -49,7 +49,7 @@ export function NewsPage() {
 
       <section className="bg-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal-overflow-visible relative z-20 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <Reveal className="relative z-20 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <SectionHeader
               icon={Newspaper}
               eyebrow="Tất cả cập nhật"

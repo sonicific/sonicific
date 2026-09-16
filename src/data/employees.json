@@ -260,11 +260,11 @@
     "bio": "Hỗ trợ vận hành cửa hàng Etsy, quản lý đơn hàng và chăm sóc khách hàng để đảm bảo trải nghiệm mua sắm tốt nhất."
   },
   {
-    "id": "pham-tran-hoang-nguyen",
-    "name": "Phạm Trần Hoàng Nguyên",
+    "id": "phan-thi-hai-van",
+    "name": "Phan Thị Hải Vân",
     "email": "example@gmail.com",
-    "dob": "1/1/2000",
-    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Pham%20Tran%20Hoang%20Nguyen&backgroundType=gradientLinear",
+    "dob": "15/09/2004",
+    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Phan%20Thi%20Hai%20Van&backgroundType=gradientLinear",
     "position": "Store Operator",
     "department": "E-Comerce",
     "joinedAt": "2026-04-01",
@@ -286,11 +286,24 @@
     "bio": "Hỗ trợ vận hành cửa hàng Etsy, quản lý đơn hàng và chăm sóc khách hàng để đảm bảo trải nghiệm mua sắm tốt nhất."
   },
   {
-    "id": "le-thanh-vy",
-    "name": "Lê Thanh Vy",
+    "id": "tran-luc-kim-ngan",
+    "name": "Trần Lục Kim Ngân",
     "email": "example@gmail.com",
-    "dob": "1/1/2000",
-    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Thanh%20Vy&backgroundType=gradientLinear",
+    "dob": "26/03/2002",
+    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Tr%E1%BA%A7n%20L%E1%BB%A5c%20Kim%20Ngân&backgroundType=gradientLinear",
+    "position": "Store Operator",
+    "department": "E-Comerce",
+    "joinedAt": "2026-04-01",
+    "location": "Chi nhánh Tôn Thất Tùng",
+    "focus": "Listing Etsy, research keyword và tối ưu conversion.",
+    "bio": "Chăm sóc listing, hình ảnh sản phẩm và thử nghiệm keyword để tăng khả năng hiển thị trên Etsy."
+  },
+  {
+    "id": "le-tuong-vy",
+    "name": "Lê Tường Vy",
+    "email": "example@gmail.com",
+    "dob": "24/01/1999",
+    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20T%C6%B0%C6%A1ng%20Vy&backgroundType=gradientLinear",
     "position": "Payout Reconciliation",
     "department": "Business Center",
     "joinedAt": "2025-11-04",
@@ -401,5 +414,18 @@
     "location": "Chi nhánh Lê Trọng Tấn",
     "focus": "Tư vấn khách hàng, hỗ trợ bán hàng và theo dõi hiệu quả chiến dịch.",
     "bio": "Hỗ trợ khách hàng trong quá trình mua sắm, cung cấp thông tin sản phẩm và theo dõi hiệu quả các chiến dịch marketing."
+  },
+  {
+    "id": "le-thi-thanh-thuy",
+    "name": "Lê Thị Thanh Thủy",
+    "email": "example@gmail.com",
+    "dob": "30/07/2000",
+    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Th%E1%BB%B7&backgroundType=gradientLinear",
+    "position": "Data QC coordinator",
+    "department": "Business Center",
+    "joinedAt": "2025-11-03",
+    "location": "Chi nhánh Lê Trọng Tấn",
+    "focus": "Theo dõi và phân tích dữ liệu, đảm bảo chất lượng thông tin.",
+    "bio": "Chịu trách nhiệm theo dõi và phân tích dữ liệu, đảm bảo chất lượng thông tin và hỗ trợ các phòng ban trong việc ra quyết định dựa trên dữ liệu."
   }
 ]
