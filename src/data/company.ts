@@ -36,7 +36,7 @@ export const company = {
   contactEmail: "hi@sonicgroup.site",
   contactPhone: "0888.000.219",
   socialLocation: "Tôn Thất Tùng, Đông Hòa, TP. Hồ Chí Minh",
-  websiteUrl: "https://sonicific.com",
+  websiteUrl: "https://sonicgroup.site",
   linkedInUrl: "https://www.linkedin.com/company/sonicific",
   facebookUrl: "https://www.facebook.com/profile.php?id=61593149897575",
   branches: [

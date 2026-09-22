@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sonicific.com"),
+  metadataBase: new URL("https://sonicgroup.site"),
   title: {
     default: "Sonic Group | Media, E-commerce & Automation",
     template: "%s | Sonic Group",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Sonic Group | Media, E-commerce & Automation",
     description:
       "Sonic Group kết nối sáng tạo nội dung, thương mại điện tử và công nghệ để xây dựng một hệ vận hành tăng trưởng bền vững tại TP.HCM.",
-    url: "https://sonicific.com",
+    url: "https://sonicgroup.site",
     siteName: "Sonic Group",
     locale: "vi_VN",
     type: "website",
@@ -76,9 +76,9 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Sonic Group",
   legalName: "CÔNG TY TNHH SONIC GROUP",
-  url: "https://sonicific.com",
-  logo: "https://sonicific.com/icons/light.png",
-  image: "https://sonicific.com/og.png",
+  url: "https://sonicgroup.site",
+  logo: "https://sonicgroup.site/icons/light.png",
+  image: "https://sonicgroup.site/og.png",
   description:
     "Sonic Group là đơn vị chuyên về media content, e-commerce, commerce operations và automation tại TP.HCM.",
   email: "hi@sonicgroup.site",

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: ["https://sonicific.com/sitemap.xml"],
-    host: "https://sonicific.com",
+    sitemap: ["https://sonicgroup.site/sitemap.xml"],
+    host: "https://sonicgroup.site",
   };
 }

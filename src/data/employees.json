@@ -2,7 +2,7 @@
   {
     "id": "phung-van-tien",
     "name": "Phùng Văn Tiến",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "01/01/1989",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Tr%E1%BA%A7n%20Qu%E1%BB%91c%20Huy&backgroundType=gradientLinear",
     "position": "Chủ tịch",
@@ -15,7 +15,7 @@
   {
     "id": "pham-doc-hung",
     "name": "Phạm Đức Hùng",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "15/09/1991",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Ph%E1%BA%A1m%20D%E1%BB%A5c%20H%C3%B9ng&backgroundType=gradientLinear",
     "position": "Giám đốc",
@@ -41,7 +41,7 @@
   {
     "id": "vo-thi-hong-vi",
     "name": "Võ Thị Hồng Vi",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "18/08/2001",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=V%E1%BB%8B%20Th%E1%BA%A3o%20Hồng%20Vi&backgroundType=gradientLinear",
     "position": "Researcher",
@@ -54,7 +54,7 @@
   {
     "id": "quach-thi-kieu-chinh",
     "name": "Quách Thị Kiều Chinh",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "05/05/1996",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Qu%E1%BA%A3ch%20Th%E1%BB%8B%20Ki%E1%BB%81u%20Chinh&backgroundType=gradientLinear",
     "position": "Kế toán",
@@ -67,7 +67,7 @@
   {
     "id": "do-thi-hong-ly",
     "name": "Đỗ Thị Hồng Ly",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "22/12/1993",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=%C4%90%E1%BB%87%20Th%E1%BA%A3o%20Hồng%20Lý&backgroundType=gradientLinear",
     "position": "Bussiness Center",
@@ -80,7 +80,7 @@
   {
     "id": "pham-minh-toan",
     "name": "Phạm Minh Toàn",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "24/09/1990",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Ph%E1%BA%A1m%20Minh%20To%C3%A0n&backgroundType=gradientLinear",
     "position": "Trưởng phòng Content Media",
@@ -93,7 +93,7 @@
   {
     "id": "do-thi-kim-quyen",
     "name": "Đỗ Thị Kim Quyên",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "16/10/2006",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=%C4%90%E1%BB%87%20Th%E1%BA%A3o%20Kim%20Quy%C3%AAn&backgroundType=gradientLinear",
     "position": "Phó phòng Content Media",
@@ -106,7 +106,7 @@
   {
     "id": "nguyen-thi-quynh-giao",
     "name": "Nguyễn Thị Quỳnh Giao",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "05/12/2005",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20Th%E1%BA%A3o%20Qu%E1%BB%93ng%20Giao&backgroundType=gradientLinear",
     "position": "Content Producer",
@@ -119,7 +119,7 @@
   {
     "id": "tran-gia-huy",
     "name": "Trần Gia Huy",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Tr%E1%BA%A7n%20Gia%20Huy&backgroundType=gradientLinear",
     "position": "Copywriter",
@@ -145,7 +145,7 @@
   {
     "id": "ho-thi-my-duyen",
     "name": "Hồ Thị Mỹ Duyên",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=H%E1%BB%93%20Th%E1%BB%8B%20Mỹ%20Duyên&backgroundType=gradientLinear",
     "position": "Content Creator",
@@ -158,7 +158,7 @@
   {
     "id": "tran-ho-viet",
     "name": "Trần Hồ Việt",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/1985",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Tr%E1%BA%A7n%20H%E1%BB%93%20Vi%E1%BB%87t&backgroundType=gradientLinear",
     "position": "Trưởng phòng E-commerce",
@@ -171,7 +171,7 @@
   {
     "id": "vo-le-nhat-vy",
     "name": "Võ Lê Nhật Vy",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "02/05/1996",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=V%E1%BB%95%20L%C3%AAn%20Nh%E1%BA%A5t%20Vy&backgroundType=gradientLinear",
     "position": "Phó phòng E-commerce",
@@ -184,7 +184,7 @@
   {
     "id": "nguyen-thi-huyen-trang",
     "name": "Nguyễn Thị Huyền Trang",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20Th%E1%BB%8B%20Huy%E1%BB%81n%20Trang&backgroundType=gradientLinear",
     "position": "Store Operator",
@@ -197,7 +197,7 @@
   {
     "id": "tran-tu-nguyet",
     "name": "Trần Tú Nguyệt",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "11/05/2001",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Tr%E1%BA%A7n%20T%C3%BA%20Nguy%E1%BB%87t&backgroundType=gradientLinear",
     "position": "Theme Developer",
@@ -210,7 +210,7 @@
   {
     "id": "le-thi-van-nhi",
     "name": "Lê Thị Vân Nhi",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Th%E1%BB%8B%20V%C3%A2n%20Nhi&backgroundType=gradientLinear",
     "position": "Store Specialist",
@@ -223,7 +223,7 @@
   {
     "id": "phan-thi-quynh-nhu",
     "name": "Phan Thị Quỳnh Như",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Phan%20Th%E1%BB%8B%20Qu%E1%BB%93ng%20Nh%C6%B0&backgroundType=gradientLinear",
     "position": "Store Maintenance",
@@ -236,7 +236,7 @@
   {
     "id": "le-ngoc-gia-thinh",
     "name": "Lê Ngọc Gia Thịnh",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "12/08/2005",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Gia%20Thịnh&backgroundType=gradientLinear",
     "position": "Product Researcher",
@@ -249,7 +249,7 @@
   {
     "id": "le-ngoc-gia-yen",
     "name": "Lê Ngọc Gia Yên",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "12/08/2005",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Gia%20Y%C3%AAn&backgroundType=gradientLinear",
     "position": "Catalog Coordinator",
@@ -262,7 +262,7 @@
   {
     "id": "phan-thi-hai-van",
     "name": "Phan Thị Hải Vân",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "15/09/2004",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Phan%20Thi%20Hai%20Van&backgroundType=gradientLinear",
     "position": "Store Operator",
@@ -275,7 +275,7 @@
   {
     "id": "duong-thi-ngoc-nhi",
     "name": "Dương Thị Ngọc Nhi",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "08/07/2006",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Đ%E1%BB%85%20Ng%E1%BB%8Dc%20Nhi&backgroundType=gradientLinear",
     "position": "Store Helper",
@@ -288,7 +288,7 @@
   {
     "id": "tran-luc-kim-ngan",
     "name": "Trần Lục Kim Ngân",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "26/03/2002",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Tr%E1%BA%A7n%20L%E1%BB%A5c%20Kim%20Ngân&backgroundType=gradientLinear",
     "position": "Store Operator",
@@ -301,7 +301,7 @@
   {
     "id": "le-tuong-vy",
     "name": "Lê Tường Vy",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "24/01/1999",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20T%C6%B0%C6%A1ng%20Vy&backgroundType=gradientLinear",
     "position": "Payout Reconciliation",
@@ -314,7 +314,7 @@
   {
     "id": "le-thi-thuy",
     "name": "Lê Thị Thùy",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Th%E1%BB%8B%20Th%C3%B9y&backgroundType=gradientLinear",
     "position": "Account Manager",
@@ -327,7 +327,7 @@
   {
     "id": "nguyen-man-trinh",
     "name": "Nguyễn Mẫn Trinh",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20M%E1%BA%A5n%20Trinh&backgroundType=gradientLinear",
     "position": "Affiliate Operator",
@@ -340,7 +340,7 @@
   {
     "id": "nguyen-thi-mong-kieu",
     "name": "Nguyễn Thị Mộng Kiều",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "04/06/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20Th%E1%BB%8B%20M%E1%BB%99ng%20Ki%E1%BB%81u&backgroundType=gradientLinear",
     "position": "Market Analyst",
@@ -353,8 +353,8 @@
   {
     "id": "nguyen-quynh-nhu",
     "name": "Nguyễn Quỳnh Như",
-    "email": "example@gmail.com",
-    "dob": "1/1/2000",
+    "email": "hi@sonicgroup.site",
+    "dob": "21/09/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20Qu%E1%BB%ABng%20Nh%C6%B0&backgroundType=gradientLinear",
     "position": "Account Manager",
     "department": "Business Center",
@@ -366,7 +366,7 @@
   {
     "id": "nguyen-kiem-loi",
     "name": "Nguyễn Kiêm Lợi",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20Ki%E1%BA%BFm%20L%C6%A1i&backgroundType=gradientLinear",
     "position": "Customer Support",
@@ -379,7 +379,7 @@
   {
     "id": "pham-kim-thuy",
     "name": "Phạm Kim Thủy",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "30/07/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Ph%E1%BA%A1m%20Kim%20Th%E1%BB%B7&backgroundType=gradientLinear",
     "position": "Data QA Specialist",
@@ -392,7 +392,7 @@
   {
     "id": "le-nguyet-que",
     "name": "Lê Nguyệt Quế",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "25/07/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Nguy%E1%BB%B7t%20Qu%E1%BA%BF&backgroundType=gradientLinear",
     "position": "Business Manager",
@@ -405,7 +405,7 @@
   {
     "id": "le-hong-thai",
     "name": "Lê Hồng Thái",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "1/1/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20H%E1%BB%93ng%20Th%C3%A1i&backgroundType=gradientLinear",
     "position": "Sales Associate",
@@ -418,7 +418,7 @@
   {
     "id": "le-thi-thanh-thuy",
     "name": "Lê Thị Thanh Thủy",
-    "email": "example@gmail.com",
+    "email": "hi@sonicgroup.site",
     "dob": "30/07/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Th%E1%BB%B7&backgroundType=gradientLinear",
     "position": "Data QC coordinator",

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sonicific.com";
+  const baseUrl = "https://sonicgroup.site";
 
   const pages = ["", "/news", "/careers", "/activities", "/people"];
 
