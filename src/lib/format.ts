@@ -8,7 +8,15 @@ export function formatDate(value: string) {
   return dateFormatter.format(new Date(`${value}T00:00:00`));
 }
 
-export function isRecent(value: string, days = 14) {
+export function formatOptionalDate(value?: string, fallback = "Không ghi ngày") {
+  return value ? formatDate(value) : fallback;
+}
+
+export function isRecent(value?: string, days = 14) {
+  if (!value) {
+    return false;
+  }
+
   const publishedAt = new Date(`${value}T00:00:00`).getTime();
   const age = Date.now() - publishedAt;
 

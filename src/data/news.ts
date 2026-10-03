@@ -1,7 +1,11 @@
 import type { NewsPost } from "../types";
 import newsJson from "./news.json";
 
-export const newsPosts = newsJson as NewsPost[];
+const posts = newsJson as NewsPost[];
+
+export const newsPosts = [...posts].sort((first, second) =>
+  (second.date ?? "").localeCompare(first.date ?? ""),
+);
 
 export const newsCategories = [
   "Tất cả",

@@ -1,5 +1,5 @@
 import { ArrowUpRight, CalendarDays, Clock3, Newspaper } from "lucide-react";
-import { formatDate, isRecent } from "../lib/format";
+import { formatOptionalDate, isRecent } from "../lib/format";
 import { routes } from "../lib/router";
 import type { NewsPost } from "../types";
 
@@ -24,12 +24,20 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
         }`}
         aria-label={`Đọc tin: ${post.title}`}
       >
-        <img
-          src={post.image}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/10 to-transparent" />
+        {post.image ? (
+          <img
+            src={post.image}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <NewsVisualPlaceholder />
+        )}
+        {post.image ? (
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/10 to-transparent" />
+        ) : null}
         <div className="absolute left-3 top-3 flex gap-2">
           <span className={`rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur ${tone.badge}`}>
             {post.category}
@@ -49,7 +57,7 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-slate-500">
             <span className="inline-flex items-center gap-1.5">
               <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
-              {formatDate(post.date)}
+              {formatOptionalDate(post.date, post.dateLabel)}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
@@ -74,6 +82,19 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
         </a>
       </div>
     </article>
+  );
+}
+
+function NewsVisualPlaceholder() {
+  return (
+    <div
+      className="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_25%_20%,rgba(20,184,166,0.24),transparent_34%),linear-gradient(135deg,#f0fdfa_0%,#eef2ff_100%)] text-teal-700"
+      aria-hidden="true"
+    >
+      <div className="grid h-20 w-20 place-items-center rounded-3xl bg-white/80 shadow-sm ring-1 ring-white">
+        <Newspaper className="h-9 w-9" />
+      </div>
+    </div>
   );
 }
 

@@ -156,6 +156,19 @@
     "bio": "Biến kịch bản thành video ngắn có nhịp rõ, phù hợp nền tảng và giữ chất lượng hình ảnh ổn định."
   },
   {
+    "id": "huynh-thai-tam",
+    "name": "Huỳnh Thái Tâm",
+    "email": "huynhtamwork@gmail.com",
+    "dob": "29/06/2003",
+    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=H%E1%BB%93%20Th%E1%BB%8B%20Mỹ%20Duyên&backgroundType=gradientLinear",
+    "position": "Content Creator",
+    "department": "Content Media",
+    "joinedAt": "2026-09-17",
+    "location": "Chi nhánh Tôn Thất Tùng",
+    "focus": "Dựng short video, nhịp cắt và template visual.",
+    "bio": "Biến kịch bản thành video ngắn có nhịp rõ, phù hợp nền tảng và giữ chất lượng hình ảnh ổn định."
+  },
+  {
     "id": "tran-ho-viet",
     "name": "Trần Hồ Việt",
     "email": "hi@sonicgroup.site",
@@ -338,8 +351,8 @@
     "bio": "Theo dõi link affiliate, đối soát nguồn traffic và phối hợp kinh doanh khi có thay đổi chính sách."
   },
   {
-    "id": "nguyen-thi-mong-kieu",
-    "name": "Nguyễn Thị Mộng Kiều",
+    "id": "tran-nguyen-mong-kieu",
+    "name": "Trần Nguyễn Mộng Kiều",
     "email": "hi@sonicgroup.site",
     "dob": "04/06/2000",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20Th%E1%BB%8B%20M%E1%BB%99ng%20Ki%E1%BB%81u&backgroundType=gradientLinear",
@@ -354,7 +367,7 @@
     "id": "nguyen-quynh-nhu",
     "name": "Nguyễn Quỳnh Như",
     "email": "hi@sonicgroup.site",
-    "dob": "21/09/2000",
+    "dob": "21/09/2001",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Nguy%E1%BB%85n%20Qu%E1%BB%ABng%20Nh%C6%B0&backgroundType=gradientLinear",
     "position": "Account Manager",
     "department": "Business Center",
@@ -393,7 +406,7 @@
     "id": "le-nguyet-que",
     "name": "Lê Nguyệt Quế",
     "email": "hi@sonicgroup.site",
-    "dob": "25/07/2000",
+    "dob": "25/07/2001",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Nguy%E1%BB%B7t%20Qu%E1%BA%BF&backgroundType=gradientLinear",
     "position": "Business Manager",
     "department": "Business Center",
@@ -403,10 +416,10 @@
     "bio": "Thiết kế kế hoạch doanh thu, mở rộng kênh đối tác và phối hợp với đội vận hành để tăng hiệu quả chuyển đổi."
   },
   {
-    "id": "le-hong-thai",
-    "name": "Lê Hồng Thái",
+    "id": "dinh-huy-thai",
+    "name": "Đinh Huy Thái",
     "email": "hi@sonicgroup.site",
-    "dob": "1/1/2000",
+    "dob": "1/1/2001",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20H%E1%BB%93ng%20Th%C3%A1i&backgroundType=gradientLinear",
     "position": "Sales Associate",
     "department": "Business Center",

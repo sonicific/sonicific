@@ -1,9 +1,37 @@
 [
   {
+    "id": "lich-cup-dien-chi-nhanh-2-30092026",
+    "title": "Thông báo nghỉ làm do cúp điện ngày 30/09/2026 tại Chi nhánh 2",
+    "category": "Thông báo nội bộ",
+    "date": "2026-09-30",
+    "excerpt": "Do lịch cúp điện kéo dài hơn dự kiến, nhân viên Chi nhánh 2 nghỉ cả ngày 30/09/2026.",
+    "readingMinutes": 1,
+    "sections": [
+      {
+        "title": "Thông báo ban đầu",
+        "paragraphs": [
+          "Do lịch cúp điện, nhân viên Chi nhánh 2 nghỉ buổi sáng ngày 30/09/2026.",
+          "Thời gian có điện trở lại dự kiến ban đầu là 13:00. Nhân viên dự kiến đi làm lại vào buổi chiều theo giờ làm việc bình thường."
+        ]
+      },
+      {
+        "title": "Cập nhật thời gian nghỉ",
+        "paragraphs": [
+          "Do lịch cúp điện kéo dài hơn dự kiến, Công ty thông báo nhân viên nghỉ làm buổi chiều ngày 30/09/2026."
+        ]
+      }
+    ],
+    "highlights": [
+      "Nghỉ làm cả ngày 30/09/2026",
+      "Áp dụng tại Chi nhánh 2",
+      "Cập nhật do lịch cúp điện kéo dài"
+    ]
+  },
+  {
     "id": "lich-nghi-le-quoc-khanh-2026",
     "title": "Thông báo lịch nghỉ lễ Quốc khánh 02/09/2026",
     "category": "Thông báo nội bộ",
-    "date": "2025-08-20",
+    "date": "2026-08-20",
     "excerpt": "Thông tin lịch nghỉ lễ Quốc khánh, lịch trực vận hành và thời gian làm việc trở lại dành cho toàn thể nhân sự.",
     "image": "/assets/news/nation-day-02092026.jpg",
     "readingMinutes": 2,
@@ -32,7 +60,53 @@
         "paragraphs": [
           "Toàn thể nhân sự trở lại làm việc bình thường từ Thứ Sáu, ngày 04/09/2026."
         ]
+      },
+      {
+        "title": "Trách nhiệm các phòng ban",
+        "paragraphs": [
+          "Tất cả nhân viên phải thực hiện tổng vệ sinh nơi làm việc, phòng ban của mình; sắp xếp gọn gàng, ngăn nắp bàn làm việc; tắt hết các thiết bị sử dụng điện và cúp cầu dao tổng nơi làm việc trước kỳ nghỉ lễ.",
+          "Yêu cầu các phòng ban phối hợp và thực hiện nghiêm túc nội dung thông báo này."
+        ]
       }
+    ],
+    "highlights": [
+      "Nghỉ ngày 02/09 và 03/09/2026",
+      "Đi làm lại ngày 04/09/2026",
+      "Hoàn tất vệ sinh và tắt thiết bị điện trước kỳ nghỉ"
+    ]
+  },
+  {
+    "id": "lich-cup-dien-chi-nhanh-2-18062026",
+    "title": "Thông báo lịch cúp điện ngày 18/06/2026 tại Chi nhánh 2",
+    "category": "Thông báo nội bộ",
+    "date": "2026-06-18",
+    "excerpt": "Nhân viên Chi nhánh 2 nghỉ làm buổi sáng ngày 18/06/2026 do lịch cúp điện theo kế hoạch.",
+    "readingMinutes": 1,
+    "sections": [
+      {
+        "title": "Lịch làm việc ban đầu",
+        "paragraphs": [
+          "Do lịch cúp điện theo kế hoạch, nhân viên Chi nhánh 2 nghỉ làm buổi sáng ngày 18/06/2026.",
+          "Thời gian có điện trở lại dự kiến ban đầu là 13:30. Nhân viên đi làm lại vào buổi chiều theo giờ làm việc bình thường."
+        ]
+      },
+      {
+        "title": "Cập nhật từ điện lực",
+        "paragraphs": [
+          "Theo thông báo của điện lực, thời gian cấp điện trở lại dự kiến từ 13:50 đến 14:50 ngày 18/06/2026."
+        ]
+      },
+      {
+        "title": "Phối hợp thực hiện",
+        "paragraphs": [
+          "Đề nghị các bộ phận chủ động sắp xếp công việc. Công ty sẽ thông báo nếu có thay đổi về thời gian cấp điện."
+        ]
+      }
+    ],
+    "highlights": [
+      "Nghỉ làm buổi sáng ngày 18/06/2026",
+      "Cấp điện lại dự kiến từ 13:50 đến 14:50",
+      "Áp dụng tại Chi nhánh 2"
     ]
   },
   {
@@ -70,38 +144,238 @@
     ]
   },
   {
-    "id": "lich-nghi-le-304-015-2026",
-    "title": "Thông báo lịch nghỉ lễ 30/04 và 01/05 năm 2026",
+    "id": "giao-luu-sinh-nhat-chi-nhanh-2-2026",
+    "title": "Thông báo giao lưu sinh nhật tại Chi nhánh 2",
     "category": "Thông báo nội bộ",
-    "date": "2026-04-25",
-    "excerpt": "Thông tin lịch nghỉ lễ 30/04 và 01/05, lịch trực vận hành và thời gian làm việc trở lại dành cho toàn thể nhân sự.",
+    "date": "2026-05-05",
+    "excerpt": "Sếp Tiến mời toàn thể anh em trong công ty giao lưu nhẹ sau giờ làm nhân dịp sinh nhật Nhật Vy và Kiều Chinh.",
+    "readingMinutes": 1,
+    "sections": [
+      {
+        "title": "Nội dung chương trình",
+        "paragraphs": [
+          "Chiều nay, sếp Tiến mời toàn thể anh em trong công ty đi “giao lưu nhẹ” sau giờ làm nhân dịp sinh nhật hai bạn Nhật Vy (Phó phòng Shopify) và Kiều Chinh (Kế toán)."
+        ]
+      },
+      {
+        "title": "Thời gian và địa điểm",
+        "paragraphs": [
+          "Thời gian: Sau giờ làm hôm nay.",
+          "Địa điểm: Nhà hàng 5 Lửa."
+        ],
+        "links": [
+          {
+            "label": "Xem Nhà hàng 5 Lửa trên Google Maps",
+            "href": "https://share.google/kNj0g5pwGXeJBidVE"
+          }
+        ]
+      },
+      {
+        "title": "Lời nhắn",
+        "paragraphs": [
+          "Mong mọi người sắp xếp tham gia đầy đủ để cùng thư giãn, gắn kết và “xả stress” sau một ngày làm việc."
+        ]
+      }
+    ],
+    "highlights": [
+      "Áp dụng tại Chi nhánh 2",
+      "Diễn ra sau giờ làm",
+      "Địa điểm: Nhà hàng 5 Lửa"
+    ]
+  },
+  {
+    "id": "lich-nghi-le-304-015-2026",
+    "title": "Thông báo lịch nghỉ lễ Giỗ Tổ Hùng Vương, 30/04 và 01/05 năm 2026",
+    "category": "Thông báo nội bộ",
+    "date": "2026-04-20",
+    "excerpt": "Thông tin lịch làm việc dịp Giỗ Tổ Hùng Vương, lịch nghỉ lễ 30/04–01/05 và thời gian làm việc trở lại dành cho toàn thể nhân sự.",
     "image": "/assets/news/independence-day-30042026.jpg",
     "readingMinutes": 2,
     "sections": [
       {
-        "title": "Thông tin lịch nghỉ",
+        "title": "Căn cứ thông báo",
         "paragraphs": [
-          "Sonic Group thông báo lịch nghỉ lễ Ngày Chiến thắng 30/04 và Quốc tế Lao động 01/05 để các phòng ban chủ động sắp xếp kế hoạch công việc và bàn giao các đầu việc đang vận hành."
+          "Thực hiện theo quy định của Nhà nước về chế độ nghỉ Lễ, Tết theo Bộ luật Lao động hiện hành.",
+          "Căn cứ vào hoạt động và tình hình thực tế của Công ty, Ban lãnh đạo thông báo lịch làm việc và nghỉ lễ đến toàn thể cán bộ công nhân viên."
         ]
       },
       {
-        "title": "Lịch nghỉ",
+        "title": "Giỗ Tổ Hùng Vương",
         "paragraphs": [
-          "Thời gian nghỉ lễ: Thứ Năm, ngày 30/04/2026 đến hết Chủ Nhật, ngày 03/05/2026."
+          "Cán bộ công nhân viên vẫn đi làm bình thường.",
+          "Công ty sẽ sắp xếp nghỉ bù vào Thứ Bảy của tuần kế tiếp."
         ]
       },
       {
-        "title": "Lịch trực và bàn giao",
+        "title": "Lễ 30/04 và 01/05",
         "paragraphs": [
-          "Các đội có lịch trực hệ thống, chăm sóc khách hàng hoặc đối soát sẽ nhận lịch phân công riêng từ trưởng phòng. Mọi đầu việc cần được cập nhật trạng thái và bàn giao đầy đủ trước kỳ nghỉ."
+          "Cán bộ công nhân viên được nghỉ 04 ngày liên tục, từ Thứ Năm, ngày 30/04/2026 đến hết Chủ Nhật, ngày 03/05/2026.",
+          "Thứ Hai, ngày 04/05/2026, Công ty sẽ đi làm bình thường."
         ]
       },
       {
-        "title": "Thời gian làm việc trở lại",
+        "title": "Lưu ý về hoán đổi ngày nghỉ",
         "paragraphs": [
-          "Toàn thể nhân sự trở lại làm việc bình thường từ Thứ Hai, ngày 04/05/2026."
+          "Công ty áp dụng hình thức hoán đổi ngày nghỉ, đã có sự đồng thuận của các cấp bậc Ban lãnh đạo và toàn thể cán bộ công nhân viên Công ty."
+        ]
+      },
+      {
+        "title": "Trách nhiệm các phòng ban",
+        "paragraphs": [
+          "Tất cả nhân viên phải thực hiện việc tổng vệ sinh nơi làm việc, phòng ban của mình. Sắp xếp gọn gàng, ngăn nắp bàn làm việc, tắt hết các thiết bị sử dụng điện, cúp cầu dao tổng nơi làm việc trước nghỉ lễ.",
+          "Yêu cầu các phòng ban phối hợp và thực hiện nghiêm túc nội dung thông báo này."
         ]
       }
+    ],
+    "highlights": [
+      "Giỗ Tổ Hùng Vương vẫn làm việc bình thường",
+      "Nghỉ 04 ngày từ 30/04 đến hết 03/05/2026",
+      "Đi làm lại vào Thứ Hai, ngày 04/05/2026"
+    ]
+  },
+  {
+    "id": "lich-nghi-tet-am-lich-2026",
+    "title": "Thông báo nghỉ Tết Âm lịch năm 2026",
+    "category": "Thông báo nội bộ",
+    "date": "2026-01-28",
+    "excerpt": "Nghỉ từ ngày 14/02/2026 (27/12/2025 âm lịch) và làm việc trở lại từ ngày 23/02/2026 (07/01/2026 âm lịch).",
+    "readingMinutes": 2,
+    "sections": [
+      {
+        "title": "Căn cứ thông báo",
+        "paragraphs": [
+          "Thực hiện theo quy định của Nhà nước về chế độ nghỉ Lễ, Tết năm 2026.",
+          "Căn cứ vào tình hình thực tế của Công ty, Ban lãnh đạo thông báo lịch nghỉ Tết Âm lịch năm 2026 đến toàn thể cán bộ công nhân viên."
+        ]
+      },
+      {
+        "title": "Thời gian nghỉ",
+        "paragraphs": [
+          "Thời gian bắt đầu nghỉ: Từ ngày 14/02/2026 nhằm ngày 27/12/2025 âm lịch.",
+          "Thời gian đi làm lại: Từ ngày 23/02/2026 nhằm ngày 07/01/2026 âm lịch, cán bộ công nhân viên Công ty sẽ đi làm bình thường."
+        ]
+      },
+      {
+        "title": "Trách nhiệm các phòng ban",
+        "paragraphs": [
+          "Tất cả nhân viên phải thực hiện việc tổng vệ sinh nơi làm việc, phòng ban của mình.",
+          "Sắp xếp gọn gàng, ngăn nắp bàn làm việc, tắt hết các thiết bị sử dụng điện, cúp cầu dao tổng nơi làm việc trước nghỉ lễ."
+        ]
+      },
+      {
+        "title": "Yêu cầu thực hiện",
+        "paragraphs": [
+          "Yêu cầu các phòng ban phối hợp và thực hiện nghiêm túc nội dung thông báo này."
+        ]
+      }
+    ],
+    "highlights": [
+      "Bắt đầu nghỉ ngày 14/02/2026",
+      "Đi làm lại ngày 23/02/2026",
+      "Hoàn tất vệ sinh và tắt thiết bị điện trước kỳ nghỉ"
+    ]
+  },
+  {
+    "id": "tiec-tat-nien-2025",
+    "title": "Thông báo tiệc tất niên 2025",
+    "category": "Thông báo nội bộ",
+    "date": "2025-12-30",
+    "excerpt": "Tiệc tất niên diễn ra lúc 16:30 ngày 30/12 tại Nhà hàng Dũng Mập, kính mời toàn thể nhân viên sắp xếp tham dự.",
+    "readingMinutes": 1,
+    "sections": [
+      {
+        "title": "Thời gian và địa điểm",
+        "paragraphs": [
+          "Thời gian: 16:30, ngày 30/12/2025.",
+          "Địa điểm: Nhà hàng Dũng Mập."
+        ]
+      },
+      {
+        "title": "Lời mời tham dự",
+        "paragraphs": [
+          "Công ty trân trọng kính mời toàn thể anh chị em nhân viên sắp xếp thời gian tham dự để cùng nhau chia sẻ niềm vui, gắn kết tình đồng nghiệp và cùng nhìn lại một năm đã qua với nhiều nỗ lực, cố gắng."
+        ]
+      }
+    ],
+    "highlights": [
+      "16:30 ngày 30/12/2025",
+      "Địa điểm: Nhà hàng Dũng Mập",
+      "Dành cho toàn thể nhân viên"
+    ]
+  },
+  {
+    "id": "lich-nghi-tet-duong-lich-2026",
+    "title": "Thông báo nghỉ Tết Dương lịch năm 2026",
+    "category": "Thông báo nội bộ",
+    "date": "2025-12-23",
+    "excerpt": "Toàn thể cán bộ công nhân viên nghỉ Thứ Năm, ngày 01/01/2026 và đi làm bình thường trở lại vào Thứ Sáu, ngày 02/01/2026.",
+    "readingMinutes": 2,
+    "sections": [
+      {
+        "title": "Căn cứ thông báo",
+        "paragraphs": [
+          "Thực hiện theo quy định của Nhà nước về chế độ nghỉ Lễ, Tết năm 2026.",
+          "Căn cứ vào tình hình thực tế của Công ty, Ban lãnh đạo thông báo lịch nghỉ Tết Dương lịch năm 2026 đến toàn thể cán bộ công nhân viên."
+        ]
+      },
+      {
+        "title": "Thời gian nghỉ",
+        "paragraphs": [
+          "Nghỉ Thứ Năm, ngày 01/01/2026.",
+          "Thứ Sáu, ngày 02/01/2026, cán bộ công nhân viên Công ty sẽ đi làm bình thường."
+        ]
+      },
+      {
+        "title": "Trách nhiệm các phòng ban",
+        "paragraphs": [
+          "Tất cả nhân viên phải thực hiện việc tổng vệ sinh nơi làm việc, phòng ban của mình.",
+          "Sắp xếp gọn gàng, ngăn nắp bàn làm việc, tắt hết các thiết bị sử dụng điện, cúp cầu dao tổng nơi làm việc trước nghỉ lễ."
+        ]
+      },
+      {
+        "title": "Yêu cầu thực hiện",
+        "paragraphs": [
+          "Yêu cầu các phòng ban phối hợp và thực hiện nghiêm túc nội dung thông báo này."
+        ]
+      }
+    ],
+    "highlights": [
+      "Nghỉ ngày 01/01/2026",
+      "Đi làm lại ngày 02/01/2026",
+      "Hoàn tất vệ sinh và tắt thiết bị điện trước kỳ nghỉ"
+    ]
+  },
+  {
+    "id": "quy-dinh-do-xe-chi-nhanh-2",
+    "title": "Thông báo quy định đỗ xe tại Chi nhánh 2",
+    "category": "Thông báo nội bộ",
+    "dateLabel": "Không ghi ngày",
+    "excerpt": "Toàn thể nhân viên Chi nhánh 2 đưa xe vào khu vực nhà để xe, không để xe ngoài sân nhằm bảo đảm an toàn tài sản cá nhân.",
+    "readingMinutes": 1,
+    "sections": [
+      {
+        "title": "Quy định đỗ xe",
+        "paragraphs": [
+          "Theo chỉ đạo của Ban Giám đốc, kể từ ngày kế tiếp ngày ban hành thông báo, tất cả nhân viên phải chạy xe thẳng lên khu vực nhà để xe, không để xe ngoài sân như hiện tại."
+        ]
+      },
+      {
+        "title": "Lý do thực hiện",
+        "paragraphs": [
+          "Buổi trưa không có người trông coi, vì vậy việc đưa xe vào đúng khu vực nhằm bảo đảm an toàn tài sản cá nhân của mọi người."
+        ]
+      },
+      {
+        "title": "Yêu cầu thực hiện",
+        "paragraphs": [
+          "Đề nghị toàn thể nhân viên nghiêm túc thực hiện."
+        ]
+      }
+    ],
+    "highlights": [
+      "Áp dụng tại Chi nhánh 2",
+      "Đưa xe vào khu vực nhà để xe",
+      "Không để xe ngoài sân"
     ]
   }
 ]

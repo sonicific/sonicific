@@ -36,9 +36,10 @@ export interface NewsPost {
   id: string;
   title: string;
   category: string;
-  date: string;
+  date?: string;
+  dateLabel?: string;
   excerpt: string;
-  image: string;
+  image?: string;
   readingMinutes: number;
   featured?: boolean;
   sections: NewsSection[];
@@ -48,6 +49,12 @@ export interface NewsPost {
 export interface NewsSection {
   title: string;
   paragraphs: string[];
+  links?: NewsLink[];
+}
+
+export interface NewsLink {
+  label: string;
+  href: string;
 }
 
 export interface JobPosting {

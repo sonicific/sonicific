@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   ClipboardList,
   Clock3,
+  ExternalLink,
   FileText,
   Newspaper,
   Sparkles,
@@ -14,8 +15,9 @@ import { ButtonLink } from "../components/ButtonLink";
 import { NewsCard } from "../components/NewsCard";
 import { Reveal } from "../components/Reveal";
 import { newsPosts } from "../data/news";
-import { formatDate } from "../lib/format";
+import { formatOptionalDate } from "../lib/format";
 import { routes } from "../lib/router";
+import type { NewsSection } from "../types";
 
 interface NewsDetailPageProps {
   newsId?: string;
@@ -65,7 +67,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
-                {formatDate(post.date)}
+                {formatOptionalDate(post.date, post.dateLabel)}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
@@ -81,22 +83,25 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
           </Reveal>
         </header>
 
-        <Reveal
-          variant="scale"
-          className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10"
-        >
-          <div className="relative overflow-hidden rounded-lg shadow-soft">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="h-52 w-full object-cover sm:h-64 lg:h-72"
-            />
-            <div
-              className="news-image-bottom-mask pointer-events-none absolute inset-x-0 bottom-0 h-24"
-              aria-hidden="true"
-            />
-          </div>
-        </Reveal>
+        {post.image ? (
+          <Reveal
+            variant="scale"
+            className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10"
+          >
+            <div className="relative overflow-hidden rounded-lg shadow-soft">
+              <img
+                src={post.image}
+                alt={post.title}
+                decoding="async"
+                className="h-52 w-full object-cover sm:h-64 lg:h-72"
+              />
+              <div
+                className="news-image-bottom-mask pointer-events-none absolute inset-x-0 bottom-0 h-24"
+                aria-hidden="true"
+              />
+            </div>
+          </Reveal>
+        ) : null}
 
         <div
           className={`mx-auto max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:py-16 ${
@@ -107,8 +112,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
             {post.sections.map((section, index) => (
               <ArticleSection
                 key={section.title}
-                title={section.title}
-                paragraphs={section.paragraphs}
+                section={section}
                 icon={newsSectionIcons[index % newsSectionIcons.length]}
               />
             ))}
@@ -167,14 +171,12 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
 }
 
 interface ArticleSectionProps {
-  title: string;
-  paragraphs: string[];
+  section: NewsSection;
   icon: LucideIcon;
 }
 
 function ArticleSection({
-  title,
-  paragraphs,
+  section,
   icon: Icon,
 }: ArticleSectionProps) {
   return (
@@ -184,12 +186,24 @@ function ArticleSection({
           <Icon className="h-4 w-4" aria-hidden="true" />
         </span>
         <h2 className="font-display text-xl font-semibold text-slate-950">
-          {title}
+          {section.title}
         </h2>
       </div>
       <div className="mt-4 space-y-5 text-base leading-8 text-slate-700">
-        {paragraphs.map((paragraph) => (
+        {section.paragraphs.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
+        ))}
+        {section.links?.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 font-semibold text-teal-700 transition hover:text-teal-900"
+          >
+            {link.label}
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+          </a>
         ))}
       </div>
     </Reveal>
