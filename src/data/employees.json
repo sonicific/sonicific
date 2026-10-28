@@ -224,7 +224,7 @@
     "id": "le-thi-van-nhi",
     "name": "Lê Thị Vân Nhi",
     "email": "hi@sonicgroup.site",
-    "dob": "1/1/2000",
+    "dob": "07/02/2001",
     "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20Th%E1%BB%8B%20V%C3%A2n%20Nhi&backgroundType=gradientLinear",
     "position": "Store Specialist",
     "department": "E-Comerce",
@@ -312,11 +312,11 @@
     "bio": "Chăm sóc listing, hình ảnh sản phẩm và thử nghiệm keyword để tăng khả năng hiển thị trên Etsy."
   },
   {
-    "id": "le-tuong-vy",
-    "name": "Lê Tường Vy",
+    "id": "doan-thi-tuong-vy",
+    "name": "Doan Thị Tường Vy",
     "email": "hi@sonicgroup.site",
     "dob": "24/01/1999",
-    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=L%C3%AA%20T%C6%B0%C6%A1ng%20Vy&backgroundType=gradientLinear",
+    "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=Doan%20Thi%20Tường%20Vy&backgroundType=gradientLinear",
     "position": "Payout Reconciliation",
     "department": "Business Center",
     "joinedAt": "2025-11-04",
