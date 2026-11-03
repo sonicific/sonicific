@@ -1,21 +1,18 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import { scrollBehavior } from "../lib/motion";
-
 export function ScrollToTopButton() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const onScroll = () => {
       setIsVisible(window.scrollY > 520);
     };
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
   return (
     <button
       type="button"
@@ -25,7 +22,7 @@ export function ScrollToTopButton() {
           : "pointer-events-none translate-y-4 opacity-0"
       }`}
       onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
-      aria-label="Lên đầu trang"
+      aria-label={t("Lên đầu trang")}
       aria-hidden={!isVisible}
       tabIndex={isVisible ? 0 : -1}
     >

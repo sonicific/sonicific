@@ -1,33 +1,28 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import { ArrowUpRight, CalendarDays, Clock3, Newspaper } from "lucide-react";
 import { formatOptionalDate, isRecent } from "../lib/format";
 import { routes } from "../lib/router";
 import type { NewsPost } from "../types";
-
 interface NewsCardProps {
   post: NewsPost;
   featured?: boolean;
 }
-
 export function NewsCard({ post, featured = false }: NewsCardProps) {
+  const { t } = useLanguage();
   const tone = getNewsTone(post.category);
-
   return (
     <article
-      className={`news-card motion-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${
-        featured ? "news-featured grid md:grid-cols-[1.05fr_0.95fr]" : ""
-      }`}
+      className={`news-card motion-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${featured ? "news-featured grid md:grid-cols-[1.05fr_0.95fr]" : ""}`}
     >
       <a
         href={routes.newsDetail(post.id)}
-        className={`relative block overflow-hidden ${
-          featured ? "min-h-64" : "aspect-[16/10]"
-        }`}
-        aria-label={`Đọc tin: ${post.title}`}
+        className={`relative block overflow-hidden ${featured ? "min-h-64" : "aspect-[16/10]"}`}
+        aria-label={t(`Đọc tin: ${post.title}`)}
       >
         {post.image ? (
           <img
             src={post.image}
-            alt=""
+            alt={""}
             loading="lazy"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
@@ -42,11 +37,11 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
           <span
             className={`rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur ${tone.badge}`}
           >
-            {post.category}
+            {t(post.category)}
           </span>
           {isRecent(post.date) ? (
             <span className="rounded-full bg-teal-500 px-3 py-1 text-[11px] font-semibold text-white shadow-sm">
-              Mới
+              {t("Mới")}
             </span>
           ) : null}
         </div>
@@ -63,11 +58,12 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-slate-500">
             <span className="inline-flex items-center gap-1.5">
               <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
-              {formatOptionalDate(post.date, post.dateLabel)}
+              {t(formatOptionalDate(post.date, post.dateLabel))}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-              {post.readingMinutes} phút đọc
+              {post.readingMinutes}
+              {t(" phút đọc")}
             </span>
           </div>
         </div>
@@ -78,15 +74,17 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
             href={routes.newsDetail(post.id)}
             className={`transition hover:opacity-80 ${tone.text}`}
           >
-            {post.title}
+            {t(post.title)}
           </a>
         </h2>
-        <p className="mt-3 text-sm leading-6 text-slate-600">{post.excerpt}</p>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          {t(post.excerpt)}
+        </p>
         <a
           href={routes.newsDetail(post.id)}
           className={`mt-5 inline-flex items-center gap-1.5 text-xs font-semibold ${tone.text}`}
         >
-          Xem chi tiết
+          {t("Xem chi tiết")}
           <ArrowUpRight
             className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             aria-hidden="true"
@@ -96,8 +94,8 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
     </article>
   );
 }
-
 function NewsVisualPlaceholder() {
+  const { t } = useLanguage();
   return (
     <div
       className="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_25%_20%,rgba(20,184,166,0.24),transparent_34%),linear-gradient(135deg,#f0fdfa_0%,#eef2ff_100%)] text-teal-700"
@@ -109,7 +107,6 @@ function NewsVisualPlaceholder() {
     </div>
   );
 }
-
 function getNewsTone(category: string) {
   if (category === "Công nghệ") {
     return {
@@ -118,7 +115,6 @@ function getNewsTone(category: string) {
       text: "text-indigo-700",
     };
   }
-
   if (category === "Hoạt động") {
     return {
       badge: "bg-rose-50/95 text-rose-800 ring-1 ring-rose-100",
@@ -126,7 +122,6 @@ function getNewsTone(category: string) {
       text: "text-rose-700",
     };
   }
-
   return {
     badge: "bg-teal-50/95 text-teal-800 ring-1 ring-teal-100",
     icon: "bg-teal-50 text-teal-700 ring-teal-100",

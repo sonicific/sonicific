@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import {
   ArrowLeft,
   BellRing,
@@ -18,40 +19,35 @@ import { newsPosts } from "../data/news";
 import { formatOptionalDate } from "../lib/format";
 import { routes } from "../lib/router";
 import type { NewsSection } from "../types";
-
 interface NewsDetailPageProps {
   newsId?: string;
 }
-
 const newsSectionIcons = [FileText, ClipboardList, BellRing];
-
 export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
+  const { t } = useLanguage();
   const post = newsPosts.find((item) => item.id === newsId);
-
   if (!post) {
     return (
       <section className="bg-stone-50 py-24">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
           <p className="text-sm font-semibold text-teal-700">
-            Không tìm thấy tin
+            {t("Không tìm thấy tin")}
           </p>
           <h1 className="mt-3 font-display text-3xl font-semibold text-slate-950">
-            Bài viết này chưa tồn tại
+            {t("Bài viết này chưa tồn tại")}
           </h1>
           <div className="mt-6 flex justify-center">
             <ButtonLink href={routes.news} icon={ArrowLeft}>
-              Về trang tin tức
+              {t("Về trang tin tức")}
             </ButtonLink>
           </div>
         </div>
       </section>
     );
   }
-
   const relatedPosts = newsPosts
     .filter((item) => item.id !== post.id)
     .slice(0, 2);
-
   return (
     <>
       <article className="bg-white">
@@ -59,26 +55,27 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
           <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-teal-100/70 blur-3xl" />
           <Reveal className="mx-auto max-w-6xl px-4 sm:px-6">
             <ButtonLink href={routes.news} icon={ArrowLeft} variant="light">
-              Tất cả tin tức
+              {t("Tất cả tin tức")}
             </ButtonLink>
             <div className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600">
               <span className="rounded-full bg-teal-50 px-3 py-1.5 text-teal-800 ring-1 ring-teal-100">
-                {post.category}
+                {t(post.category)}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
-                {formatOptionalDate(post.date, post.dateLabel)}
+                {t(formatOptionalDate(post.date, post.dateLabel))}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-                {post.readingMinutes} phút đọc
+                {post.readingMinutes}
+                {t(" phút đọc")}
               </span>
             </div>
             <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-              {post.title}
+              {t(post.title)}
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
-              {post.excerpt}
+              {t(post.excerpt)}
             </p>
           </Reveal>
         </header>
@@ -91,7 +88,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
             <div className="relative overflow-hidden rounded-lg shadow-soft">
               <img
                 src={post.image}
-                alt={post.title}
+                alt={t(post.title)}
                 decoding="async"
                 className="h-52 w-full object-cover sm:h-64 lg:h-72"
               />
@@ -104,9 +101,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
         ) : null}
 
         <div
-          className={`mx-auto max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:py-16 ${
-            post.highlights ? "grid lg:grid-cols-[1fr_18rem]" : ""
-          }`}
+          className={`mx-auto max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:py-16 ${post.highlights ? "grid lg:grid-cols-[1fr_18rem]" : ""}`}
         >
           <div className="grid gap-10">
             {post.sections.map((section, index) => (
@@ -124,7 +119,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
                 <div className="flex items-center gap-2 text-teal-800">
                   <Sparkles className="h-4 w-4" aria-hidden="true" />
                   <p className="text-xs font-semibold uppercase">
-                    Điểm đáng chú ý
+                    {t("Điểm đáng chú ý")}
                   </p>
                 </div>
                 <div className="mt-4 grid gap-3">
@@ -137,7 +132,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
                         className="mt-1 h-4 w-4 shrink-0 text-teal-600"
                         aria-hidden="true"
                       />
-                      <span>{highlight}</span>
+                      <span>{t(highlight)}</span>
                     </div>
                   ))}
                 </div>
@@ -154,7 +149,7 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
               <Newspaper className="h-5 w-5" aria-hidden="true" />
             </span>
             <h2 className="font-display text-2xl font-semibold text-slate-950">
-              Tin mới khác
+              {t("Tin mới khác")}
             </h2>
           </div>
           <div className="mt-6 grid gap-5 md:grid-cols-2">
@@ -169,16 +164,12 @@ export function NewsDetailPage({ newsId }: NewsDetailPageProps) {
     </>
   );
 }
-
 interface ArticleSectionProps {
   section: NewsSection;
   icon: LucideIcon;
 }
-
-function ArticleSection({
-  section,
-  icon: Icon,
-}: ArticleSectionProps) {
+function ArticleSection({ section, icon: Icon }: ArticleSectionProps) {
+  const { t } = useLanguage();
   return (
     <Reveal>
       <div className="flex items-center gap-3">
@@ -186,12 +177,12 @@ function ArticleSection({
           <Icon className="h-4 w-4" aria-hidden="true" />
         </span>
         <h2 className="font-display text-xl font-semibold text-slate-950">
-          {section.title}
+          {t(section.title)}
         </h2>
       </div>
       <div className="mt-4 space-y-5 text-base leading-8 text-slate-700">
         {section.paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
+          <p key={paragraph}>{t(paragraph)}</p>
         ))}
         {section.links?.map((link) => (
           <a
@@ -201,7 +192,7 @@ function ArticleSection({
             rel="noreferrer"
             className="inline-flex items-center gap-2 font-semibold text-teal-700 transition hover:text-teal-900"
           >
-            {link.label}
+            {t(link.label)}
             <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
         ))}

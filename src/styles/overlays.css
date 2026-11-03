@@ -1,0 +1,118 @@
+.select-popover {
+  position: relative;
+  min-width: 0;
+}
+.select-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.select-trigger:hover {
+  border-color: #91aa80;
+}
+.select-trigger > svg {
+  flex-shrink: 0;
+}
+.select-trigger > svg:last-child {
+  transition: transform 0.2s;
+}
+.select-trigger .is-open {
+  transform: rotate(180deg);
+}
+.select-trigger.is-selected {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+.select-popover-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 224px;
+  max-height: min(320px, calc(100dvh - 24px));
+  z-index: 1000;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  padding: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 18px 45px #10271c24;
+  animation: popover-enter 0.14s ease-out;
+}
+.select-popover-menu > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 11px;
+  color: var(--muted);
+  text-align: left;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.select-popover-menu > button[aria-checked="true"] {
+  color: var(--ink);
+  background: var(--surface-soft);
+}
+.select-popover-menu > button:hover,
+.select-popover-menu > button:focus-visible {
+  outline: none;
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+.select-popover-menu svg {
+  flex-shrink: 0;
+  color: #789959;
+}
+.language-trigger,
+.language-trigger.is-selected {
+  gap: 6px;
+  min-height: 40px;
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.language-trigger > svg:last-child {
+  display: none;
+}
+@keyframes popover-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 420px) {
+  .site-brand .brand-suffix,
+  .site-brand small {
+    display: none;
+  }
+  .language-trigger {
+    min-height: 36px;
+    padding: 7px 9px;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+}

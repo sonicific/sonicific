@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -16,7 +17,6 @@ import { SectionHeader } from "../components/SectionHeader";
 import { SelectPopover } from "../components/SelectPopover";
 import { amenities, company } from "../data/company";
 import { jobDepartments, openJobPostings } from "../data/jobs";
-
 const culturePoints = [
   {
     title: "Môi trường năng động",
@@ -40,14 +40,13 @@ const culturePoints = [
     tone: "bg-emerald-50 text-emerald-700 ring-emerald-100",
   },
 ];
-
 const allDepartments = "Tất cả";
 const departmentOptions = jobDepartments.map((item) => ({
   label: item,
   value: item,
 }));
-
 export function CareersPage() {
+  const { t } = useLanguage();
   const [department, setDepartment] = useState(allDepartments);
   const visibleJobs = useMemo(
     () =>
@@ -56,21 +55,22 @@ export function CareersPage() {
       ),
     [department],
   );
-
   return (
     <>
       <PageHero
         icon={BriefcaseBusiness}
         compact
-        eyebrow="Careers at Sonic"
-        title="Làm việc cùng những người thích biến ý tưởng thành kết quả."
-        description="Khám phá các vị trí đang mở và chọn một vai trò phù hợp với thế mạnh của bạn."
+        eyebrow={"Careers at Sonic"}
+        title={t("Làm việc cùng những người thích biến ý tưởng thành kết quả.")}
+        description={t(
+          "Khám phá các vị trí đang mở và chọn một vai trò phù hợp với thế mạnh của bạn.",
+        )}
         aside={
           <div className="hero-meta">
             <HeroMetric value={openJobPostings.length}>
-              Vị trí đang mở
+              {t("Vị trí đang mở")}
             </HeroMetric>
-            <HeroMetric value="02">Chi nhánh tại TP.HCM</HeroMetric>
+            <HeroMetric value="02">{t("Chi nhánh tại TP.HCM")}</HeroMetric>
           </div>
         }
       />
@@ -80,12 +80,14 @@ export function CareersPage() {
           <Reveal className="relative z-20 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <SectionHeader
               icon={BriefcaseBusiness}
-              eyebrow="Cơ hội nghề nghiệp"
-              title="Tìm vị trí dành cho bạn"
-              description="Lọc nhanh theo phòng ban, xem mô tả chi tiết và ứng tuyển qua email."
+              eyebrow={t("Cơ hội nghề nghiệp")}
+              title={t("Tìm vị trí dành cho bạn")}
+              description={t(
+                "Lọc nhanh theo phòng ban, xem mô tả chi tiết và ứng tuyển qua email.",
+              )}
             />
             <SelectPopover
-              label="Lọc phòng ban"
+              label={t("Lọc phòng ban")}
               value={department}
               options={departmentOptions}
               onValueChange={setDepartment}
@@ -119,9 +121,9 @@ export function CareersPage() {
             <div>
               <SectionHeader
                 icon={HeartHandshake}
-                eyebrow="Môi trường làm việc"
-                title="Gọn trong cách làm, cởi mở khi phối hợp."
-                description={`${company.openingHours}.`}
+                eyebrow={t("Môi trường làm việc")}
+                title={t("Gọn trong cách làm, cởi mở khi phối hợp.")}
+                description={`${t(company.openingHours)}.`}
               />
               <div className="mt-5 flex flex-wrap gap-2">
                 {amenities.map((item) => {
@@ -135,7 +137,7 @@ export function CareersPage() {
                         className="h-3.5 w-3.5 text-teal-700"
                         aria-hidden="true"
                       />
-                      {item.label}
+                      {t(item.label)}
                     </span>
                   );
                 })}
@@ -155,10 +157,10 @@ export function CareersPage() {
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <h3 className="mt-5 font-display text-sm font-semibold text-teal-700">
-                      {item.title}
+                      {t(item.title)}
                     </h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
-                      {item.description}
+                      {t(item.description)}
                     </p>
                   </article>
                 );
@@ -174,18 +176,18 @@ export function CareersPage() {
             <div className="flex items-center gap-2 text-teal-100">
               <Coffee className="h-4 w-4" aria-hidden="true" />
               <span className="text-xs font-semibold uppercase">
-                Chưa thấy vị trí phù hợp?
+                {t("Chưa thấy vị trí phù hợp?")}
               </span>
             </div>
             <h2 className="mt-2 font-display text-2xl font-semibold">
-              Gửi hồ sơ để Sonic chủ động liên hệ.
+              {t("Gửi hồ sơ để Sonic chủ động liên hệ.")}
             </h2>
           </div>
           <a
             href={`mailto:${company.contactEmail}?subject=Ho%20so%20ung%20tuyen%20Sonic%20Group`}
             className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-slate-950 transition hover:bg-teal-50"
           >
-            Gửi CV qua email
+            {t("Gửi CV qua email")}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </Reveal>

@@ -3,6 +3,8 @@
 @import "../src/styles/home.css";
 @import "../src/styles/pages.css";
 @import "../src/styles/theme.css";
+@import "../src/styles/overlays.css";
+@import "../src/styles/birthday.css";
 
 html {
   scroll-behavior: smooth;

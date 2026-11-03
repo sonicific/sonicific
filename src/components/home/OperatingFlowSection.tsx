@@ -1,3 +1,4 @@
+import { useLanguage } from "../../i18n/LanguageProvider";
 import {
   ArrowUpRight,
   Clapperboard,
@@ -6,7 +7,6 @@ import {
   Target,
 } from "lucide-react";
 import { Reveal } from "../Reveal";
-
 const steps = [
   {
     title: "Bắt tín hiệu",
@@ -32,23 +32,26 @@ const steps = [
     icon: ShieldCheck,
   },
 ];
-
 export function OperatingFlowSection() {
+  const { t } = useLanguage();
   return (
     <section className="flow-section section-space">
       <div className="site-container">
         <Reveal className="flow-heading">
           <p className="eyebrow">
-            <span className="status-dot" /> 02 / Cách Sonic chuyển động
+            <span className="status-dot" />
+            {t(" 02 / Cách Sonic chuyển động")}
           </p>
           <h2>
-            Từ tín hiệu.
+            {t("Từ tín hiệu.")}
             <br />
-            Đến <span>kết quả.</span>
+            {t("Đến ")}
+            <span>{t("kết quả.")}</span>
           </h2>
           <p>
-            Content, commerce, business và tech cùng chạm vào một luồng tăng
-            trưởng.
+            {t(
+              "Content, commerce, business và tech cùng chạm vào một luồng tăng trưởng.",
+            )}
           </p>
         </Reveal>
         <div className="flow-steps">
@@ -56,15 +59,18 @@ export function OperatingFlowSection() {
             <Reveal delay={index * 80} key={step.title}>
               <article className="flow-step">
                 <div className="flow-step-top">
-                  <span>0{index + 1}</span>
+                  <span>
+                    {"0"}
+                    {index + 1}
+                  </span>
                   <step.icon size={22} strokeWidth={1.4} aria-hidden="true" />
                 </div>
                 <div className="flow-line">
                   <i />
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+                <h3>{t(step.title)}</h3>
+                <p>{t(step.description)}</p>
               </article>
             </Reveal>
           ))}

@@ -1,27 +1,30 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import { ArrowUpRight, Clock3, Mail, MapPin, Phone } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { businessContact } from "../data/business";
 import { company } from "../data/company";
-
 export function ContactPage() {
+  const { t } = useLanguage();
   return (
     <>
       <PageHero
         icon={Mail}
-        eyebrow="Liên hệ Sonic Group"
-        title="Cùng trao đổi về mục tiêu của bạn."
-        description="Kết nối đúng đội ngũ: email hợp tác dành cho đối tác, email công ty dành cho tuyển dụng và tìm hiểu về Sonic."
+        eyebrow={t("Liên hệ Sonic Group")}
+        title={t("Cùng trao đổi về mục tiêu của bạn.")}
+        description={t(
+          "Kết nối đúng đội ngũ: email hợp tác dành cho đối tác, email công ty dành cho tuyển dụng và tìm hiểu về Sonic.",
+        )}
         aside={
           <div className="rounded-xl border border-teal-100 bg-white p-5 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">
-              Giờ làm việc
+              {t("Giờ làm việc")}
             </p>
             <p className="mt-2 text-lg font-semibold text-slate-950">
-              Thứ Hai – Thứ Bảy
+              {t("Thứ Hai – Thứ Bảy")}
             </p>
             <p className="mt-1 text-sm text-slate-600">
-              08:00 – 17:30 (GMT+7) · Chủ Nhật nghỉ
+              {t("08:00 – 17:30 (GMT+7) · Chủ Nhật nghỉ")}
             </p>
           </div>
         }
@@ -36,16 +39,16 @@ export function ContactPage() {
             >
               <Mail className="h-7 w-7 text-teal-700" aria-hidden="true" />
               <span className="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Hợp tác công việc · Đối tác
+                {t("Hợp tác công việc · Đối tác")}
               </span>
               <span className="mt-2 break-all font-display text-xl font-semibold text-slate-950 sm:text-2xl">
-                {businessContact.email}
+                {t(businessContact.email)}
               </span>
               <p className="contact-card-description">
-                Trao đổi dự án, dịch vụ và cơ hội hợp tác kinh doanh.
+                {t("Trao đổi dự án, dịch vụ và cơ hội hợp tác kinh doanh.")}
               </p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-700">
-                Gửi email{" "}
+                {t("Gửi email")}{" "}
                 <ArrowUpRight
                   className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"
@@ -60,16 +63,18 @@ export function ContactPage() {
             >
               <Mail className="h-7 w-7 text-teal-700" aria-hidden="true" />
               <span className="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Tuyển dụng · Thông tin công ty
+                {t("Tuyển dụng · Thông tin công ty")}
               </span>
               <span className="mt-2 break-all font-display text-xl font-semibold text-slate-950 sm:text-2xl">
-                {company.contactEmail}
+                {t(company.contactEmail)}
               </span>
               <p className="contact-card-description">
-                Gửi hồ sơ ứng tuyển hoặc tìm hiểu thêm thông tin về Sonic Group.
+                {t(
+                  "Gửi hồ sơ ứng tuyển hoặc tìm hiểu thêm thông tin về Sonic Group.",
+                )}
               </p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-700">
-                Gửi email{" "}
+                {t("Gửi email")}{" "}
                 <ArrowUpRight
                   className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"
@@ -82,8 +87,8 @@ export function ContactPage() {
             className="contact-phone-line lg:col-span-2"
           >
             <Phone size={17} aria-hidden="true" />
-            <span>Trao đổi trực tiếp</span>
-            <strong>{businessContact.phone}</strong>
+            <span>{t("Trao đổi trực tiếp")}</span>
+            <strong>{t(businessContact.phone)}</strong>
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </div>
@@ -94,11 +99,11 @@ export function ContactPage() {
           <div className="flex items-center gap-3 text-teal-700">
             <MapPin className="h-5 w-5" aria-hidden="true" />
             <p className="text-xs font-semibold uppercase tracking-wide">
-              Địa điểm làm việc
+              {t("Địa điểm làm việc")}
             </p>
           </div>
           <h2 className="mt-3 font-display text-3xl font-semibold text-slate-950">
-            Hai địa điểm tại TP. Hồ Chí Minh.
+            {t("Hai địa điểm tại TP. Hồ Chí Minh.")}
           </h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             {company.branches.map((branch, index) => (
@@ -110,13 +115,13 @@ export function ContactPage() {
               >
                 <article className="branch-card flex h-full flex-col border">
                   <h3 className="font-display text-xl font-semibold text-slate-950">
-                    {index === 0 ? "Trụ sở" : "Văn phòng vận hành"}
+                    {t(index === 0 ? "Trụ sở" : "Văn phòng vận hành")}
                   </h3>
                   <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-teal-700">
-                    {branch.name}
+                    {t(branch.name)}
                   </p>
                   <p className="mt-5 flex-1 text-sm leading-7 text-slate-600">
-                    {branch.address}
+                    {t(branch.address)}
                   </p>
                   <a
                     href={branch.mapUrl}
@@ -124,7 +129,7 @@ export function ContactPage() {
                     rel="noreferrer"
                     className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-700 hover:text-teal-900"
                   >
-                    Xem bản đồ{" "}
+                    {t("Xem bản đồ")}{" "}
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </a>
                 </article>
@@ -133,7 +138,7 @@ export function ContactPage() {
           </div>
           <p className="mt-7 inline-flex items-center gap-2 text-sm text-slate-600">
             <Clock3 className="h-4 w-4 text-teal-700" aria-hidden="true" />
-            {company.openingHours}
+            {t(company.openingHours)}
           </p>
         </div>
       </section>

@@ -5,6 +5,7 @@ import { businessContact } from "../data/business";
 import { jobPostings } from "../data/jobs";
 import { newsPosts } from "../data/news";
 import type { Employee, RouteState } from "../types";
+import { translate, type Language } from "../i18n/translate";
 
 const employees = employeesJson as Employee[];
 
@@ -130,8 +131,13 @@ function upsertMeta(
   element.content = content;
 }
 
-export function applySeoMetadata(route: RouteState) {
-  const seo = getSeoEntry(route);
+export function applySeoMetadata(route: RouteState, language: Language = "vi") {
+  const entry = getSeoEntry(route);
+  const seo = {
+    ...entry,
+    title: translate(entry.title, language),
+    description: translate(entry.description, language),
+  };
   const canonicalUrl = new URL(
     window.location.pathname,
     window.location.origin,
@@ -153,7 +159,12 @@ export function applySeoMetadata(route: RouteState) {
     "robots",
     "index, follow, max-image-preview:large",
   );
-  upsertMeta('meta[property="og:locale"]', "property", "og:locale", "vi_VN");
+  upsertMeta(
+    'meta[property="og:locale"]',
+    "property",
+    "og:locale",
+    language === "en" ? "en_GB" : "vi_VN",
+  );
   upsertMeta(
     'meta[property="og:site_name"]',
     "property",

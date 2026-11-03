@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import { BellRing, ListFilter, Newspaper } from "lucide-react";
 import { useMemo, useState } from "react";
 import { NewsCard } from "../components/NewsCard";
@@ -7,14 +8,13 @@ import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { SelectPopover } from "../components/SelectPopover";
 import { newsCategories, newsPosts } from "../data/news";
-
 const allCategories = "Tất cả";
 const categoryOptions = newsCategories.map((item) => ({
   label: item,
   value: item,
 }));
-
 export function NewsPage() {
+  const { t } = useLanguage();
   const [category, setCategory] = useState(allCategories);
   const visiblePosts = useMemo(
     () =>
@@ -23,19 +23,20 @@ export function NewsPage() {
       ),
     [category],
   );
-
   return (
     <>
       <PageHero
         icon={BellRing}
         compact
-        eyebrow="Newsroom"
-        title="Thông tin mới, vừa đủ để bạn luôn bắt kịp."
-        description="Thông báo công ty, hoạt động nội bộ và những cập nhật đáng chú ý từ Sonic Group."
+        eyebrow={"Newsroom"}
+        title={t("Thông tin mới, vừa đủ để bạn luôn bắt kịp.")}
+        description={t(
+          "Thông báo công ty, hoạt động nội bộ và những cập nhật đáng chú ý từ Sonic Group.",
+        )}
         aside={
           <div className="hero-meta">
             <HeroMetric value={newsPosts.length}>
-              Thông báo & cập nhật
+              {t("Thông báo & cập nhật")}
             </HeroMetric>
           </div>
         }
@@ -46,12 +47,14 @@ export function NewsPage() {
           <Reveal className="relative z-20 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <SectionHeader
               icon={Newspaper}
-              eyebrow="Tất cả cập nhật"
-              title="Bảng tin Sonic"
-              description="Tất cả thông báo được đặt cùng một lưới để người đọc quét nhanh hơn."
+              eyebrow={t("Tất cả cập nhật")}
+              title={t("Bảng tin Sonic")}
+              description={t(
+                "Tất cả thông báo được đặt cùng một lưới để người đọc quét nhanh hơn.",
+              )}
             />
             <SelectPopover
-              label="Lọc chủ đề"
+              label={t("Lọc chủ đề")}
               value={category}
               options={categoryOptions}
               onValueChange={setCategory}
@@ -81,7 +84,7 @@ export function NewsPage() {
                 aria-hidden="true"
               />
               <p className="mt-3 text-sm font-semibold text-slate-900">
-                Chưa có thêm bài viết trong chủ đề này
+                {t("Chưa có thêm bài viết trong chủ đề này")}
               </p>
             </div>
           )}

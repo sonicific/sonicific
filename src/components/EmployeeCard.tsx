@@ -1,12 +1,12 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import { routes } from "../lib/router";
 import type { Employee } from "../types";
 import { AvatarBadge } from "./AvatarBadge";
-
 interface EmployeeCardProps {
   employee: Employee;
 }
-
 export function EmployeeCard({ employee }: EmployeeCardProps) {
+  const { t } = useLanguage();
   return (
     <a
       href={routes.employee(employee.id)}
@@ -18,15 +18,15 @@ export function EmployeeCard({ employee }: EmployeeCardProps) {
         <div className="flex h-full min-w-0 flex-1 flex-col">
           <div>
             <h3 className="font-display text-sm font-semibold text-slate-950 transition group-hover:text-teal-700">
-              {employee.name}
+              {t(employee.name)}
             </h3>
             <p className="mt-1 text-[11px] font-medium text-teal-700">
-              {employee.position}
+              {t(employee.position)}
             </p>
           </div>
 
           <p className="mt-2 line-clamp-2 text-xs leading-5 text-slate-500">
-            {employee.focus}
+            {t(employee.focus)}
           </p>
         </div>
       </div>

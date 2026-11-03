@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import { ArrowUpRight, BriefcaseBusiness, ChevronDown } from "lucide-react";
 import { ButtonLink } from "../components/ButtonLink";
 import { BusinessServicesSection } from "../components/home/BusinessServicesSection";
@@ -14,8 +15,8 @@ import { SectionHeader } from "../components/SectionHeader";
 import { company, departments, faqs } from "../data/company";
 import { openJobPostings } from "../data/jobs";
 import { newsPosts } from "../data/news";
-
 export function HomePageEnhanced() {
+  const { t } = useLanguage();
   return (
     <>
       <HomeHero />
@@ -29,26 +30,31 @@ export function HomePageEnhanced() {
         <div className="site-container">
           <Reveal className="section-topline">
             <SectionHeader
-              eyebrow="Những người phía sau"
-              title="Khác chuyên môn. Cùng một nhịp."
-              description="Năm đội ngũ kết nối sáng tạo, thương mại và công nghệ trong từng công việc."
+              eyebrow={t("Những người phía sau")}
+              title={t("Khác chuyên môn. Cùng một nhịp.")}
+              description={t(
+                "Năm đội ngũ kết nối sáng tạo, thương mại và công nghệ trong từng công việc.",
+              )}
             />
             <ButtonLink href="/people" icon={ArrowUpRight} variant="light">
-              Gặp đội ngũ Sonic
+              {t("Gặp đội ngũ Sonic")}
             </ButtonLink>
           </Reveal>
           <div className="department-list">
             {departments.map((department, index) => (
               <Reveal key={department.name} delay={index * 50}>
                 <a href="/people" className="department-row">
-                  <span className="department-number">0{index + 1}</span>
+                  <span className="department-number">
+                    {"0"}
+                    {index + 1}
+                  </span>
                   <department.icon
                     size={26}
                     strokeWidth={1.2}
                     aria-hidden="true"
                   />
-                  <h3>{department.name}</h3>
-                  <p>{department.summary}</p>
+                  <h3>{t(department.name)}</h3>
+                  <p>{t(department.summary)}</p>
                   <span className="round-arrow">
                     <ArrowUpRight size={21} aria-hidden="true" />
                   </span>
@@ -62,12 +68,12 @@ export function HomePageEnhanced() {
         <div className="site-container">
           <Reveal className="section-topline">
             <SectionHeader
-              eyebrow="Nhịp sống & cập nhật"
-              title="Mới ở Sonic."
-              description="Thông báo và câu chuyện từ bên trong đội ngũ."
+              eyebrow={t("Nhịp sống & cập nhật")}
+              title={t("Mới ở Sonic.")}
+              description={t("Thông báo và câu chuyện từ bên trong đội ngũ.")}
             />
             <ButtonLink href="/news" icon={ArrowUpRight} variant="light">
-              Tất cả bài viết
+              {t("Tất cả bài viết")}
             </ButtonLink>
           </Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -83,21 +89,26 @@ export function HomePageEnhanced() {
         <div className="site-container home-careers-layout">
           <Reveal>
             <p className="eyebrow">
-              <BriefcaseBusiness size={15} /> Hành trình tiếp theo của bạn
+              <BriefcaseBusiness size={15} />
+              {t(" Hành trình tiếp theo của bạn")}
             </p>
             <h2>
-              Tạo điều mới.
+              {t("Tạo điều mới.")}
               <br />
-              <span>Cùng Sonic.</span>
+              <span>{t("Cùng Sonic.")}</span>
             </h2>
             <p className="section-description">
-              Chọn một vị trí phù hợp và bắt đầu cuộc trò chuyện với đội ngũ.
+              {t(
+                "Chọn một vị trí phù hợp và bắt đầu cuộc trò chuyện với đội ngũ.",
+              )}
             </p>
             <div className="mt-8">
               <ButtonLink href="/careers" icon={ArrowUpRight}>
-                {openJobPostings.length
-                  ? `Xem ${openJobPostings.length} vị trí đang mở`
-                  : "Khám phá cơ hội tại Sonic"}
+                {t(
+                  openJobPostings.length
+                    ? `Xem ${openJobPostings.length} vị trí đang mở`
+                    : "Khám phá cơ hội tại Sonic",
+                )}
               </ButtonLink>
             </div>
           </Reveal>
@@ -111,24 +122,26 @@ export function HomePageEnhanced() {
             ) : (
               <Reveal>
                 <div className="careers-open-note">
-                  <span className="eyebrow">Luôn sẵn lòng kết nối</span>
+                  <span className="eyebrow">{t("Luôn sẵn lòng kết nối")}</span>
                   <span className="careers-note-art" aria-hidden="true">
-                    ↗
+                    {"↗"}
                   </span>
                   <h3>
-                    Cơ hội bắt đầu
+                    {t("Cơ hội bắt đầu")}
                     <br />
-                    từ một lời chào.
+                    {t("từ một lời chào.")}
                   </h3>
                   <p>
-                    Hiện chưa có vị trí đang mở. Bạn vẫn có thể gửi hồ sơ để
-                    Sonic liên hệ khi có cơ hội phù hợp.
+                    {t(
+                      "Hiện chưa có vị trí đang mở. Bạn vẫn có thể gửi hồ sơ để Sonic liên hệ khi có cơ hội phù hợp.",
+                    )}
                   </p>
                   <a
                     href={`mailto:${company.contactEmail}`}
                     className="text-link"
                   >
-                    Gửi lời chào đến Sonic <ArrowUpRight size={17} />
+                    {t("Gửi lời chào đến Sonic ")}
+                    <ArrowUpRight size={17} />
                   </a>
                 </div>
               </Reveal>
@@ -140,9 +153,11 @@ export function HomePageEnhanced() {
         <div className="site-container faq-layout">
           <Reveal>
             <SectionHeader
-              eyebrow="Một vài giải đáp"
-              title={"Bạn muốn\nbiết thêm?"}
-              description="Những thông tin giúp bạn hiểu Sonic hơn trước khi bắt đầu."
+              eyebrow={t("Một vài giải đáp")}
+              title={t("Bạn muốn\nbiết thêm?")}
+              description={t(
+                "Những thông tin giúp bạn hiểu Sonic hơn trước khi bắt đầu.",
+              )}
             />
           </Reveal>
           <div>
@@ -151,12 +166,15 @@ export function HomePageEnhanced() {
                 <details className="faq-item group">
                   <summary>
                     <span>
-                      <small>0{index + 1}</small>
-                      {faq.question}
+                      <small>
+                        {"0"}
+                        {index + 1}
+                      </small>
+                      {t(faq.question)}
                     </span>
                     <ChevronDown size={19} aria-hidden="true" />
                   </summary>
-                  <p>{faq.answer}</p>
+                  <p>{t(faq.answer)}</p>
                 </details>
               </Reveal>
             ))}

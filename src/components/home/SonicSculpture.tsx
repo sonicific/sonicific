@@ -1,7 +1,8 @@
+import { useLanguage } from "../../i18n/LanguageProvider";
 import { useId, useRef, type PointerEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
-
 export function SonicSculpture() {
+  const { t } = useLanguage();
   const id = useId().replace(/:/g, "");
   const ref = useRef<HTMLDivElement>(null);
   const move = (event: PointerEvent<HTMLDivElement>) => {
@@ -24,7 +25,6 @@ export function SonicSculpture() {
     ref.current?.style.setProperty("--turn-x", "0deg");
     ref.current?.style.setProperty("--turn-y", "0deg");
   };
-
   return (
     <div
       className="sculpture-scene"
@@ -34,10 +34,10 @@ export function SonicSculpture() {
     >
       <div className="sculpture-grid" />
       <span className="scene-coordinate scene-coordinate-top">
-        SG / CONNECTED THINKING
+        {"SG / CONNECTED THINKING"}
       </span>
-      <span className="scene-cross scene-cross-one">+</span>
-      <span className="scene-cross scene-cross-two">+</span>
+      <span className="scene-cross scene-cross-one">{"+"}</span>
+      <span className="scene-cross scene-cross-two">{"+"}</span>
       <div ref={ref} className="sculpture-object">
         <svg viewBox="0 0 600 600" className="sculpture-svg" fill="none">
           <defs>
@@ -145,18 +145,19 @@ export function SonicSculpture() {
         </svg>
       </div>
       <div className="scene-label scene-label-strategy">
-        <span className="status-dot" /> Chiến lược có hướng
+        <span className="status-dot" />
+        {t(" Chiến lược có hướng")}
       </div>
       <div className="scene-label scene-label-growth">
         <ArrowUpRight size={18} />
         <span>
-          Sáng tạo.
+          {t("Sáng tạo.")}
           <br />
-          <strong>Kết nối. Tăng trưởng.</strong>
+          <strong>{t("Kết nối. Tăng trưởng.")}</strong>
         </span>
       </div>
       <span className="scene-coordinate scene-coordinate-bottom">
-        A SIGNAL OF WHAT’S NEXT ↗
+        {"A SIGNAL OF WHAT’S NEXT ↗"}
       </span>
     </div>
   );

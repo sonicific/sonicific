@@ -1,4 +1,5 @@
 import type { Employee } from "../types";
+import { normalizeSearch } from "./search";
 
 export const birthdayStatusWindowDays = 30;
 
@@ -74,7 +75,11 @@ function getDaysFromToday(dob: string, today: Date) {
     today.getMonth() + 1,
     today.getDate(),
   );
-  const birthdayOffsets = [today.getFullYear() - 1, today.getFullYear(), today.getFullYear() + 1]
+  const birthdayOffsets = [
+    today.getFullYear() - 1,
+    today.getFullYear(),
+    today.getFullYear() + 1,
+  ]
     .map((year) => toUtcDay(year, parsedDob.month, parsedDob.day))
     .map((birthdayUtc) => Math.round((birthdayUtc - todayUtc) / 86_400_000));
 
@@ -157,11 +162,11 @@ export function filterAndSortBirthdayEntries(
   statusFilter: BirthdayStatusFilter,
   sortMode: BirthdaySortMode,
 ) {
-  const normalizedQuery = query.trim().toLocaleLowerCase("vi");
+  const normalizedQuery = normalizeSearch(query);
   const matchingEntries = entries.filter(({ employee, daysFromToday }) => {
     const matchesQuery =
       !normalizedQuery ||
-      employee.name.toLocaleLowerCase("vi").includes(normalizedQuery);
+      normalizeSearch(employee.name).includes(normalizedQuery);
     const matchesStatus =
       statusFilter === "all" ||
       (statusFilter === "today" && daysFromToday === 0) ||

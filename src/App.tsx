@@ -17,17 +17,16 @@ import { NewsPage } from "./site/NewsPage";
 import { PeoplePage } from "./site/PeoplePage";
 import { ServicesPage } from "./site/ServicesPage";
 import type { RouteState } from "./types";
+import { LanguageProvider, useLanguage } from "./i18n/LanguageProvider";
+import type { Language } from "./i18n/translate";
 
 function getRoute(pathname: string): RouteState {
   return parsePath(pathname);
 }
 
-export default function App({
-  initialPathname = "/",
-}: {
-  initialPathname?: string;
-}) {
+function SiteApp({ initialPathname = "/" }: { initialPathname?: string }) {
   const [pathname, setPathname] = useState(initialPathname);
+  const { language } = useLanguage();
 
   const route = getRoute(pathname || "/");
 
@@ -102,9 +101,10 @@ export default function App({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    applySeoMetadata(route);
+    applySeoMetadata(route, language);
   }, [
     pathname,
+    language,
     route.page,
     route.activityId,
     route.employeeId,
@@ -152,5 +152,19 @@ export default function App({
         <CareerDetailPage jobId={route.jobId} />
       ) : null}
     </SiteShell>
+  );
+}
+
+export default function App({
+  initialPathname = "/",
+  initialLanguage = "vi",
+}: {
+  initialPathname?: string;
+  initialLanguage?: Language;
+}) {
+  return (
+    <LanguageProvider initialLanguage={initialLanguage}>
+      <SiteApp initialPathname={initialPathname} />
+    </LanguageProvider>
   );
 }

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { contactEmails } from "@/data/contact";
 import { themeInitScript } from "@/lib/theme";
+import { cookies } from "next/headers";
+import { languageCookie, resolveLanguage } from "@/i18n/translate";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sonicgroup.site"),
@@ -115,7 +117,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" suppressHydrationWarning>
+    <html
+      lang={resolveLanguage(cookies().get(languageCookie)?.value)}
+      suppressHydrationWarning
+    >
       <head>
         <script
           id="sonic-theme-init"

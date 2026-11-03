@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n/LanguageProvider";
 import {
   ArrowUpDown,
   Building2,
@@ -15,9 +16,8 @@ import { Reveal } from "../components/Reveal";
 import { SelectPopover, type SelectOption } from "../components/SelectPopover";
 import employeesJson from "../data/employees.json";
 import type { Department, Employee } from "../types";
-
+import { normalizeSearch } from "../lib/search";
 const employees = employeesJson as Employee[];
-
 const departmentOrder: Department[] = [
   "Leadership",
   "E-Comerce",
@@ -26,7 +26,6 @@ const departmentOrder: Department[] = [
   "Tech & Research",
   "Human & Resources",
 ];
-
 const allOption = "Tất cả";
 const collator = new Intl.Collator("vi", { sensitivity: "base" });
 const branchOptions: SelectOption<string>[] = [
@@ -42,14 +41,12 @@ const departmentOptions: SelectOption<string>[] = [
     value: department,
   })),
 ];
-
 type SortMode =
   | "default"
   | "name-asc"
   | "name-desc"
   | "joined-desc"
   | "joined-asc";
-
 const sortOptions: SelectOption<SortMode>[] = [
   { label: "Mặc định", value: "default" },
   { label: "Tên A–Z", value: "name-asc" },
@@ -57,58 +54,54 @@ const sortOptions: SelectOption<SortMode>[] = [
   { label: "Gia nhập gần đây", value: "joined-desc" },
   { label: "Gia nhập lâu nhất", value: "joined-asc" },
 ];
-
 export function PeoplePage() {
+  const { t } = useLanguage();
   const [query, setQuery] = useState("");
   const [branch, setBranch] = useState(allOption);
   const [department, setDepartment] = useState(allOption);
   const [sortMode, setSortMode] = useState<SortMode>("default");
   const [isBirthdayModalOpen, setIsBirthdayModalOpen] = useState(false);
   const birthdayButtonRef = useRef<HTMLButtonElement>(null);
-
   const closeBirthdayModal = useCallback(() => {
     setIsBirthdayModalOpen(false);
     window.requestAnimationFrame(() => birthdayButtonRef.current?.focus());
   }, []);
-
   const filteredEmployees = useMemo(() => {
-    const search = query.trim().toLowerCase();
-
+    const search = normalizeSearch(query);
     const matchingEmployees = employees.filter((employee) => {
       const matchBranch = branch === allOption || employee.location === branch;
       const matchDepartment =
         department === allOption || employee.department === department;
       const matchSearch =
         !search ||
-        employee.name.toLowerCase().includes(search) ||
-        employee.position.toLowerCase().includes(search) ||
-        employee.department.toLowerCase().includes(search) ||
-        employee.location.toLowerCase().includes(search);
-
+        [
+          employee.name,
+          employee.position,
+          employee.department,
+          employee.location,
+        ].some(
+          (value) =>
+            normalizeSearch(value).includes(search) ||
+            normalizeSearch(t(value)).includes(search),
+        );
       return matchBranch && matchDepartment && matchSearch;
     });
-
     if (sortMode === "default") {
       return matchingEmployees;
     }
-
     return [...matchingEmployees].sort((first, second) => {
       if (sortMode === "name-desc") {
         return collator.compare(second.name, first.name);
       }
-
       if (sortMode === "joined-desc") {
         return second.joinedAt.localeCompare(first.joinedAt);
       }
-
       if (sortMode === "joined-asc") {
         return first.joinedAt.localeCompare(second.joinedAt);
       }
-
       return collator.compare(first.name, second.name);
     });
-  }, [branch, department, query, sortMode]);
-
+  }, [branch, department, query, sortMode, t]);
   const grouped = departmentOrder
     .map((departmentName) => ({
       department: departmentName,
@@ -117,18 +110,21 @@ export function PeoplePage() {
       ),
     }))
     .filter((group) => group.people.length > 0);
-
   return (
     <>
       <PageHero
         icon={Users}
         compact
-        eyebrow="Đội ngũ"
-        title="Những người tạo nên nhịp Sonic."
-        description="Tìm kiếm đồng đội theo tên, chức vụ, chi nhánh hoặc phòng ban."
+        eyebrow={t("Đội ngũ")}
+        title={t("Những người tạo nên nhịp Sonic.")}
+        description={t(
+          "Tìm kiếm đồng đội theo tên, chức vụ, chi nhánh hoặc phòng ban.",
+        )}
         aside={
           <div className="hero-meta hero-meta-people">
-            <HeroMetric value={employees.length}>Thành viên Sonic</HeroMetric>
+            <HeroMetric value={employees.length}>
+              {t("Thành viên Sonic")}
+            </HeroMetric>
             <button
               ref={birthdayButtonRef}
               type="button"
@@ -137,7 +133,8 @@ export function PeoplePage() {
               aria-expanded={isBirthdayModalOpen}
               className="hero-utility-button"
             >
-              <Cake size={16} aria-hidden="true" /> Lịch sinh nhật
+              <Cake size={16} aria-hidden="true" />
+              {t(" Lịch sinh nhật")}
             </button>
           </div>
         }
@@ -152,13 +149,16 @@ export function PeoplePage() {
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Tìm theo tên, chức vụ, phòng ban, chi nhánh"
+                placeholder={t("Tìm theo tên, chức vụ, phòng ban, chi nhánh")}
                 className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-slate-400"
               />
             </label>
-            <div className="flex flex-wrap gap-2" aria-label="Bộ lọc đội ngũ">
+            <div
+              className="flex flex-wrap gap-2"
+              aria-label={t("Bộ lọc đội ngũ")}
+            >
               <SelectPopover
-                label="Chi nhánh"
+                label={t("Chi nhánh")}
                 value={branch}
                 options={branchOptions}
                 onValueChange={setBranch}
@@ -166,7 +166,7 @@ export function PeoplePage() {
                 allValue={allOption}
               />
               <SelectPopover
-                label="Phòng ban"
+                label={t("Phòng ban")}
                 value={department}
                 options={departmentOptions}
                 onValueChange={setDepartment}
@@ -174,7 +174,7 @@ export function PeoplePage() {
                 allValue={allOption}
               />
               <SelectPopover
-                label="Sắp xếp"
+                label={t("Sắp xếp")}
                 value={sortMode}
                 options={sortOptions}
                 onValueChange={setSortMode}
@@ -186,11 +186,13 @@ export function PeoplePage() {
 
           <div className="mt-4 flex items-center justify-between gap-3 text-xs text-slate-500">
             <p>
-              Hiển thị{" "}
+              {t("Hiển thị")}{" "}
               <strong className="text-slate-800">
                 {filteredEmployees.length}
               </strong>
-              /{employees.length} thành viên
+              {"/"}
+              {employees.length}
+              {t(" thành viên")}
             </p>
           </div>
 
@@ -200,10 +202,10 @@ export function PeoplePage() {
                 <section>
                   <div className="mb-3 flex items-center justify-between gap-3">
                     <h2 className="font-display text-base font-semibold text-slate-950">
-                      {group.department}
+                      {t(group.department)}
                     </h2>
                     <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">
-                      {group.people.length} người
+                      {t(`${group.people.length} người`)}
                     </span>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -218,10 +220,10 @@ export function PeoplePage() {
             {grouped.length === 0 ? (
               <div className="rounded-lg border border-dashed border-slate-300 bg-white p-8 text-center">
                 <p className="text-sm font-semibold text-slate-950">
-                  Không có nhân sự phù hợp
+                  {t("Không có nhân sự phù hợp")}
                 </p>
                 <p className="mt-2 text-sm text-slate-500">
-                  Hãy thử từ khóa khác hoặc chọn lại phòng ban.
+                  {t("Hãy thử từ khóa khác hoặc chọn lại phòng ban.")}
                 </p>
               </div>
             ) : null}
