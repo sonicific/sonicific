@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# This existing Netlify site previously used Vite. Declare the Next.js adapter
+# explicitly so SSR, language cookies and route handlers are deployed together.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
