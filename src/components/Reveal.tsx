@@ -1,10 +1,25 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 
 interface RevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  variant?: "up" | "left" | "right" | "scale" | "blur" | "lift" | "pop" | "clip" | "flip";
+  variant?:
+    | "up"
+    | "left"
+    | "right"
+    | "scale"
+    | "blur"
+    | "lift"
+    | "pop"
+    | "clip"
+    | "flip";
 }
 
 export function Reveal({
@@ -38,7 +53,9 @@ export function Reveal({
     return () => observer.disconnect();
   }, []);
 
-  const style = { "--reveal-delay": `${delay}ms` } as CSSProperties;
+  const style = {
+    "--reveal-delay": `${Math.min(delay, 240)}ms`,
+  } as CSSProperties;
 
   return (
     <div

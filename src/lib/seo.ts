@@ -1,6 +1,7 @@
 import employeesJson from "../data/employees.json";
 import { activities } from "../data/activities";
 import { company } from "../data/company";
+import { businessContact } from "../data/business";
 import { jobPostings } from "../data/jobs";
 import { newsPosts } from "../data/news";
 import type { Employee, RouteState } from "../types";
@@ -22,10 +23,20 @@ const pageSeo: Record<
   SeoEntry
 > = {
   home: {
-    title: "Sonic Group | Media, E-commerce & Automation tại TP.HCM",
+    title: "Sonic Group | Quảng cáo số, E-commerce & Sáng tạo",
     description:
-      "Sonic Group kết nối media content, thương mại điện tử và automation thành một hệ vận hành tăng trưởng tại TP. Hồ Chí Minh.",
+      "Sonic Group kết nối quảng cáo số, thương mại điện tử, nghiên cứu thị trường và sáng tạo nội dung để hỗ trợ tăng trưởng tại TP. Hồ Chí Minh.",
     image: "/og.png",
+  },
+  services: {
+    title: "Dịch vụ Sonic Group | Quảng cáo, E-commerce, Nghiên cứu & Sáng tạo",
+    description:
+      "Tìm hiểu dịch vụ quảng cáo số, vận hành thương mại điện tử, nghiên cứu thị trường và sản xuất nội dung của Sonic Group.",
+  },
+  contact: {
+    title: "Liên hệ Sonic Group | Tư vấn hợp tác tại TP.HCM",
+    description:
+      "Liên hệ Sonic Group qua email, hotline hoặc hai địa điểm làm việc tại TP. Hồ Chí Minh để trao đổi nhu cầu hợp tác.",
   },
   people: {
     title: "Đội ngũ Sonic Group | 5 phòng ban cùng một nhịp",
@@ -49,7 +60,7 @@ const pageSeo: Record<
   },
 };
 
-function getSeoEntry(route: RouteState): SeoEntry {
+export function getSeoEntry(route: RouteState): SeoEntry {
   if (route.page === "activity-detail") {
     const activity = activities.find((item) => item.id === route.activityId);
 
@@ -167,8 +178,8 @@ export function applySeoMetadata(route: RouteState) {
     legalName: company.legalName,
     taxID: company.taxCode,
     url: company.websiteUrl,
-    email: company.contactEmail,
-    telephone: company.contactPhone,
+    email: businessContact.email,
+    telephone: businessContact.phone,
     slogan: company.slogan,
     sameAs: [company.linkedInUrl, company.facebookUrl],
     address: {

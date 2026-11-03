@@ -4,29 +4,30 @@ import { useEffect, useState } from "react";
 import { SiteShell } from "./components/SiteShell";
 import { parsePath } from "./lib/router";
 import { applySeoMetadata } from "./lib/seo";
+import { scrollBehavior } from "./lib/motion";
 import { ActivitiesPage } from "./site/ActivitiesPage";
 import { ActivityDetailPage } from "./site/ActivityDetailPage";
 import { CareerDetailPage } from "./site/CareerDetailPage";
 import { CareersPage } from "./site/CareersPage";
+import { ContactPage } from "./site/ContactPage";
 import { EmployeeDetailPage } from "./site/EmployeeDetailPage";
 import { HomePageEnhanced } from "./site/HomePageEnhanced";
 import { NewsDetailPage } from "./site/NewsDetailPage";
 import { NewsPage } from "./site/NewsPage";
 import { PeoplePage } from "./site/PeoplePage";
+import { ServicesPage } from "./site/ServicesPage";
 import type { RouteState } from "./types";
 
 function getRoute(pathname: string): RouteState {
   return parsePath(pathname);
 }
 
-export default function App() {
-  const [pathname, setPathname] = useState("/");
-
-  useEffect(() => {
-    const initialPath =
-      typeof window !== "undefined" ? window.location.pathname : "/";
-    setPathname(initialPath);
-  }, []);
+export default function App({
+  initialPathname = "/",
+}: {
+  initialPathname?: string;
+}) {
+  const [pathname, setPathname] = useState(initialPathname);
 
   const route = getRoute(pathname || "/");
 
@@ -36,7 +37,7 @@ export default function App() {
     const updateRoute = () => {
       const nextPathname = window.location.pathname;
       setPathname(nextPathname);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: scrollBehavior() });
     };
 
     const onDocumentClick = (event: MouseEvent) => {
@@ -111,9 +112,29 @@ export default function App() {
     route.newsId,
   ]);
 
+  useEffect(() => {
+    if (
+      typeof window === "undefined" ||
+      !window.location.hash ||
+      window.location.hash.startsWith("#/")
+    )
+      return;
+
+    const targetId = decodeURIComponent(window.location.hash.slice(1));
+    const frame = window.requestAnimationFrame(() => {
+      document
+        .getElementById(targetId)
+        ?.scrollIntoView({ behavior: scrollBehavior() });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [pathname]);
+
   return (
     <SiteShell pathname={pathname}>
       {route.page === "home" ? <HomePageEnhanced /> : null}
+      {route.page === "services" ? <ServicesPage /> : null}
+      {route.page === "contact" ? <ContactPage /> : null}
       {route.page === "people" ? <PeoplePage /> : null}
       {route.page === "employee" ? (
         <EmployeeDetailPage employeeId={route.employeeId} />

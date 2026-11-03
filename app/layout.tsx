@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://sonicgroup.site"),
   title: {
-    default: "Sonic Group | Media, E-commerce & Automation",
+    default: "Sonic Group | Quảng cáo số, E-commerce & Sáng tạo",
     template: "%s | Sonic Group",
   },
   description:
-    "Sonic Group là doanh nghiệp chuyên về media content, commerce, automation và vận hành thương mại tại TP.HCM, giúp xây dựng hệ thống sáng tạo và tăng trưởng hiệu quả.",
+    "Sonic Group kết nối quảng cáo số, thương mại điện tử, nghiên cứu thị trường và sáng tạo nội dung để hỗ trợ tăng trưởng tại TP. Hồ Chí Minh.",
   applicationName: "Sonic Group",
   keywords: [
     "Sonic Group",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sonic Group | Media, E-commerce & Automation",
+    title: "Sonic Group | Quảng cáo số, E-commerce & Sáng tạo",
     description:
-      "Sonic Group kết nối sáng tạo nội dung, thương mại điện tử và công nghệ để xây dựng một hệ vận hành tăng trưởng bền vững tại TP.HCM.",
+      "Sonic Group kết nối quảng cáo số, thương mại điện tử, nghiên cứu thị trường và sáng tạo nội dung để hỗ trợ tăng trưởng tại TP. Hồ Chí Minh.",
     url: "https://sonicgroup.site",
     siteName: "Sonic Group",
     locale: "vi_VN",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sonic Group | Media, E-commerce & Automation",
+    title: "Sonic Group | Quảng cáo số, E-commerce & Sáng tạo",
     description:
-      "Sonic Group kết nối sáng tạo nội dung, thương mại điện tử và công nghệ để xây dựng một hệ vận hành tăng trưởng bền vững tại TP.HCM.",
+      "Sonic Group kết nối quảng cáo số, thương mại điện tử, nghiên cứu thị trường và sáng tạo nội dung để hỗ trợ tăng trưởng tại TP. Hồ Chí Minh.",
     images: ["/og.png"],
   },
   icons: {
@@ -80,9 +80,9 @@ const organizationSchema = {
   logo: "https://sonicgroup.site/icons/light.png",
   image: "https://sonicgroup.site/og.png",
   description:
-    "Sonic Group là đơn vị chuyên về media content, e-commerce, commerce operations và automation tại TP.HCM.",
-  email: "hi@sonicgroup.site",
-  telephone: "+84888000219",
+    "Sonic Group triển khai quảng cáo số, thương mại điện tử, nghiên cứu thị trường và sáng tạo nội dung tại TP. Hồ Chí Minh.",
+  email: "hello@sonicgroup.digital",
+  telephone: "+84326266539",
   sameAs: [
     "https://www.linkedin.com/company/sonicific",
     "https://www.facebook.com/profile.php?id=61593149897575",

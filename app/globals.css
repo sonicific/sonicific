@@ -1,4 +1,7 @@
 @import "../src/index.css";
+@import "../src/styles/design-system.css";
+@import "../src/styles/home.css";
+@import "../src/styles/pages.css";
 
 html {
   scroll-behavior: smooth;

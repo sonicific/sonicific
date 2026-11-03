@@ -14,7 +14,7 @@ export default {
           "sans-serif",
         ],
         display: [
-          "Space Grotesk",
+          "Manrope",
           "Inter",
           "ui-sans-serif",
           "system-ui",

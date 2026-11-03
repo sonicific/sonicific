@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://sonicgroup.site";
 
-  const pages = ["", "/news", "/careers", "/activities", "/people"];
+  const pages = ["", "/services", "/contact", "/news", "/careers", "/activities", "/people"];
 
   return pages.map((path) => ({
     url: `${baseUrl}${path}`,

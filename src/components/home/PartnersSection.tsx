@@ -1,14 +1,19 @@
-import { Handshake } from "lucide-react";
+import { Layers3 } from "lucide-react";
 import { partnerPlatforms } from "../../data/home";
 import { Reveal } from "../Reveal";
 import { SectionHeader } from "../SectionHeader";
 
 export function PartnersSection() {
   return (
-    <section className="border-y border-slate-200 bg-stone-50 py-14 sm:py-20">
+    <section className="partners-section border-y border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <SectionHeader icon={Handshake} eyebrow="Partner ecosystem" title="Hệ sinh thái nền tảng cùng tạo nên nhịp vận hành." description="Những nền tảng xuất hiện trong các luồng content, commerce và phát triển thương hiệu của Sonic." />
+          <SectionHeader
+            icon={Layers3}
+            eyebrow="Nền tảng vận hành"
+            title="Hiểu kênh, phối hợp đúng nhịp."
+            description="Sonic triển khai nội dung, quảng cáo và thương mại trên các nền tảng khách hàng đang sử dụng."
+          />
         </Reveal>
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {partnerPlatforms.map((partner, index) => (
@@ -20,7 +25,9 @@ export function PartnersSection() {
                   className="h-9 w-auto max-w-[7rem] object-contain transition duration-300 group-hover:-translate-y-1 group-hover:scale-105"
                   loading="lazy"
                 />
-                <p className="mt-3 text-sm font-semibold text-slate-700">{partner.name}</p>
+                <p className="mt-3 text-sm font-semibold text-slate-700">
+                  {partner.name}
+                </p>
               </div>
             </Reveal>
           ))}

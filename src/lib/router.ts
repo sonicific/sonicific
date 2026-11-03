@@ -2,6 +2,8 @@ import type { RouteState } from "../types";
 
 export const routes = {
   home: "/",
+  services: "/services",
+  contact: "/contact",
   people: "/people",
   employee: (id: string) => `/people/${id}`,
   activities: "/activities",
@@ -17,6 +19,14 @@ export function parsePath(pathname: string): RouteState {
     .replace(/^#?\/?/, "")
     .replace(/[?#].*$/, "")
     .replace(/\/$/, "");
+
+  if (normalized === "services") {
+    return { page: "services" };
+  }
+
+  if (normalized === "contact") {
+    return { page: "contact" };
+  }
 
   if (normalized.startsWith("people/")) {
     return {

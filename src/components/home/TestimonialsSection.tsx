@@ -5,7 +5,7 @@ import { SectionHeader } from "../SectionHeader";
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-white py-14 sm:py-20">
+    <section className="testimonials-section section-space">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
@@ -23,7 +23,7 @@ export function TestimonialsSection() {
               variant={index === 1 ? "pop" : "lift"}
               className="h-full"
             >
-              <figure className="motion-card relative flex h-full flex-col rounded-lg border border-slate-200 bg-stone-50 p-5 shadow-sm">
+              <figure className="testimonial-card motion-card relative flex h-full flex-col rounded-lg border border-slate-200 bg-stone-50 p-5 shadow-sm">
                 <div className="flex items-start space-x-1">
                   <span className="font-display text-4xl leading-none text-teal-500/20">
                     “

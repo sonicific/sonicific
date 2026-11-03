@@ -10,18 +10,18 @@ export function EmployeeCard({ employee }: EmployeeCardProps) {
   return (
     <a
       href={routes.employee(employee.id)}
-      className="group relative z-0 flex min-h-[100px] flex-col justify-between rounded-lg border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-4 shadow-sm transition hover:z-10 hover:-translate-y-1 hover:border-teal-200 hover:shadow-soft focus-visible:z-10"
+      className="employee-card group relative z-0 flex min-h-[100px] flex-col justify-between border p-5 transition hover:z-10 focus-visible:z-10"
     >
       <div className="flex h-full items-start gap-3">
         <AvatarBadge src={employee.avatar} name={employee.name} size="md" />
 
         <div className="flex h-full min-w-0 flex-1 flex-col">
-          <div className="flex space-x-1.5">
-            <h3 className="truncate font-display text-sm font-semibold text-slate-950 transition group-hover:text-teal-700">
+          <div>
+            <h3 className="font-display text-sm font-semibold text-slate-950 transition group-hover:text-teal-700">
               {employee.name}
             </h3>
-            <p className="mt-1 text-xs font-semibold text-teal-700">
-              ({employee.position})
+            <p className="mt-1 text-[11px] font-medium text-teal-700">
+              {employee.position}
             </p>
           </div>
 

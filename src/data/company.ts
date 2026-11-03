@@ -34,7 +34,7 @@ export const company = {
   openingHours: "8:00 - 17:30, thứ 2 đến thứ 7",
   scale: "30 - 50 nhân sự",
   contactEmail: "hi@sonicgroup.site",
-  contactPhone: "0319224501",
+  contactPhone: "+84 326 266 539",
   socialLocation:
     "568/18/2 Lê Trọng Tấn, Phường Tây Thạnh, TP Hồ Chí Minh, Việt Nam.",
   websiteUrl: "https://sonicgroup.site",
@@ -189,7 +189,7 @@ export const faqs = [
   },
   {
     question: "Ứng viên liên hệ tuyển dụng bằng cách nào?",
-    answer: `Ứng viên có thể gửi hồ sơ qua email ${company.contactEmail} hoặc liên hệ Zalo/Telegram ${company.contactPhone}.`,
+    answer: `Ứng viên có thể gửi hồ sơ qua email ${company.contactEmail} hoặc gọi ${company.contactPhone} để được hỗ trợ.`,
   },
 ];
 

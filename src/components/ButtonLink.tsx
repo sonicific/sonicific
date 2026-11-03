@@ -11,10 +11,9 @@ interface ButtonLinkProps {
 }
 
 const variants = {
-  dark: "bg-slate-950 text-white shadow-soft hover:bg-slate-800",
-  light:
-    "bg-white text-slate-950 ring-1 ring-slate-200 hover:bg-slate-50 hover:ring-slate-300",
-  ghost: "bg-white/10 text-white ring-1 ring-white/20 hover:bg-white/15",
+  dark: "button-dark",
+  light: "button-light",
+  ghost: "button-ghost",
 };
 
 export function ButtonLink({
@@ -30,10 +29,12 @@ export function ButtonLink({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 whitespace-nowrap text-xs font-semibold transition ${variants[variant]} ${className}`}
+      className={`sonic-button ${variants[variant]} ${className}`}
     >
-      <Icon className="h-3.5 w-3.5" aria-hidden="true" />
       <span>{children}</span>
+      <span className="button-icon">
+        <Icon className="h-4 w-4" aria-hidden="true" />
+      </span>
     </a>
   );
 }

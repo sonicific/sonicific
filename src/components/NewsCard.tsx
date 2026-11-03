@@ -13,8 +13,8 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
 
   return (
     <article
-      className={`motion-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${
-        featured ? "grid md:grid-cols-[1.05fr_0.95fr]" : ""
+      className={`news-card motion-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${
+        featured ? "news-featured grid md:grid-cols-[1.05fr_0.95fr]" : ""
       }`}
     >
       <a
@@ -39,7 +39,9 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/10 to-transparent" />
         ) : null}
         <div className="absolute left-3 top-3 flex gap-2">
-          <span className={`rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur ${tone.badge}`}>
+          <span
+            className={`rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur ${tone.badge}`}
+          >
             {post.category}
           </span>
           {isRecent(post.date) ? (
@@ -49,9 +51,13 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
           ) : null}
         </div>
       </a>
-      <div className={`flex flex-col ${featured ? "justify-center p-6 sm:p-8" : "p-5"}`}>
+      <div
+        className={`flex flex-col ${featured ? "justify-center p-6 sm:p-8" : "p-5"}`}
+      >
         <div className="mb-4 flex items-center gap-3">
-          <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ring-1 ${tone.icon}`}>
+          <span
+            className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ring-1 ${tone.icon}`}
+          >
             <Newspaper className="h-4 w-4" aria-hidden="true" />
           </span>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-slate-500">
@@ -68,7 +74,10 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
         <h2
           className={`${featured ? "text-2xl" : "text-lg"} font-display font-semibold leading-snug text-slate-950`}
         >
-          <a href={routes.newsDetail(post.id)} className={`transition hover:opacity-80 ${tone.text}`}>
+          <a
+            href={routes.newsDetail(post.id)}
+            className={`transition hover:opacity-80 ${tone.text}`}
+          >
             {post.title}
           </a>
         </h2>
@@ -78,7 +87,10 @@ export function NewsCard({ post, featured = false }: NewsCardProps) {
           className={`mt-5 inline-flex items-center gap-1.5 text-xs font-semibold ${tone.text}`}
         >
           Xem chi tiết
-          <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+          <ArrowUpRight
+            className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          />
         </a>
       </div>
     </article>

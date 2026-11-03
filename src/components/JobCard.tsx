@@ -1,4 +1,9 @@
-import { ArrowUpRight, BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  CalendarDays,
+  MapPin,
+} from "lucide-react";
 import { formatDate } from "../lib/format";
 import { routes } from "../lib/router";
 import type { JobPosting } from "../types";
@@ -7,7 +12,10 @@ interface JobCardProps {
   job: JobPosting;
 }
 
-const departmentTones: Record<string, { icon: string; text: string; line: string }> = {
+const departmentTones: Record<
+  string,
+  { icon: string; text: string; line: string }
+> = {
   "E-Comerce": {
     icon: "bg-amber-50 text-amber-700 ring-amber-100",
     text: "text-amber-700",
@@ -43,10 +51,14 @@ export function JobCard({ job }: JobCardProps) {
   };
 
   return (
-    <article className="motion-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${tone.line} to-transparent`} />
+    <article className="job-card motion-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+      <div
+        className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${tone.line} to-transparent`}
+      />
       <div className="flex items-start justify-between gap-4">
-        <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg shadow-sm ring-1 ${tone.icon}`}>
+        <span
+          className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg shadow-sm ring-1 ${tone.icon}`}
+        >
           <BriefcaseBusiness className="h-5 w-5" aria-hidden="true" />
         </span>
         {job.featured ? (
@@ -59,7 +71,10 @@ export function JobCard({ job }: JobCardProps) {
         {job.department}
       </p>
       <h2 className="mt-2 font-display text-xl font-semibold leading-snug text-slate-950">
-        <a href={routes.careerDetail(job.id)} className={`transition hover:opacity-80 ${tone.text}`}>
+        <a
+          href={routes.careerDetail(job.id)}
+          className={`transition hover:opacity-80 ${tone.text}`}
+        >
           {job.title}
         </a>
       </h2>
@@ -80,15 +95,22 @@ export function JobCard({ job }: JobCardProps) {
       </div>
       <div className="mt-6 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
         <div className="grid gap-1">
-          <span className="text-xs font-semibold text-slate-700">{job.type}</span>
-          <span className={`text-xs font-semibold ${tone.text}`}>{job.salary}</span>
+          <span className="text-xs font-semibold text-slate-700">
+            {job.type}
+          </span>
+          <span className={`text-xs font-semibold ${tone.text}`}>
+            {job.salary}
+          </span>
         </div>
         <a
           href={routes.careerDetail(job.id)}
           className={`inline-flex items-center gap-1.5 text-xs font-semibold ${tone.text}`}
         >
           Xem vị trí
-          <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+          <ArrowUpRight
+            className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          />
         </a>
       </div>
     </article>

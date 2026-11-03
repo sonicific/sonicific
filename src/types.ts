@@ -75,6 +75,8 @@ export interface JobPosting {
 export interface RouteState {
   page:
     | "home"
+    | "services"
+    | "contact"
     | "people"
     | "employee"
     | "activities"
