@@ -2,6 +2,7 @@ import { BellRing, ListFilter, Newspaper } from "lucide-react";
 import { useMemo, useState } from "react";
 import { NewsCard } from "../components/NewsCard";
 import { PageHero } from "../components/PageHero";
+import { HeroMetric } from "../components/HeroMetric";
 import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { SelectPopover } from "../components/SelectPopover";
@@ -27,22 +28,15 @@ export function NewsPage() {
     <>
       <PageHero
         icon={BellRing}
-        tone="dark"
+        compact
         eyebrow="Newsroom"
         title="Thông tin mới, vừa đủ để bạn luôn bắt kịp."
         description="Thông báo công ty, hoạt động nội bộ và những cập nhật đáng chú ý từ Sonic Group."
         aside={
-          <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-            <div className="flex items-start space-x-2">
-              <BellRing className="h-5 w-5 text-teal-700" aria-hidden="true" />
-              <p className="text-sm font-semibold text-slate-950">
-                Cập nhật mới nhất
-              </p>
-            </div>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              {newsPosts.length} thông báo đang được hiển thị theo thứ tự mới
-              nhất.
-            </p>
+          <div className="hero-meta">
+            <HeroMetric value={newsPosts.length}>
+              Thông báo & cập nhật
+            </HeroMetric>
           </div>
         }
       />

@@ -10,6 +10,7 @@ import {
 import { useMemo, useState } from "react";
 import { JobCard } from "../components/JobCard";
 import { PageHero } from "../components/PageHero";
+import { HeroMetric } from "../components/HeroMetric";
 import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { SelectPopover } from "../components/SelectPopover";
@@ -60,26 +61,16 @@ export function CareersPage() {
     <>
       <PageHero
         icon={BriefcaseBusiness}
-        tone="dark"
+        compact
         eyebrow="Careers at Sonic"
         title="Làm việc cùng những người thích biến ý tưởng thành kết quả."
         description="Khám phá các vị trí đang mở và chọn một vai trò phù hợp với thế mạnh của bạn."
         aside={
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <p className="text-3xl font-semibold text-slate-950">
-                {openJobPostings.length}
-              </p>
-              <p className="mt-1 text-xs font-medium text-slate-600">
-                Vị trí đang mở
-              </p>
-            </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <p className="text-3xl font-semibold text-slate-950">2</p>
-              <p className="mt-1 text-xs font-medium text-slate-600">
-                Chi nhánh tại TP.HCM
-              </p>
-            </div>
+          <div className="hero-meta">
+            <HeroMetric value={openJobPostings.length}>
+              Vị trí đang mở
+            </HeroMetric>
+            <HeroMetric value="02">Chi nhánh tại TP.HCM</HeroMetric>
           </div>
         }
       />

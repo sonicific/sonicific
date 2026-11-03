@@ -1,6 +1,7 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { navigation, isNavigationActive } from "../../data/navigation";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function SiteHeader({ pathname }: { pathname: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,20 @@ export function SiteHeader({ pathname }: { pathname: string }) {
     <header ref={headerRef} className="site-header">
       <div className="site-header-bar">
         <a href="/" className="site-brand" aria-label="Sonic Group - Trang chủ">
-          <img src="/icons/light.png" alt="" width="42" height="42" />
+          <img
+            className="brand-logo-light"
+            src="/icons/light.png"
+            alt=""
+            width="42"
+            height="42"
+          />
+          <img
+            className="brand-logo-dark"
+            src="/icons/dark.png"
+            alt=""
+            width="42"
+            height="42"
+          />
           <span>
             Sonic<span className="brand-suffix"> Group</span>
             <small>Connect. Creative. Grow.</small>
@@ -49,24 +63,27 @@ export function SiteHeader({ pathname }: { pathname: string }) {
             </a>
           ))}
         </nav>
-        <a
-          href="/contact"
-          className="header-contact"
-          aria-current={pathname === "/contact" ? "page" : undefined}
-        >
-          Cùng kết nối <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
-        <button
-          ref={toggleRef}
-          type="button"
-          className="menu-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Đóng menu" : "Mở menu"}
-          aria-expanded={isOpen}
-          aria-controls="mobile-navigation"
-        >
-          {isOpen ? <X size={21} /> : <Menu size={21} />}
-        </button>
+        <div className="header-actions">
+          <ThemeToggle />
+          <a
+            href="/contact"
+            className="header-contact"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+          >
+            Cùng kết nối <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+          <button
+            ref={toggleRef}
+            type="button"
+            className="menu-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Đóng menu" : "Mở menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+          >
+            {isOpen ? <X size={21} /> : <Menu size={21} />}
+          </button>
+        </div>
       </div>
       {isOpen && (
         <nav

@@ -113,7 +113,12 @@ export function getSeoEntry(route: RouteState): SeoEntry {
   return pageSeo[route.page];
 }
 
-function upsertMeta(selector: string, attribute: "name" | "property", key: string, content: string) {
+function upsertMeta(
+  selector: string,
+  attribute: "name" | "property",
+  key: string,
+  content: string,
+) {
   let element = document.head.querySelector<HTMLMetaElement>(selector);
 
   if (!element) {
@@ -127,21 +132,61 @@ function upsertMeta(selector: string, attribute: "name" | "property", key: strin
 
 export function applySeoMetadata(route: RouteState) {
   const seo = getSeoEntry(route);
-  const canonicalUrl = new URL(window.location.pathname, window.location.origin).toString();
-  const imageUrl = seo.image ? new URL(seo.image, window.location.origin).toString() : "";
+  const canonicalUrl = new URL(
+    window.location.pathname,
+    window.location.origin,
+  ).toString();
+  const imageUrl = seo.image
+    ? new URL(seo.image, window.location.origin).toString()
+    : "";
 
   document.title = seo.title;
-  upsertMeta('meta[name="description"]', "name", "description", seo.description);
-  upsertMeta('meta[name="robots"]', "name", "robots", "index, follow, max-image-preview:large");
+  upsertMeta(
+    'meta[name="description"]',
+    "name",
+    "description",
+    seo.description,
+  );
+  upsertMeta(
+    'meta[name="robots"]',
+    "name",
+    "robots",
+    "index, follow, max-image-preview:large",
+  );
   upsertMeta('meta[property="og:locale"]', "property", "og:locale", "vi_VN");
-  upsertMeta('meta[property="og:site_name"]', "property", "og:site_name", company.name);
-  upsertMeta('meta[property="og:type"]', "property", "og:type", seo.type ?? "website");
+  upsertMeta(
+    'meta[property="og:site_name"]',
+    "property",
+    "og:site_name",
+    company.name,
+  );
+  upsertMeta(
+    'meta[property="og:type"]',
+    "property",
+    "og:type",
+    seo.type ?? "website",
+  );
   upsertMeta('meta[property="og:title"]', "property", "og:title", seo.title);
-  upsertMeta('meta[property="og:description"]', "property", "og:description", seo.description);
+  upsertMeta(
+    'meta[property="og:description"]',
+    "property",
+    "og:description",
+    seo.description,
+  );
   upsertMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
-  upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", imageUrl ? "summary_large_image" : "summary");
+  upsertMeta(
+    'meta[name="twitter:card"]',
+    "name",
+    "twitter:card",
+    imageUrl ? "summary_large_image" : "summary",
+  );
   upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", seo.title);
-  upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", seo.description);
+  upsertMeta(
+    'meta[name="twitter:description"]',
+    "name",
+    "twitter:description",
+    seo.description,
+  );
 
   const imageSelectors = [
     ['meta[property="og:image"]', "property", "og:image"],
@@ -158,7 +203,9 @@ export function applySeoMetadata(route: RouteState) {
     }
   });
 
-  let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  let canonical = document.head.querySelector<HTMLLinkElement>(
+    'link[rel="canonical"]',
+  );
 
   if (!canonical) {
     canonical = document.createElement("link");
@@ -168,7 +215,9 @@ export function applySeoMetadata(route: RouteState) {
 
   canonical.href = canonicalUrl;
 
-  const structuredData = document.getElementById("sonic-structured-data") ?? document.createElement("script");
+  const structuredData =
+    document.getElementById("sonic-structured-data") ??
+    document.createElement("script");
   structuredData.id = "sonic-structured-data";
   structuredData.setAttribute("type", "application/ld+json");
   structuredData.textContent = JSON.stringify({
@@ -178,7 +227,19 @@ export function applySeoMetadata(route: RouteState) {
     legalName: company.legalName,
     taxID: company.taxCode,
     url: company.websiteUrl,
-    email: businessContact.email,
+    email: company.contactEmail,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "business development",
+        email: businessContact.email,
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "recruitment and general inquiries",
+        email: company.contactEmail,
+      },
+    ],
     telephone: businessContact.phone,
     slogan: company.slogan,
     sameAs: [company.linkedInUrl, company.facebookUrl],

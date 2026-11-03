@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { contactEmails } from "@/data/contact";
+import { themeInitScript } from "@/lib/theme";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sonicgroup.site"),
@@ -81,7 +83,19 @@ const organizationSchema = {
   image: "https://sonicgroup.site/og.png",
   description:
     "Sonic Group triển khai quảng cáo số, thương mại điện tử, nghiên cứu thị trường và sáng tạo nội dung tại TP. Hồ Chí Minh.",
-  email: "hello@sonicgroup.digital",
+  email: contactEmails.general,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "business development",
+      email: contactEmails.business,
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "recruitment and general inquiries",
+      email: contactEmails.general,
+    },
+  ],
   telephone: "+84326266539",
   sameAs: [
     "https://www.linkedin.com/company/sonicific",
@@ -101,7 +115,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
+      <head>
+        <script
+          id="sonic-theme-init"
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"

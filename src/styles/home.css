@@ -2,22 +2,6 @@
   padding: 22px 0 0;
   background: var(--paper);
 }
-.home-hero-topline {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--line);
-  font-size: 8px;
-  letter-spacing: 0.14em;
-  color: #79877b;
-}
-.home-hero-topline > span:first-child {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #4e6856;
-}
 .home-hero-layout {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -750,13 +734,6 @@
 @media (max-width: 767px) {
   .home-hero {
     padding-top: 12px;
-  }
-  .home-hero-topline {
-    font-size: 7px;
-    padding-bottom: 17px;
-  }
-  .home-hero-topline > span:last-child {
-    display: none;
   }
   .home-hero-layout {
     grid-template-columns: 1fr;

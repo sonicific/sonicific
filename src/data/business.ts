@@ -1,5 +1,7 @@
+import { contactEmails } from "./contact";
+
 export const businessContact = {
-  email: "hello@sonicgroup.digital",
+  email: contactEmails.business,
   phone: "+84 326 266 539",
   phoneHref: "tel:+84326266539",
 };
@@ -81,7 +83,8 @@ export const platformExpertise = [
   {
     name: "Google",
     area: "Tìm kiếm & hiển thị",
-    description: "Quản lý quảng cáo tìm kiếm, hiển thị và đo hiệu suất chiến dịch.",
+    description:
+      "Quản lý quảng cáo tìm kiếm, hiển thị và đo hiệu suất chiến dịch.",
     logo: "/assets/partners/google.svg",
   },
   {

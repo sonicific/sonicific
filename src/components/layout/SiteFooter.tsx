@@ -68,12 +68,19 @@ export function SiteFooter() {
             </nav>
           </div>
           <div>
-            <p className="footer-label">Nói lời chào</p>
+            <p className="footer-label">Hợp tác đối tác</p>
             <a
               className="footer-email"
               href={`mailto:${businessContact.email}`}
             >
               {businessContact.email}
+              <ArrowUpRight size={18} />
+            </a>
+            <p className="footer-label footer-contact-label">
+              Tuyển dụng & thông tin công ty
+            </p>
+            <a className="footer-email" href={`mailto:${company.contactEmail}`}>
+              {company.contactEmail}
               <ArrowUpRight size={18} />
             </a>
             <a className="footer-phone" href={businessContact.phoneHref}>

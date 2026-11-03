@@ -24,6 +24,7 @@ import {
   Video,
   WalletCards,
 } from "lucide-react";
+import { contactEmails } from "./contact";
 
 export const company = {
   name: "Sonic Group",
@@ -33,7 +34,7 @@ export const company = {
   foundedAt: "20/10/2025",
   openingHours: "8:00 - 17:30, thứ 2 đến thứ 7",
   scale: "30 - 50 nhân sự",
-  contactEmail: "hi@sonicgroup.site",
+  contactEmail: contactEmails.general,
   contactPhone: "+84 326 266 539",
   socialLocation:
     "568/18/2 Lê Trọng Tấn, Phường Tây Thạnh, TP Hồ Chí Minh, Việt Nam.",

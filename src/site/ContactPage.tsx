@@ -11,7 +11,7 @@ export function ContactPage() {
         icon={Mail}
         eyebrow="Liên hệ Sonic Group"
         title="Cùng trao đổi về mục tiêu của bạn."
-        description="Chia sẻ nhu cầu quảng cáo, thương mại điện tử, nghiên cứu hoặc nội dung sáng tạo. Đội ngũ Sonic sẽ tiếp nhận qua email hoặc điện thoại."
+        description="Kết nối đúng đội ngũ: email hợp tác dành cho đối tác, email công ty dành cho tuyển dụng và tìm hiểu về Sonic."
         aside={
           <div className="rounded-xl border border-teal-100 bg-white p-5 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">
@@ -36,11 +36,14 @@ export function ContactPage() {
             >
               <Mail className="h-7 w-7 text-teal-700" aria-hidden="true" />
               <span className="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Email hợp tác
+                Hợp tác công việc · Đối tác
               </span>
               <span className="mt-2 break-all font-display text-xl font-semibold text-slate-950 sm:text-2xl">
                 {businessContact.email}
               </span>
+              <p className="contact-card-description">
+                Trao đổi dự án, dịch vụ và cơ hội hợp tác kinh doanh.
+              </p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-700">
                 Gửi email{" "}
                 <ArrowUpRight
@@ -52,18 +55,21 @@ export function ContactPage() {
           </Reveal>
           <Reveal variant="right" className="h-full">
             <a
-              href={businessContact.phoneHref}
+              href={`mailto:${company.contactEmail}`}
               className="contact-method-card group flex h-full flex-col transition"
             >
-              <Phone className="h-7 w-7 text-teal-700" aria-hidden="true" />
+              <Mail className="h-7 w-7 text-teal-700" aria-hidden="true" />
               <span className="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Hotline kinh doanh
+                Tuyển dụng · Thông tin công ty
               </span>
-              <span className="mt-2 font-display text-xl font-semibold text-slate-950 sm:text-2xl">
-                {businessContact.phone}
+              <span className="mt-2 break-all font-display text-xl font-semibold text-slate-950 sm:text-2xl">
+                {company.contactEmail}
               </span>
+              <p className="contact-card-description">
+                Gửi hồ sơ ứng tuyển hoặc tìm hiểu thêm thông tin về Sonic Group.
+              </p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-700">
-                Gọi cho Sonic{" "}
+                Gửi email{" "}
                 <ArrowUpRight
                   className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"
@@ -71,6 +77,15 @@ export function ContactPage() {
               </span>
             </a>
           </Reveal>
+          <a
+            href={businessContact.phoneHref}
+            className="contact-phone-line lg:col-span-2"
+          >
+            <Phone size={17} aria-hidden="true" />
+            <span>Trao đổi trực tiếp</span>
+            <strong>{businessContact.phone}</strong>
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
         </div>
       </section>
 

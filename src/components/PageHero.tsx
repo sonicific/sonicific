@@ -9,6 +9,7 @@ interface PageHeroProps {
   aside?: ReactNode;
   tone?: "light" | "dark";
   icon?: ComponentType<LucideProps>;
+  compact?: boolean;
 }
 
 export function PageHero({
@@ -18,9 +19,12 @@ export function PageHero({
   aside,
   tone = "light",
   icon: Icon,
+  compact = false,
 }: PageHeroProps) {
   return (
-    <section className={`page-hero page-hero-${tone}`}>
+    <section
+      className={`page-hero page-hero-${tone}${compact ? " page-hero-compact" : ""}`}
+    >
       <div className="page-hero-decoration" aria-hidden="true">
         <span />
         <span />

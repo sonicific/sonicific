@@ -2,6 +2,7 @@
 @import "../src/styles/design-system.css";
 @import "../src/styles/home.css";
 @import "../src/styles/pages.css";
+@import "../src/styles/theme.css";
 
 html {
   scroll-behavior: smooth;

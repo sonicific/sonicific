@@ -6,12 +6,6 @@ export function HomeHero() {
   return (
     <section className="home-hero">
       <div className="site-container">
-        <div className="home-hero-topline">
-          <span>
-            <span className="status-dot" /> SONIC GROUP · DIGITAL COLLECTIVE
-          </span>
-          <span>VIETNAM BASED / GLOBALLY MINDED</span>
-        </div>
         <div className="home-hero-layout">
           <div className="home-hero-copy">
             <p className="hero-motion eyebrow">

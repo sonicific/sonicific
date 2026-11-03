@@ -10,6 +10,7 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { BirthdayModal } from "../components/BirthdayModal";
 import { EmployeeCard } from "../components/EmployeeCard";
 import { PageHero } from "../components/PageHero";
+import { HeroMetric } from "../components/HeroMetric";
 import { Reveal } from "../components/Reveal";
 import { SelectPopover, type SelectOption } from "../components/SelectPopover";
 import employeesJson from "../data/employees.json";
@@ -121,49 +122,22 @@ export function PeoplePage() {
     <>
       <PageHero
         icon={Users}
-        tone="dark"
+        compact
         eyebrow="Đội ngũ"
         title="Những người tạo nên nhịp Sonic."
         description="Tìm kiếm đồng đội theo tên, chức vụ, chi nhánh hoặc phòng ban."
         aside={
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="flex items-center gap-3">
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-700">
-                  <Users className="h-4 w-4" aria-hidden="true" />
-                </span>
-                <div className="text-left">
-                  <p className="text-xs font-semibold uppercase text-slate-500">
-                    Đội ngũ hiện tại
-                  </p>
-                  <p className="text-sm font-semibold text-slate-950">
-                    {employees.length} thành viên
-                  </p>
-                </div>
-              </div>
-            </div>
-
+          <div className="hero-meta hero-meta-people">
+            <HeroMetric value={employees.length}>Thành viên Sonic</HeroMetric>
             <button
               ref={birthdayButtonRef}
               type="button"
               onClick={() => setIsBirthdayModalOpen(true)}
               aria-haspopup="dialog"
               aria-expanded={isBirthdayModalOpen}
-              className="rounded-lg border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+              className="hero-utility-button"
             >
-              <span className="flex items-center gap-3">
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-700">
-                  <Cake className="h-4 w-4" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-xs font-semibold uppercase text-slate-500">
-                    Date of Birth
-                  </span>
-                  <span className="block text-sm font-semibold text-slate-950">
-                    Xem lịch sinh nhật
-                  </span>
-                </span>
-              </span>
+              <Cake size={16} aria-hidden="true" /> Lịch sinh nhật
             </button>
           </div>
         }

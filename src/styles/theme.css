@@ -1,0 +1,444 @@
+:root {
+  --surface: #ffffff;
+  --surface-soft: #f0f3e9;
+  --surface-raised: #ffffffeb;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+}
+.theme-toggle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: transparent;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.theme-toggle:hover {
+  background: var(--surface-soft);
+  border-color: #94ad80;
+}
+.theme-toggle svg {
+  position: absolute;
+  transition:
+    opacity 0.2s,
+    transform 0.3s;
+}
+.theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-55deg) scale(0.6);
+}
+.brand-logo-dark {
+  display: none;
+}
+.site-header {
+  background: linear-gradient(
+    var(--paper) 0%,
+    color-mix(in srgb, var(--paper) 80%, transparent) 75%,
+    transparent
+  );
+}
+.site-header-bar {
+  background: var(--surface-raised);
+}
+.header-contact {
+  color: #162d29;
+}
+@media (max-width: 1199px) {
+  .header-actions {
+    margin-left: auto;
+  }
+}
+@media (max-width: 767px) {
+  .header-actions {
+    gap: 7px;
+  }
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Semantic surfaces cover the new layout; utility adapters keep the directory,
+   article pages and portal dialogs consistent while they share Tailwind styles. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e5ede1;
+  --muted: #a6b6a8;
+  --paper: #111c18;
+  --line: #334438;
+  --surface: #19271f;
+  --surface-soft: #213126;
+  --surface-raised: #19271ff0;
+  scrollbar-color: #789c60 #18261e;
+}
+html[data-theme="dark"] .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(55deg) scale(0.6);
+}
+html[data-theme="dark"] .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+html[data-theme="dark"] .brand-logo-light {
+  display: none;
+}
+html[data-theme="dark"] .brand-logo-dark {
+  display: block;
+}
+html[data-theme="dark"] .site-header-bar {
+  border-color: var(--line);
+}
+html[data-theme="dark"] .site-brand small,
+html[data-theme="dark"] .desktop-navigation a {
+  color: #a8b8a6;
+}
+html[data-theme="dark"] .desktop-navigation a:hover,
+html[data-theme="dark"] .desktop-navigation a[aria-current] {
+  color: #e5ede1;
+}
+html[data-theme="dark"] .menu-toggle {
+  background: #d5ef93;
+  color: #162d29;
+}
+html[data-theme="dark"] .mobile-navigation {
+  background: #1a2a21;
+  border-color: var(--line);
+}
+html[data-theme="dark"] .mobile-navigation a[aria-current] {
+  color: #d5ef93;
+}
+html[data-theme="dark"] .eyebrow {
+  color: #adc597;
+}
+html[data-theme="dark"] .status-dot {
+  background: #bfdc92;
+}
+html[data-theme="dark"] .button-dark {
+  background: #d5ef93;
+  color: #162d29;
+}
+html[data-theme="dark"] .button-dark .button-icon {
+  background: #162d2912;
+}
+html[data-theme="dark"] .button-dark:hover {
+  background: #e0f5b4;
+}
+html[data-theme="dark"] .button-light {
+  border-color: #4a6045;
+}
+html[data-theme="dark"] .button-light .button-icon {
+  background: #2a3b2c;
+}
+html[data-theme="dark"] .button-light:hover {
+  background: #27392a;
+  border-color: #6b8858;
+}
+
+html[data-theme="dark"]
+  :is(
+    .company-intro,
+    .departments-section,
+    .partners-section,
+    .testimonials-section,
+    .home-faq,
+    .activity-albums,
+    .services-details
+  ) {
+  background: var(--surface);
+}
+html[data-theme="dark"]
+  :is(
+    .services-showcase,
+    .values-section,
+    .home-news,
+    .home-careers,
+    .page-hero-light
+  ) {
+  background: var(--paper);
+}
+html[data-theme="dark"] .hero-edition,
+html[data-theme="dark"] .scene-coordinate {
+  color: #9db28c;
+}
+html[data-theme="dark"] .home-hero h1 > span,
+html[data-theme="dark"] .intro-layout h2 span,
+html[data-theme="dark"] .home-careers h2 span {
+  color: #b7d58f;
+}
+html[data-theme="dark"] .sculpture-grid {
+  background: radial-gradient(
+    ellipse at center,
+    #536b322e,
+    #29432a22 38%,
+    transparent 68%
+  );
+  border-color: #73866325;
+}
+html[data-theme="dark"] .scene-label {
+  background: #1b2c23d9;
+  border-color: #3e5237;
+  color: #b5c5a8;
+}
+html[data-theme="dark"] .scene-label-growth svg {
+  color: #162d29;
+}
+html[data-theme="dark"] .service-option {
+  border-color: var(--line);
+}
+html[data-theme="dark"] .service-option button {
+  color: #91a38b;
+}
+html[data-theme="dark"] .service-option.is-active button {
+  color: var(--ink);
+}
+html[data-theme="dark"] .service-option.is-active button > svg {
+  color: #c0dc9d;
+}
+html[data-theme="dark"] .service-preview {
+  background: #263c28;
+}
+html[data-theme="dark"] .service-preview-art {
+  background: radial-gradient(ellipse at center, #344b2e, #213324 70%);
+}
+html[data-theme="dark"] .service-preview-copy {
+  background: #263b28;
+}
+html[data-theme="dark"] .service-preview-art > i {
+  color: #bdcdaa;
+}
+html[data-theme="dark"] .service-preview-art > span {
+  color: #b5d48a55;
+}
+html[data-theme="dark"] .service-orbit {
+  border-color: #95b47f24;
+}
+html[data-theme="dark"] .value-row {
+  border-color: var(--line);
+}
+html[data-theme="dark"] .department-row:hover {
+  background: #263728;
+}
+html[data-theme="dark"] .department-row:hover .round-arrow {
+  color: #162d29;
+}
+html[data-theme="dark"] .partners-section .partner-tile {
+  background: #29392b;
+}
+html[data-theme="dark"] .partners-section .partner-tile:hover {
+  background: #344c30;
+}
+html[data-theme="dark"] .partners-section img {
+  background: #f7f9f3;
+  padding: 5px;
+  border-radius: 5px;
+}
+html[data-theme="dark"] .expertise-section article > div:first-child {
+  background: #f7f9f3;
+}
+html[data-theme="dark"] :is(.testimonial-card, .branch-card, .employee-card) {
+  background: #1c2d22;
+  border-color: var(--line);
+}
+html[data-theme="dark"] .testimonial-card blockquote {
+  color: var(--ink);
+}
+html[data-theme="dark"] .testimonial-card figcaption {
+  border-color: var(--line);
+}
+html[data-theme="dark"] .employee-card:hover {
+  background: #263a28;
+  border-color: #687f54;
+}
+html[data-theme="dark"] .news-card {
+  border-color: var(--line);
+}
+html[data-theme="dark"] .service-detail-card {
+  border-color: var(--line);
+}
+html[data-theme="dark"] .service-detail-card li {
+  background: #243528;
+}
+html[data-theme="dark"] .contact-method-card {
+  background: #213326;
+  border-color: #3d5235;
+}
+html[data-theme="dark"] .contact-method-card:hover {
+  background: #2a402c;
+}
+html[data-theme="dark"] .contact-method-card > svg {
+  color: #b7d48e;
+}
+html[data-theme="dark"] .page-hero-description {
+  color: var(--muted);
+}
+html[data-theme="dark"] .page-hero-aside > div {
+  background-color: var(--surface-soft);
+  border-color: var(--line);
+}
+html[data-theme="dark"] .page-hero-compact .page-hero-aside > div {
+  background: none;
+}
+html[data-theme="dark"] .hero-utility-button {
+  color: #c3dda0;
+  border-color: #526b42;
+}
+html[data-theme="dark"] .hero-utility-button:hover {
+  background: #2a3d2b;
+}
+html[data-theme="dark"] .footer-orbit-link:hover,
+html[data-theme="dark"] .activity-photo-card:hover .photo-arrow {
+  color: #162d29;
+}
+
+html[data-theme="dark"]
+  :is(
+    .bg-white,
+    [class~="bg-white/80"],
+    [class~="bg-white/90"],
+    [class~="bg-white/95"]
+  ) {
+  background-color: var(--surface);
+}
+html[data-theme="dark"] :is(.bg-stone-50, .bg-slate-50) {
+  background-color: var(--paper);
+}
+html[data-theme="dark"] [class~="bg-slate-50/95"] {
+  background-color: #203025f5;
+}
+html[data-theme="dark"] .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--line);
+}
+html[data-theme="dark"] :is(.bg-slate-100, .bg-slate-200) {
+  background-color: #293b2d;
+}
+html[data-theme="dark"]
+  :is(
+    .bg-teal-50,
+    [class~="bg-teal-50/60"],
+    [class~="bg-teal-50/95"],
+    .bg-teal-100
+  ) {
+  background-color: #263e2e;
+}
+html[data-theme="dark"]
+  :is(.bg-indigo-50, [class~="bg-indigo-50/95"], .bg-sky-50) {
+  background-color: #283348;
+}
+html[data-theme="dark"] :is(.bg-rose-50, [class~="bg-rose-50/95"]) {
+  background-color: #422f37;
+}
+html[data-theme="dark"] :is(.bg-amber-50, .bg-amber-100) {
+  background-color: #403b27;
+}
+html[data-theme="dark"] :is(.bg-emerald-50, .bg-cyan-50) {
+  background-color: #243e36;
+}
+html[data-theme="dark"] .bg-teal-600 {
+  background-color: #2b654d;
+}
+html[data-theme="dark"]
+  :is(
+    [class*="bg-[linear-gradient"],
+    [class*="bg-[radial-gradient"],
+    [class~="from-white"]
+  ) {
+  background-image: none;
+  background-color: var(--surface-soft);
+}
+html[data-theme="dark"]
+  :is(.text-slate-950, .text-slate-900, .text-slate-800, .text-slate-700) {
+  color: #e1eadc;
+}
+html[data-theme="dark"] :is(.text-slate-600, .text-slate-500) {
+  color: #acbbab;
+}
+html[data-theme="dark"] .text-slate-400 {
+  color: #91a28e;
+}
+html[data-theme="dark"]
+  :is(
+    .text-teal-900,
+    .text-teal-800,
+    .text-teal-700,
+    .text-teal-600,
+    .text-emerald-700
+  ) {
+  color: #bddba0;
+}
+html[data-theme="dark"] :is(.text-indigo-700, .text-indigo-800, .text-sky-700) {
+  color: #b4c6f1;
+}
+html[data-theme="dark"] :is(.text-rose-700, .text-rose-800) {
+  color: #efb8c4;
+}
+html[data-theme="dark"] :is(.text-amber-700, .text-amber-800) {
+  color: #e4d093;
+}
+html[data-theme="dark"]
+  :is(
+    .border-slate-100,
+    .border-slate-200,
+    .border-slate-300,
+    .border-teal-100,
+    .border-teal-200
+  ) {
+  border-color: var(--line);
+}
+html[data-theme="dark"]
+  :is(
+    [class*="ring-slate-"],
+    [class*="ring-teal-"],
+    [class*="ring-indigo-"],
+    [class*="ring-amber-"]
+  ) {
+  --tw-ring-color: #49613a;
+}
+html[data-theme="dark"] [class~="hover:bg-slate-100"]:hover {
+  background-color: #314333;
+}
+html[data-theme="dark"] [class~="hover:bg-slate-50/80"]:hover {
+  background-color: #293c2d;
+}
+html[data-theme="dark"] [class~="focus-within:bg-white"]:focus-within {
+  background-color: #293c2d;
+}
+html[data-theme="dark"] [class~="hover:text-slate-950"]:hover {
+  color: #f2f7e9;
+}
+html[data-theme="dark"] input {
+  caret-color: #d5ef93;
+}
+html[data-theme="dark"] input::placeholder {
+  color: #95a58e;
+}
+html[data-theme="dark"] .news-image-bottom-mask {
+  background: linear-gradient(
+    to top,
+    #19271f 0%,
+    #19271fb8 48%,
+    #19271f00 100%
+  );
+}
+html[data-theme="dark"] ::selection {
+  background: #b8d986;
+  color: #162d29;
+}
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #18261e;
+}
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  border-color: #18261e;
+  background: #789c60;
+}
